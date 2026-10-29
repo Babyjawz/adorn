@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Choose the character and configure the author workspace.">
+<meta name="color-scheme" content="dark">
+<title>Set up a seller · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="asf-setup" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="getting-started.html">Your first seller order</a></li><li><a href="orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="seller-setup.html" class="current" aria-current="page">Set up a seller</a></li><li><a href="dialogue.html">Write the conversation</a></li><li><a href="recording.html">Record, import &amp; trim</a></li><li><a href="build-and-share.html">Build &amp; share a seller</a></li><li><a href="troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <div class="article-label">Seller Framework</div>
+    <h1>Set up a seller</h1>
+    <p class="description">Choose the character and configure the author workspace.</p>
+
+    <article><h2 id="author-setup">Author setup<a class="heading-anchor" href="#author-setup" aria-label="Link to Author setup">#</a></h2>
+<ol>
+<li>In <strong>MCM → Adorn → Developer access code</strong>, enter the author code supplied by the project/modlist author. After acceptance, <strong>Developer tools unlocked</strong> appears. Unlocking is a local authoring convenience, not a security boundary.</li>
+<li>Open <strong>Seller → Setup → Choose seller from NPCs</strong>. Choose a placed NPC reference and confirm <strong>Assign as seller</strong>. If no placed reference resolves, load the NPC&#39;s area and try again; selecting a base record alone does not create an actor.</li>
+<li>Enable seller mode. Choose whether to <strong>Allow finished outfit orders</strong>; off means recipes only.</li>
+<li>Verify the assigned name, location and voice information. Keep the seller reachable in your intended playthrough. Use relocation controls only when you intend to move an actor/player in your test save.</li>
+<li>Test one ordinary recipe order with the default replies before adding custom dialogue or tiers.</li>
+</ol>
+<p>The unlock persists through local MCM settings across saves/restarts. An empty code field does not mean locked: the field clears after use. Untick <strong>Developer tools unlocked</strong> to clear the saved credential and lock tools. Do not distribute your personal MCM settings file.</p>
+<p>One placed NPC holds the role at a time. Draft conversations are stored per NPC base and retained when switching sellers. A custom provider is matched to that base, so another placed reference of the same base can use its authored content. Switching sellers resets the custom-path preference for the new choice; check its own prepared state.</p>
+<h2 id="author-workspace">Author workspace<a class="heading-anchor" href="#author-workspace" aria-label="Link to Author workspace">#</a></h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>View/control</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Seller → Setup</strong></td>
+<td>Placed seller, enabled role and finished-order permission</td>
+</tr>
+<tr>
+<td><strong>Seller → Dialogue</strong></td>
+<td>Per-NPC conversation, core exchanges, installed/draft state and build</td>
+</tr>
+<tr>
+<td><strong>Use my prepared seller replies</strong></td>
+<td>Prefer installed NPC provider; generic path remains without valid output</td>
+</tr>
+<tr>
+<td><strong>Edit default player choices</strong></td>
+<td>Generic fallback prompts, not a second editor for an existing custom conversation</td>
+</tr>
+<tr>
+<td><strong>Author details</strong></td>
+<td>Effective VoiceType folder and future-seller template action</td>
+</tr>
+<tr>
+<td><strong>Riddles</strong></td>
+<td>Payment, initial wording, extra clue/question, tiers and writing assistance</td>
+</tr>
+<tr>
+<td><strong>Recipes</strong></td>
+<td>Parchment, materials per piece and station-location choices</td>
+</tr>
+<tr>
+<td><strong>Assign → Player</strong></td>
+<td>Player orders and wardrobe</td>
+</tr>
+<tr>
+<td><strong>MCM → Troubleshooting</strong></td>
+<td>Current-save encounter recovery</td>
+</tr>
+<tr>
+<td><strong>Open build logs</strong></td>
+<td>Publisher diagnostics</td>
+</tr>
+</tbody></table></div>
+<p>Dialogue has four panes for seller/voice, exchanges, text/build state and audio. Left-stick focus moves between controls; left/right reaches same-row actions and adjacent panes. Long focused text can scroll before focus leaves. Browse a voice dropdown with up/down and close with Accept/Back. The mouse wheel scrolls hovered content.</p>
+<p>Riddles has its own four fixed panes; right-stick up/down scrolls its focused pane.</p>
+<h3 id="default-choices-and-future-seller-templates">Default choices and future-seller templates<a class="heading-anchor" href="#default-choices-and-future-seller-templates" aria-label="Link to Default choices and future-seller templates">#</a></h3>
+<p><strong>Edit default player choices</strong> edits fallback prompts while custom output is unavailable/inactive. It does not rewrite the selected seller&#39;s custom conversation. <strong>Save lines</strong> applies those choices to a subsequent eligible conversation; check Playing now.</p>
+<p>Under Author details, <strong>Use these player choices for future sellers</strong> copies only those prompts into the starting template. Existing NPC conversations remain unchanged. It does not clone recordings, reward logic or all sellers&#39; text.</p>
+<h3 id="changing-or-disabling-the-seller">Changing or disabling the seller<a class="heading-anchor" href="#changing-or-disabling-the-seller" aria-label="Link to Changing or disabling the seller">#</a></h3>
+<p>Turning seller mode off retains the selected NPC and authored work. It is not a reset. Choosing another seller retains previous drafts, but only one placed actor is active. Check the new seller&#39;s prepared preference and voice folder. Inspect pending order snapshots before testing reassignment; a new seller should not be assumed to reprice or inherit an accepted deal.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="orders-and-recipes.html"><span>Previous</span>Orders, recipes &amp; progression</a><a href="dialogue.html"><span>Next</span>Write the conversation</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

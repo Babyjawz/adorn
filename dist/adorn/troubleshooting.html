@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Common problems, backups and useful information for a report.">
+<meta name="color-scheme" content="dark">
+<title>Troubleshooting Adorn · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="adorn-support" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout has-page-contents">
+  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="getting-started.html">Getting started</a></li><li><a href="outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="assignments.html">NPCs, factions &amp; groups</a></li><li><a href="wardrobe.html">Your wardrobe</a></li><li><a href="controls.html">Controls &amp; interface</a></li><li><a href="sharing.html">Share assignments</a></li><li><a href="troubleshooting.html" class="current" aria-current="page">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <div class="article-label">Adorn</div>
+    <h1>Troubleshooting Adorn</h1>
+    <p class="description">Common problems, backups and useful information for a report.</p>
+    <details class="mobile-page-contents"><summary>On this page</summary><nav aria-label="Sections in this article"><ul><li><a data-section-link href="#troubleshooting">Troubleshooting</a></li><li><a data-section-link href="#updates-and-backups">Updates and backups</a></li><li><a data-section-link href="#files-and-limits">Files and limits</a></li><li class="subsection"><a data-section-link href="#import-details">Import details</a></li><li><a data-section-link href="#verification-status">Verification status</a></li></ul></nav></details>
+    <article><h2 id="troubleshooting">Troubleshooting<a class="heading-anchor" href="#troubleshooting" aria-label="Link to Troubleshooting">#</a></h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Check and next action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F6 does nothing</td>
+<td>Check the MCM binding, launch through SKSE, confirm <code>AdornSlots.esp</code> is enabled and Prisma UI plus its input/runtime requirements load. Read <code>AdornLive.log</code> and <code>skse64.log</code>.</td>
+</tr>
+<tr>
+<td>MCM or author tabs missing</td>
+<td>Check SkyUI/MCM Helper and matched scripts/config. Seller/Riddles/Recipes are author tools; ordinary use needs no author unlock.</td>
+</tr>
+<tr>
+<td>Outfit does not appear in browsing</td>
+<td>Confirm its defining plugin is active. Search by name, EditorID or source; for BodySlide content refresh and check Output folder.</td>
+</tr>
+<tr>
+<td>Preview incomplete or wrong body</td>
+<td>Check installed clothing/body meshes and actual BodySlide output. Include the selected body sex, pieces and source mod in a report.</td>
+</tr>
+<tr>
+<td>Clothes change back</td>
+<td>Check direct-versus-faction rules, another outfit manager/follower script and later SkyPatcher rules. Verify generated-file priority and retest after a full restart.</td>
+</tr>
+<tr>
+<td>Custom bank full</td>
+<td>Disabled custom assignments still reserve slots. Remove unused rules and follow retirement feedback, or use an installed outfit.</td>
+</tr>
+<tr>
+<td>Wardrobe appears on the wrong character or disappears</td>
+<td>Confirm the intended save and matching co-save. New wardrobes are save-specific; use explicit legacy recovery only on the intended character.</td>
+</tr>
+<tr>
+<td>Starter config appears ignored</td>
+<td>Check Overwrite for personal files that correctly take precedence. Back them up before any move; do not clear unrelated Overwrite content.</td>
+</tr>
+<tr>
+<td>Import blocked</td>
+<td>Read the affected row&#39;s dependency, record-type or capacity explanation. Review again if assignments changed while the review was open.</td>
+</tr>
+</tbody></table></div>
+<p>For support, send reproduction steps, expected/actual result, game and SKSE versions, Adorn/ASF versions, relevant outfit/NPC mods and screenshots. Include the relevant <code>AdornLive.log</code> from the active SKSE log directory; use the actual Skyrim Documents location, which may be redirected by Windows/OneDrive. Remove secrets and unrelated personal information from shared diagnostics.</p>
+<h2 id="updates-and-backups">Updates and backups<a class="heading-anchor" href="#updates-and-backups" aria-label="Link to Updates and backups">#</a></h2>
+<p>Before replacing runtime files, exit Skyrim and back up the saves/co-saves, Adorn Configs and Adorn-generated Overwrite files. Keep the release&#39;s DLL, UI and scripts together. Preserve personal JSON and generated assignment patches. ASF authors must also preserve their prepared ESP/SEQ/audio as a matching set.</p>
+<p>Current config reads prefer an existing file in <strong>Overwrite</strong>, then enabled <strong>Adorn Configs</strong>, before shipped defaults. Existing personal author data in Overwrite also keeps subsequent author writes/builds there. A blank Configs starter therefore does not erase or supersede existing Overwrite content. Review actual winning files before consolidating folders. See <a href="../reference/user-data.html">User data</a>.</p>
+<p>For removal, back up first, retire unwanted assignments through the UI and verify restoration after restarting. Inspect generated Adorn files separately from runtime files. A return to a save made before installation is the clearest rollback; no clean mid-save uninstall guarantee is made.</p>
+<h2 id="files-and-limits">Files and limits<a class="heading-anchor" href="#files-and-limits" aria-label="Link to Files and limits">#</a></h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Ownership</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SKSE/Plugins/Adorn/rules.json and drafts.json</td>
+<td>Shared NPC/faction choices and working drafts</td>
+</tr>
+<tr>
+<td>SKSE/Plugins/SkyPatcher/{npc,outfit}/zzzzAdorn/zzAdornRules.ini</td>
+<td>Shared generated next-launch rules</td>
+</tr>
+<tr>
+<td>Player saved looks</td>
+<td>Current game&#39;s SKSE co-save</td>
+</tr>
+<tr>
+<td>Old player-outfits.json</td>
+<td>Explicit recovery source only</td>
+</tr>
+<tr>
+<td>SKSE/Plugins/Adorn/settings.json</td>
+<td>Shared BodySlide output choice</td>
+</tr>
+<tr>
+<td>MCM/Settings/AdornSlots.ini</td>
+<td>Local MCM bindings/author access</td>
+</tr>
+<tr>
+<td>Exported pack JSON</td>
+<td>Chosen Save As location</td>
+</tr>
+<tr>
+<td>SKSE/Plugins/Adorn/AssignmentPacks/</td>
+<td>Optional installed-pack library</td>
+</tr>
+</tbody></table></div>
+<p>Back up both saves/co-saves and shared configuration when moving installations.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Limit</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>32 pieces</td>
+<td>One custom look</td>
+</tr>
+<tr>
+<td>64 custom slots</td>
+<td>NPC/faction custom assignment bank; disabled rules reserve slots</td>
+</tr>
+<tr>
+<td>512 groups / 4096 total recipients / 8 MB</td>
+<td>Version 1 assignment pack</td>
+</tr>
+<tr>
+<td>32 craftable piece slots</td>
+<td>Separate ASF recipe system per save, not the NPC assignment bank</td>
+</tr>
+</tbody></table></div>
+<p>One imported source group shares a slot across accepted recipients. Installed plugin outfits use no custom slots. Replacement imports still need staging capacity; a full bank can require freeing space first.</p>
+<h3 id="import-details">Import details<a class="heading-anchor" href="#import-details" aria-label="Link to Import details">#</a></h3>
+<p>Review is per recipient, so part of a mixed group can be accepted while the rest stays unchanged. Disabled contributions remain disabled. Identical assignments are skipped. Accepting an explicitly empty faction exclusion list clears the old exclusions for that contribution. Credit survives edits and re-export.</p>
+<p>Packs carry record references, not mod assets, original-outfit snapshots, runtime IDs or local allocation. Plugin renaming, FormID compaction or removed records can invalidate an old contribution. Use compatible defining mods and review dependencies again.</p>
+<p>A direct child contribution needs local preview/approval; contributor approval is not trusted as yours. Missing dependencies and blocked rows should be resolved through review, not guessed runtime IDs.</p>
+<h2 id="verification-status">Verification status<a class="heading-anchor" href="#verification-status" aria-label="Link to Verification status">#</a></h2>
+<p>The manual describes implemented behavior. Clean release installation, assignment edit/delete/restart restoration, native pack dialogs and target body/mesh combinations still need acceptance. For a report, include the exact game version, input device, pieces, recipient and expected/actual result. A UI/compiler check does not establish those Skyrim outcomes.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="sharing.html"><span>Previous</span>Share assignments</a><a href="../asf/getting-started.html"><span>Next</span>Your first seller order</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+  <aside class="page-contents"><nav aria-label="On this page"><h2>On this page</h2><ul><li><a data-section-link href="#troubleshooting">Troubleshooting</a></li><li><a data-section-link href="#updates-and-backups">Updates and backups</a></li><li><a data-section-link href="#files-and-limits">Files and limits</a></li><li class="subsection"><a data-section-link href="#import-details">Import details</a></li><li><a data-section-link href="#verification-status">Verification status</a></li></ul></nav></aside>
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

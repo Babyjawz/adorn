@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Export contributions and review what you import.">
+<meta name="color-scheme" content="dark">
+<title>Share assignments · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="sharing" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout has-page-contents">
+  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="getting-started.html">Getting started</a></li><li><a href="outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="assignments.html">NPCs, factions &amp; groups</a></li><li><a href="wardrobe.html">Your wardrobe</a></li><li><a href="controls.html">Controls &amp; interface</a></li><li><a href="sharing.html" class="current" aria-current="page">Share assignments</a></li><li><a href="troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <div class="article-label">Adorn</div>
+    <h1>Share assignments</h1>
+    <p class="description">Export contributions and review what you import.</p>
+    <details class="mobile-page-contents"><summary>On this page</summary><nav aria-label="Sections in this article"><ul><li><a data-section-link href="#contribute">Contribute</a></li><li><a data-section-link href="#review-and-merge">Review and merge</a></li><li class="subsection"><a data-section-link href="#optional-installed-pack-library">Optional installed-pack library</a></li><li><a data-section-link href="#preserved-behavior-and-limits">Preserved behavior and limits</a></li><li><a data-section-link href="#format-and-implementation">Format and implementation</a></li><li><a data-section-link href="#verification-boundary">Verification boundary</a></li></ul></nav></details>
+    <article><p>Adorn exports and imports NPC/faction assignment packs from inside the game. <strong>Export pack</strong> opens Save As so you choose a location; <strong>Import pack</strong> opens a file chooser so you can select a downloaded JSON anywhere. The chosen import opens for review before any assignments change. Folder copying and a game restart are not required for either action.</p>
+<p>Recipients merge accepted targets into their own <code>rules.json</code>. Imports use the existing assignment save, retirement, live dressing, child policy, and generated SkyPatcher paths. Installing a contribution never applies it automatically.</p>
+<h2 id="contribute">Contribute<a class="heading-anchor" href="#contribute" aria-label="Link to Contribute">#</a></h2>
+<ol>
+<li>Dress NPCs or factions through Assign as usual.</li>
+<li>Open <strong>Assignments → Share assignments</strong> and enter a pack name, contributor name, and optional description.</li>
+<li>Tick <strong>Include in export</strong> beside the assignments to share, or choose <strong>Select all assignments</strong>. Select all includes assignments outside the current search.</li>
+<li>Choose <strong>Export pack</strong>, choose a filename and location in Save As, and save. Share that JSON. Windows asks before replacing an existing file.</li>
+</ol>
+<p>The export goes to the location you chose, such as Downloads or Desktop. Exporting changes neither saved assignments nor generated SkyPatcher files. Cancelling Save As saves no file. Export refuses the active SKSE settings locations to avoid accidentally replacing working configuration; the optional AssignmentPacks folder remains an allowed destination.</p>
+<h2 id="review-and-merge">Review and merge<a class="heading-anchor" href="#review-and-merge" aria-label="Link to Review and merge">#</a></h2>
+<ol>
+<li>Open <strong>Assignments → Share assignments → Import pack</strong> while Skyrim is running.</li>
+<li>Select the downloaded/exported JSON in the Windows Open dialog. Adorn opens its review screen directly; the original file does not need to be copied into a mod folder. Cancelling file selection imports nothing and preserves an existing review.</li>
+<li>Review the outfit, pieces, recipient, enabled state, required plugins, faction exclusions, and custom-slot capacity. Each row is one recipient, so part of a mixed group can be accepted while the rest stays unchanged.</li>
+<li>New recipients default to <strong>Add contribution</strong>. Overlapping direct assignments default to <strong>Keep existing</strong>; explicitly choose <strong>Use contribution</strong> to replace them. Identical assignments are skipped. Missing records or incompatible record types block the affected recipients.</li>
+<li>Choose <strong>Import selected contributions</strong>. Adorn rechecks the current assignments and dependencies, stages all selected groups, allocates local IDs and outfit slots, captures this installation&#39;s original outfits, and saves the batch through its existing commit path. Validation, capacity, or baseline-capture failure before commit leaves the saved files unchanged. The existing commit path attempts rollback if a file write fails.</li>
+</ol>
+<p>Accepted contributions become ordinary assignments in <code>rules.json</code>; removing the source JSON does not uninstall them. Edit, disable, or delete them through Assignments. A review becomes invalid when working assignments change; review again before importing. Contributor credit is shown on imported rows and preserved by edits and re-export.</p>
+<p>Nearby matching NPCs can dress after import. A full Skyrim restart is a separate check that the generated SkyPatcher rules apply on launch.</p>
+<h3 id="optional-installed-pack-library">Optional installed-pack library<a class="heading-anchor" href="#optional-installed-pack-library" aria-label="Link to Optional installed-pack library">#</a></h3>
+<p>Modlist authors can still supply JSON at <code>SKSE/Plugins/Adorn/AssignmentPacks/</code> in an enabled MO2 mod, Adorn Configs, or Overwrite. Expand <strong>Installed packs (optional)</strong>, refresh, select a file, and review it. The <code>Exports</code> subfolder is excluded from automatic discovery, but <strong>Import pack</strong> can open a file there directly. This library is optional; normal sharing uses the Open and Save dialogs.</p>
+<h2 id="preserved-behavior-and-limits">Preserved behavior and limits<a class="heading-anchor" href="#preserved-behavior-and-limits" aria-label="Link to Preserved behavior and limits">#</a></h2>
+<ul>
+<li>Installed outfits and custom looks of up to 32 pieces are shareable. NPC/faction groups, group names, enabled states, preview/body sex choices, source labels, and faction exclusions travel with them. Disabled contributions stay disabled.</li>
+<li>Direct NPC assignments retain priority over factions. Accepting a faction does not erase separate direct NPC choices. Replacing one recipient in a group retains the other recipients. An explicitly empty incoming faction exclusion list replaces prior exclusions when that faction&#39;s contribution is accepted.</li>
+<li>Faction outfits retain the existing exclusion of child races. Direct child outfits can be exported but are blocked in import review: preview and explicitly approve a compatible outfit locally through Assign. Contributor approval is never treated as local approval.</li>
+<li>Saved player outfits, seller assignments, dialogue, recordings, recipes, and riddles keep their separate stores and are outside an assignment pack. No game saves, generated INIs, local rule IDs, slot numbers, runtime FormIDs, restoration history, or original-outfit snapshots are exported.</li>
+<li>Plugin names and local FormIDs identify records. Compatible defining plugins and records must exist in the active order; compaction, renaming, or changed FormIDs can require reassignment. Mods, meshes, and textures are not bundled.</li>
+<li>The bank remains <strong>64 custom outfit slots</strong>. One accepted source group shares one slot across accepted recipients. Disabled custom rules reserve slots too. Imported groups need free slots as they are staged; a full bank can reject a custom replacement until space is freed. Installed outfits use no custom slots. Sharing changes no slot-bank ESP or plugin records.</li>
+<li>Version 1 supports up to 512 assignment groups, 4096 total recipients, and 8 MB per file. Split larger contributions into multiple packs.</li>
+</ul>
+<h2 id="format-and-implementation">Format and implementation<a class="heading-anchor" href="#format-and-implementation" aria-label="Link to Format and implementation">#</a></h2>
+<p>Version 1 contains <code>format: &quot;AdornAssignmentPack&quot;</code>, <code>version: 1</code>, <code>name</code>, <code>author</code>, <code>description</code>, derived <code>requiredPlugins</code>, and <code>assignments</code>. Each assignment carries <code>targets</code>, <code>outfit</code>, and optional carried-forward contributor credit. Portable normalization discards unknown fields and derives dependencies from the records themselves. Duplicate recipients in one pack are rejected as ambiguous.</p>
+<p><code>src/AssignmentPack.cpp</code> owns normalization, export, conflict review, and selection. <code>src/RuleStage.cpp</code> contains the existing validation, slot allocation, recipient replacement, and retirement algorithm shared by ordinary Save and batch import. <code>src/RuleStore.cpp</code> owns discovery, immutable review snapshots, and the single commit. <code>src/PackFileDialog.cpp</code> runs the Windows Open/Save chooser on its own STA worker; <code>PackTransfer.cpp</code> handles bounded reads, UTF-8 path reporting, and completed-file replacement. Selected export content is captured before Save As opens. Review and game-state work return through Skyrim&#39;s task interface; live dressing happens only after successful commit. The native dialog follows Microsoft&#39;s <a href="https://learn.microsoft.com/en-us/windows/win32/shell/common-file-dialog">Common Item Dialog</a> API.</p>
+<h2 id="verification-boundary">Verification boundary<a class="heading-anchor" href="#verification-boundary" aria-label="Link to Verification boundary">#</a></h2>
+<p>Use the <span class="source-reference" title="Additional notes in the maintained project documentation">step-by-step sharing test checklist</span>, starting with its real-life Open/Save workflow. The 27 October file-chooser build passes compilation, 72 offline checks, and 29 sharing UI checks at 1080p and 720p, plus existing layout/controller probes. These include external and Unicode paths, cancellation events, settings protection, and failed-export preservation. Native dialog display/focus and actual Skyrim outfit behavior still need in-game verification.</p>
+<p>Offline regressions cover mixed groups, exclusions, disabled state, installed/custom outfits, stripped local state, dependencies, conflict defaults, identical imports, partial groups, credit, malformed addresses, duplicate recipients/choices, and version refusal. Browser probes exercise actual UI controls, requests/events, blocked rows, feedback, review invalidation, layout, and controller reachability. Existing layout and seller controller regressions are also run.</p>
+<p>These checks do not establish Skyrim runtime behavior. In game, test a faction with an excluded member and two direct NPC overrides. Export and reimport it, accept a changed faction with a direct recipient skipped, and check exclusions and direct overrides now and after a full Skyrim restart. Repeat import for duplicate detection. Exercise edit/disable/delete restoration on an existing save, missing-plugin refusal, and a full custom-slot bank. Capture <code>AdornLive.log</code> and <code>SkyPatcher.log</code> for failures.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="controls.html"><span>Previous</span>Controls &amp; interface</a><a href="troubleshooting.html"><span>Next</span>Troubleshooting Adorn</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+  <aside class="page-contents"><nav aria-label="On this page"><h2>On this page</h2><ul><li><a data-section-link href="#contribute">Contribute</a></li><li><a data-section-link href="#review-and-merge">Review and merge</a></li><li class="subsection"><a data-section-link href="#optional-installed-pack-library">Optional installed-pack library</a></li><li><a data-section-link href="#preserved-behavior-and-limits">Preserved behavior and limits</a></li><li><a data-section-link href="#format-and-implementation">Format and implementation</a></li><li><a data-section-link href="#verification-boundary">Verification boundary</a></li></ul></nav></aside>
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

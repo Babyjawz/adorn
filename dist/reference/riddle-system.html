@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The implementation contract for developers maintaining the system.">
+<meta name="color-scheme" content="dark">
+<title>Riddle system internals · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="riddle-developer" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout has-page-contents">
+  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="user-data.html">Saves, config &amp; backups</a></li><li><a href="files.html">Files &amp; limits</a></li><li><a href="riddle-system.html" class="current" aria-current="page">Riddle system internals</a></li><li><a href="credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <div class="article-label">Reference</div>
+    <h1>Riddle system internals</h1>
+    <p class="description">The implementation contract for developers maintaining the system.</p>
+    <details class="mobile-page-contents"><summary>On this page</summary><nav aria-label="Sections in this article"><ul><li><a data-section-link href="#source-map">Source map</a></li><li><a data-section-link href="#data-and-compatibility">Data and compatibility</a></li><li><a data-section-link href="#selection-and-order-acceptance">Selection and order acceptance</a></li><li><a data-section-link href="#clue-presentation">Clue presentation</a></li><li><a data-section-link href="#current-editor-contract">Current editor contract</a></li><li><a data-section-link href="#external-requests-and-persistence">External requests and persistence</a></li><li><a data-section-link href="#configuration-resolution">Configuration resolution</a></li><li><a data-section-link href="#verification-and-remaining-acceptance">Verification and remaining acceptance</a></li></ul></nav></details>
+    <article><p>Current implementation reference for 29 October 2026. This is the maintenance companion to the <a href="../asf/getting-started.html">ASF manual</a> and <a href="../author/riddles.html">riddle authoring reference</a>. The <span class="source-reference" title="Additional notes in the maintained project documentation">combined plan</span> retains historical proposals; this guide describes the implemented contract.</p>
+<h2 id="source-map">Source map<a class="heading-anchor" href="#source-map" aria-label="Link to Source map">#</a></h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Profile validation, tier rules/classification, candidate selection, offer identity/history, prompt and response validation</td>
+<td><code>src/RiddleSystem.h</code>, <code>src/RiddleSystem.cpp</code></td>
+</tr>
+<tr>
+<td>Loaded-item resolution, config reads/saves, order acceptance, clue synchronization, recorder/build bridge</td>
+<td><code>src/PrismaMain.cpp</code></td>
+</tr>
+<tr>
+<td>Save-specific progress, migration and reset</td>
+<td><code>src/PlayerProgress.cpp</code>, <code>src/PlayerProgress.h</code></td>
+</tr>
+<tr>
+<td>HTTPS, key/preferences persistence and provider routing</td>
+<td><code>src/OpenRouterAuthor.cpp</code>, <code>src/OpenRouterAuthor.h</code></td>
+</tr>
+<tr>
+<td>Personal destination and Overwrite precedence</td>
+<td><code>src/ConfigPaths.cpp</code>, <code>src/ConfigPathPolicy.h</code></td>
+</tr>
+<tr>
+<td>Shared author draft, fixed panes, request revision, suggestion application and controller scroll</td>
+<td><code>app.js</code>, <code>ui/index.html</code>, <code>ui/style.css</code></td>
+</tr>
+<tr>
+<td>Stable native clue records, manifests and archived versions</td>
+<td><code>tools/seller-dialogue-build/Program.cs</code></td>
+</tr>
+<tr>
+<td>Silent/recorded FUZ and lip staging</td>
+<td><code>tools/seller-voice-prepare.py</code>, <code>tools/build-seller-custom-voice-stage.ps1</code></td>
+</tr>
+</tbody></table></div>
+<p><code>xmake.lua</code> identifies the active Prisma implementation. Historical experimental files are not the runtime entry point.</p>
+<h2 id="data-and-compatibility">Data and compatibility<a class="heading-anchor" href="#data-and-compatibility" aria-label="Link to Data and compatibility">#</a></h2>
+<p>Riddle documents remain version <strong>1</strong>, with additive entry <code>profile</code> and top-level <code>tierRules</code>. The old single <code>request</code> is accepted; new content uses <code>requests</code>, which wins when both exist. Payment accepts 1–8 distinct loaded MISC items, quantities 1–99. Answers use plugin-qualified six-digit local hexadecimal IDs; tier overrides use decimal <code>local</code> numbers.</p>
+<p>Profile fields are tier, difficulty, effort, theme, family, minLevel, delivery, access, hint and question. Missing tier is Unclassified. New editor drafts default Easy, while existing unclassified entries remain unchanged. Native text validation uses UTF-8 byte lengths. See the complete <a href="../author/riddles.html#edit-json-outside-the-game">author schema/example</a> rather than inventing additional fields.</p>
+<p>The provider manifest stays version <strong>2</strong> with additive clue metadata. Progress serialization is version <strong>6</strong>, adding per-save offers/history while preserving earlier accepted progress through migration. Internal format versions are separate from the public mod version. Old-save behavior still needs targeted Skyrim acceptance.</p>
+<h2 id="selection-and-order-acceptance">Selection and order acceptance<a class="heading-anchor" href="#selection-and-order-acceptance" aria-label="Link to Selection and order acceptance">#</a></h2>
+<ol>
+<li>Read the active document and resolve valid loaded payment records.</li>
+<li>Normalize rules. Disabled tiers select flat valid content: profile tier, minimum level, delivery and recent-family filters are bypassed.</li>
+<li>When enabled, classify distinct reward pieces by total and strongest base armour. Defaults are Medium 40/20 and Hard 80/40. Zero-armour clothing uses its configured tier, Easy by default; explicit piece overrides establish floors.</li>
+<li>Form the canonical offer identity from seller, set of pieces, delivery kind and tier. Use a remembered offer if present.</li>
+<li>Otherwise choose same-tier candidates eligible at the player&#39;s level and delivery kind. Avoid the last five IDs/families if alternatives exist; relax only repetition when exhausted.</li>
+<li>Snapshot accepted text/payment and associated data. Missing eligibility or journal capacity must fail without replacing the current order.</li>
+</ol>
+<p>There is no automatic enchantment, prestige, armour-class or piece-count price. Availability prose is writing data, not a quest-condition system. A pool having all three tiers does not prove every level/delivery combination is eligible.</p>
+<p>Offer memory is bounded at 512 distinct offers and history at 64 entries. Cancellation and encounter reset preserve fixed tiered prices. New Game clears personal state. Changing author rules so the same pieces classify differently changes the offer identity; do not describe that as ordinary cancellation rerolling.</p>
+<h2 id="clue-presentation">Clue presentation<a class="heading-anchor" href="#clue-presentation" aria-label="Link to Clue presentation">#</a></h2>
+<p>Clue is additional to the seven core seller moments. The content key binds ID, initial wording, hint and question; runtime exact-text checks add seller/order matching. Current and archived prepared versions retain stable native IDs so earlier accepted orders can keep their help.</p>
+<p>Only a pending, discovered order on the assigned seller with matching prepared data enables the branch. No hint, missing preparation or stale data suppresses it. Asking has no payment/hand-in fragment, reward, reroll or completion side effect. Repeated asks return the same saved hint.</p>
+<p>Riddles owns hint/question text. The existing recorder binds a selected take to that clue version, and recorded words must match. The automatic silent path uses a temporary eSpeak timing guide, generates LIP and packages silent audio; it does not ship the guide speech. Both sources require the normal Build → exit/install → restart route for changed native dialogue.</p>
+<p>Preserve archived records, manifests and audio together. Do not claim a draft change is active, an archive hit proves voice coverage, or a staged FUZ proves audible playback/lip animation.</p>
+<h2 id="current-editor-contract">Current editor contract<a class="heading-anchor" href="#current-editor-contract" aria-label="Link to Current editor contract">#</a></h2>
+<p>Four panes are always present: library, answers/challenge, shared writing/clue and Assistance. No optional-pane count switch, separate assistant editor, large assistance toggle, mandatory Review gate or raw JSON display remains.</p>
+<p>Dropdowns expand below fields inside their pane. Tier rules are expandable in the library; connection/persona settings collapse in Assistance. Right-stick up/down scrolls the focused pane, and focus movement reveals controls at large text scale.</p>
+<p>Only Save riddle commits content. Applying a suggestion changes only the chosen riddle/hint text; answers/profile stay intact. Manual writing retains delivered alternatives, while answer/profile context changes clear them. Manual edits invalidate an outstanding generation context. Background pool refreshes update the library without resetting the active editor or alternatives. Explicit selection/reload can replace the draft.</p>
+<h2 id="external-requests-and-persistence">External requests and persistence<a class="heading-anchor" href="#external-requests-and-persistence" aria-label="Link to External requests and persistence">#</a></h2>
+<p>Generation is one explicit bounded request for three suggestions. Native code controls validated answers/rules and response shape; model output supplies wording and an editorial note only. HTTPS work stays off the game thread and stale/cancelled results must not modify the new context.</p>
+<p>Writing context includes item display names/quantities, profile without hint/question, tier-rule summary without the override registry, persona and access facts. Existing authored initial/hint/question wording, answer plugin/FormIDs, paths, saves and recordings are excluded. Keep local duplicate checking local. The API key authenticates outside the prompt and must not be logged.</p>
+<p>The persistent key and preferences are separate Windows Credential Manager entries. Model/custom ID, persona and provider-data choice persist for the same user/PC. Versioned load/save acknowledgements protect newer edits from late restores. Key indicators expose presence, not the secret. Remove key is the explicit deletion action.</p>
+<p>Provider data collection defaults to deny. The optional persisted allow setting broadens only the selected model&#39;s policy; account restrictions and structured-output requirements still apply. There is no paid fallback. Distinguish privacy rejection, unavailable compatible routing, rate limit, account errors and output exhaustion. A catalog listing is not a successful generation test.</p>
+<h2 id="configuration-resolution">Configuration resolution<a class="heading-anchor" href="#configuration-resolution" aria-label="Link to Configuration resolution">#</a></h2>
+<p>Existing per-file Overwrite overrides win before enabled Adorn Configs. Existing nonempty personal Adorn author data in Overwrite also retains a coherent Overwrite write/build root. Otherwise use the enabled exact-name Configs mod or Overwrite fallback. Do not clear personal files to reproduce the old blank-starter regression.</p>
+<h2 id="verification-and-remaining-acceptance">Verification and remaining acceptance<a class="heading-anchor" href="#verification-and-remaining-acceptance" aria-label="Link to Verification and remaining acceptance">#</a></h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Test source</th>
+<th>Concern</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>src/tests/RiddleTests.cpp</code> / AdornRiddleTests</td>
+<td>Profiles, classification, eligibility, offers, prompt/response bounds</td>
+</tr>
+<tr>
+<td><code>src/tests/PlayerProgressTests.cpp</code> / AdornPlayerProgressTests</td>
+<td>Version 6 state/migration, reset and personal isolation</td>
+</tr>
+<tr>
+<td><code>src/tests/ConfigPathTests.cpp</code> / AdornConfigPathTests</td>
+<td>Overwrite/Configs policy</td>
+</tr>
+<tr>
+<td><code>src/tests/AuthorPreferencesTests.cpp</code> / AdornAuthorPreferencesTests</td>
+<td>Isolated Windows preference persistence</td>
+</tr>
+<tr>
+<td><code>ui/test-riddle-authoring.js</code></td>
+<td>Actual editor events, fixed panes, suggestions, context protection and scrolling</td>
+</tr>
+<tr>
+<td><code>tools/test-riddle-clue-build.py</code></td>
+<td>Stable/archived records, conditions and manifests</td>
+</tr>
+<tr>
+<td><code>tools/test-riddle-audio-stage.py</code></td>
+<td>Silent/recorded staging and payload checks</td>
+</tr>
+</tbody></table></div>
+<p>Use the established build scripts and isolated test targets. A documentation-only edit does not require rebuilding the DLL or invoking an API. Do not run live probe targets as routine offline verification: they can use a saved credential and external capacity.</p>
+<p>Latest build/install/test provenance is in <span class="source-reference" title="Additional notes in the maintained project documentation">RIDDLE_TIERS_TEST_RESULTS.md</span>. Still pending: actual generic seller tiered hand-ins, clue audio/subtitles/lips including archived help, physical controller behavior in Skyrim, New Game/cross-save acceptance and successful live assistance. Synthetic free requests observed privacy/rate/output failures; do not convert those into a successful-generation claim.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="files.html"><span>Previous</span>Files &amp; limits</a><a href="credits.html"><span>Next</span>Artwork &amp; credits</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+  <aside class="page-contents"><nav aria-label="On this page"><h2>On this page</h2><ul><li><a data-section-link href="#source-map">Source map</a></li><li><a data-section-link href="#data-and-compatibility">Data and compatibility</a></li><li><a data-section-link href="#selection-and-order-acceptance">Selection and order acceptance</a></li><li><a data-section-link href="#clue-presentation">Clue presentation</a></li><li><a data-section-link href="#current-editor-contract">Current editor contract</a></li><li><a data-section-link href="#external-requests-and-persistence">External requests and persistence</a></li><li><a data-section-link href="#configuration-resolution">Configuration resolution</a></li><li><a data-section-link href="#verification-and-remaining-acceptance">Verification and remaining acceptance</a></li></ul></nav></aside>
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

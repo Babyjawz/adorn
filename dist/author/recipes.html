@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Choose crafting materials, station locations and parchment instructions.">
+<meta name="color-scheme" content="dark">
+<title>Recipe maker · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="recipes" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="recipes.html" class="current" aria-current="page">Recipe maker</a></li><li><a href="first-riddle.html">First riddle</a></li><li><a href="riddles.html">Riddle maker reference</a></li><li><a href="tiers.html">Tiers &amp; fixed offers</a></li><li><a href="assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <div class="article-label">Author tools</div>
+    <h1>Recipe maker</h1>
+    <p class="description">Choose crafting materials, station locations and parchment instructions.</p>
+
+    <article><h2 id="author-recipe-templates">Author recipe templates<a class="heading-anchor" href="#author-recipe-templates" aria-label="Link to Author recipe templates">#</a></h2>
+<p>Open <strong>Recipes</strong> with author tools unlocked:</p>
+<ol>
+<li>Choose <strong>New recipe</strong> or a saved entry. Give it a name and write the parchment instructions.</li>
+<li>Under <strong>Materials per piece</strong>, choose 1–8 distinct materials and quantities 1–99. These are crafting costs for each reward piece, not the riddle hand-in.</li>
+<li>Keep <strong>All forges / All tanning racks</strong> for ordinary access, or choose a named location separately for each station type. Check in game that the location actually has the needed station. A location search result alone does not establish that.</li>
+<li>Describe any location restriction clearly on the parchment. Select <strong>Save recipe</strong>.</li>
+<li>Place a new recipe order, complete the hand-in, read the note, and craft both an armour and a clothing example at the intended stations.</li>
+</ol>
+<p>New orders choose a valid template from the pool. Accepted orders keep their saved recipe; changing a template is not a way to repair an already accepted order. Keep stable IDs when updating content and review defining-plugin dependencies before sharing.</p>
+<p>The material and location pickers search loaded game records and retain the required internal references. You do not need to enter FormIDs or author recipe JSON manually for this workflow. A named-location restriction controls the eligible station location; it does not place a missing forge or tanning rack in the world.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="../asf/troubleshooting.html"><span>Previous</span>Troubleshooting ASF</a><a href="first-riddle.html"><span>Next</span>First riddle</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

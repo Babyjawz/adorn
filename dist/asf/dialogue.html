@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Seven core exchanges, player choices and 42 stock voice styles.">
+<meta name="color-scheme" content="dark">
+<title>Write the conversation · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="asf-dialogue" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="getting-started.html">Your first seller order</a></li><li><a href="orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="seller-setup.html">Set up a seller</a></li><li><a href="dialogue.html" class="current" aria-current="page">Write the conversation</a></li><li><a href="recording.html">Record, import &amp; trim</a></li><li><a href="build-and-share.html">Build &amp; share a seller</a></li><li><a href="troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <div class="article-label">Seller Framework</div>
+    <h1>Write the conversation</h1>
+    <p class="description">Seven core exchanges, player choices and 42 stock voice styles.</p>
+
+    <article><h2 id="write-the-seller-dialogue">Write the seller dialogue<a class="heading-anchor" href="#write-the-seller-dialogue" aria-label="Link to Write the seller dialogue">#</a></h2>
+<p>Open <strong>Seller → Dialogue</strong>. The summary <strong>Playing now → Selected draft → Next</strong> distinguishes installed replies from your edits.</p>
+<p>Each of the seven core exchanges has player choices and one seller reply. Put player choices on separate lines in <strong>What you say</strong>; they lead to the same reply for that exchange. Automatic delivery moments do not create extra menu choices. The framework&#39;s order/payment logic remains fixed.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Preview Skyrim recordings</strong>, Hear again, Stop</td>
+<td>Listen only. Browsing does not choose a draft recording.</td>
+</tr>
+<tr>
+<td><strong>Choose this reply and recording</strong></td>
+<td>Copy the exact stock reply and recording choice into the selected exchange.</td>
+</tr>
+<tr>
+<td><strong>Choose [voice] for all 7 replies</strong></td>
+<td>Select that stock style for the seven core exchanges after confirmation. It does not voice every extra clue.</td>
+</tr>
+<tr>
+<td><strong>Save draft</strong></td>
+<td>Persist the conversation and choices; installed playback stays as it was.</td>
+</tr>
+<tr>
+<td><strong>Build [seller]&#39;s seller dialogue</strong></td>
+<td>Save the draft, build records/audio and install after Skyrim exits. Restart to activate.</td>
+</tr>
+</tbody></table></div>
+<p>Editing a stock reply&#39;s words invalidates its exact stock recording choice; select another recording or use silent preparation. Borrowing Skyrim recordings for a custom-voice NPC also needs Build: having the source clip is not the same as having a seller-specific dialogue route.</p>
+<p>Prepared replies cover Adorn&#39;s seller exchanges. They do not replace the NPC&#39;s whole VoiceType or ordinary conversations. A preference for custom dialogue with no installed provider keeps the generic path active while the author works.</p>
+<h3 id="the-seven-core-exchanges">The seven core exchanges<a class="heading-anchor" href="#the-seven-core-exchanges" aria-label="Link to The seven core exchanges">#</a></h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Exchange</th>
+<th>Role</th>
+<th>Writing guidance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Opening / planner</td>
+<td>Start planning through the seller</td>
+<td>Welcome without claiming payment/delivery happened</td>
+</tr>
+<tr>
+<td>Hand-in</td>
+<td>Offer collected answer items</td>
+<td>Ask to check; native logic determines the result</td>
+</tr>
+<tr>
+<td>Missing items</td>
+<td>Incomplete payment</td>
+<td>Do not claim partial payment or reward</td>
+</tr>
+<tr>
+<td>Recipe delivery</td>
+<td>Recipe success</td>
+<td>Refer to receiving and reading the note</td>
+</tr>
+<tr>
+<td>Outfit delivery</td>
+<td>Finished-piece success</td>
+<td>Refer to finished pieces, not an unread recipe</td>
+</tr>
+<tr>
+<td>Leaving</td>
+<td>Pending-order defer/leave</td>
+<td>Keep compatible with an existing pending order</td>
+</tr>
+<tr>
+<td>Style banter</td>
+<td>Pending-order flavour</td>
+<td>Avoid inventing quest/payment mechanics</td>
+</tr>
+</tbody></table></div>
+<p>Leaving and style banter are pending-order gated. Automatic result moments are not arbitrary new menu branches. Clue replies are additional per-riddle versions authored through Riddles.</p>
+<p>All player alternatives in a moment lead to its one seller reply. Keep them compatible. A first-prompt fallback exists in the built records; rotation depends on matching runtime/provider state and still needs in-game acceptance.</p>
+<h3 id="start-and-revise-a-draft">Start and revise a draft<a class="heading-anchor" href="#start-and-revise-a-draft" aria-label="Link to Start and revise a draft">#</a></h3>
+<p>Use <strong>Start with this voice&#39;s replies</strong> to seed a Skyrim style, or <strong>Start without Skyrim recordings</strong> for silent/custom work. Review replacement feedback and save wanted edits before restarting a draft. Mix stock, silent and recorded moments as needed.</p>
+<p><strong>Undo edits since last save</strong> reloads saved draft choices; it does not uninstall the current prepared build. <strong>Current exchange in Skyrim</strong> expands the installed snapshot independently of the text being edited.</p>
+<h2 id="reply-sources-and-voice-folders">Reply sources and voice folders<a class="heading-anchor" href="#reply-sources-and-voice-folders" aria-label="Link to Reply sources and voice folders">#</a></h2>
+<p>The stock catalogue contains <strong>42 Skyrim voice styles with seven core replies each: 294 recording candidates</strong>. Preview a clip before choosing it, choose a single exchange, or seed the seven core moments from one style and replace individual moments. Different exchanges can use different source styles or mix stock recordings with selected takes and silent replies. These are catalogued sources; audible playback for every NPC/style combination remains an in-game acceptance check.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>State</th>
+<th>Meaning</th>
+<th>Next step</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Original/generic</td>
+<td>Framework fallback handles the actor</td>
+<td>Keep it or author a custom provider</td>
+</tr>
+<tr>
+<td>Stock chosen</td>
+<td>Exact audited words/recording selected in draft</td>
+<td>Build seller route, exit/install, restart</td>
+</tr>
+<tr>
+<td>Silent authored</td>
+<td>Subtitle intended for silent FUZ/lip</td>
+<td>Build, restart and test lips/subtitles</td>
+</tr>
+<tr>
+<td>Selected take</td>
+<td>Source and trim bound to reply</td>
+<td>Build into final output</td>
+</tr>
+<tr>
+<td>Staged FUZ</td>
+<td>Converted audio/lip data exists</td>
+<td>Finish installation/restart</td>
+</tr>
+<tr>
+<td>Installed provider</td>
+<td>Required routing/records detected</td>
+<td>Verify actual branches, sound and lips</td>
+</tr>
+</tbody></table></div>
+<p>Source style and final voice folder are distinct. A Skyrim style supplies recordings; the NPC&#39;s <strong>effective VoiceType</strong> determines where built FUZ files go. Borrowing a seller clip does not replace the NPC&#39;s ordinary voice or require changing it.</p>
+<p>Inspect <strong>Author details → NPC voice type used for the final audio</strong>. Pending/unresolved voice data prevents reliable placement. Correct only after checking the actor&#39;s winning voice. If an overhaul changes the VoiceType, rebuild/recheck the pack.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="seller-setup.html"><span>Previous</span>Set up a seller</a><a href="recording.html"><span>Next</span>Record, import &amp; trim</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

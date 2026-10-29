@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Find the seller, solve the request and earn your chosen look.">
+<meta name="color-scheme" content="dark">
+<title>Your first seller order · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="asf-start" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout has-page-contents">
+  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="getting-started.html" class="current" aria-current="page">Your first seller order</a></li><li><a href="orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="seller-setup.html">Set up a seller</a></li><li><a href="dialogue.html">Write the conversation</a></li><li><a href="recording.html">Record, import &amp; trim</a></li><li><a href="build-and-share.html">Build &amp; share a seller</a></li><li><a href="troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <div class="article-label">Seller Framework</div>
+    <h1>Your first seller order</h1>
+    <p class="description">Find the seller, solve the request and earn your chosen look.</p>
+    <details class="mobile-page-contents"><summary>On this page</summary><nav aria-label="Sections in this article"><ul><li><a data-section-link href="#requirements">Requirements</a></li><li><a data-section-link href="#install-the-framework">Install the framework</a></li><li><a data-section-link href="#play-an-order">Play an order</a></li><li class="subsection"><a data-section-link href="#recipes-and-finished-outfits">Recipes and finished outfits</a></li><li class="subsection"><a data-section-link href="#earning-and-wearing-pieces">Earning and wearing pieces</a></li><li class="subsection"><a data-section-link href="#pending-orders-and-fixed-offers">Pending orders and fixed offers</a></li></ul></nav></details>
+    <article><h2 id="requirements">Requirements<a class="heading-anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
+<p><strong>Players:</strong> Adorn with SKSE64, Address Library, Prisma UI and its requirements, SkyUI, MCM Helper and SkyPatcher; runtime-matched <a href="https://www.nexusmods.com/skyrimspecialedition/mods/15109">Fuz Ro D-oh</a>; any NPC/content dependencies named by the seller pack. The development setup uses Skyrim 1.7.104 on Windows/MO2. Wider runtime/manager support needs separate validation.</p>
+<p><strong>Authors building changed dialogue/audio:</strong> Python 3 and installed <a href="https://store.steampowered.com/app/1946180/Skyrim_Special_Edition_Creation_Kit/">Creation Kit</a> audio tools, including LipGenerator, xwmaencode and LIPFuzer. The complete author bundle supplies the self-contained dialogue compiler, FFmpeg and portable eSpeak NG/data. No .NET SDK or separate eSpeak installation is needed for in-game Build.</p>
+<p>Stock recordings need initial local voice-archive extraction if no reusable cache exists. The current publisher looks for BSArch under MO2&#39;s tools/xEdit directory. Entirely silent/self-recorded workflows do not need stock extraction. Manual riddle/recipe editing needs no audio toolchain; making native Clue replies does.</p>
+<p>OpenRouter is optional for writing drafts and unnecessary for gameplay or a manually authored build. See <a href="../start/requirements.html">requirements</a> for download links and exact author-tool paths.</p>
+<h2 id="install-the-framework">Install the framework<a class="heading-anchor" href="#install-the-framework" aria-label="Link to Install the framework">#</a></h2>
+<p>Install Adorn and its <a href="../start/requirements.html">runtime requirements</a>, then ASF and the runtime-matched Fuz Ro D-oh build. Enable <strong>AdornSlots.esp</strong> and <strong>Adorn Seller Framework.esp</strong>. Put the supplied personal configuration or authored output below the runtime mods in MO2&#39;s left pane, and check for existing Overwrite files with higher priority.</p>
+<p>The clean generic setup has no assigned NPC and seller mode is off. If your modlist supplies a seller pack, follow that pack&#39;s instructions and dependencies. Otherwise complete <strong>Author setup</strong> below. A particular follower is not a generic framework requirement.</p>
+<h2 id="play-an-order">Play an order<a class="heading-anchor" href="#play-an-order" aria-label="Link to Play an order">#</a></h2>
+<ol>
+<li>Press <strong>F6</strong>, choose an installed or custom look in <strong>Outfits</strong>, then open <strong>Assign → Player</strong>.</li>
+<li>Choose <strong>Order recipe</strong>. If the author enabled finished pieces, <strong>Order outfit</strong> is also available. Name the order when asked.</li>
+<li>On the first encounter, follow <strong>Find [seller&#39;s name]</strong>. Speak to the seller using the Adorn outfit-planning choice; simply standing nearby does not complete the introduction. The riddle is hidden until you speak to them.</li>
+<li>Read the riddle in the Player order panel. Solve it and bring all answer items in the required quantities. The payment is an item hand-in, not a typed answer.</li>
+<li>If offered, ask the seller for a <strong>Clue</strong>. It repeats an extra hint for this order and does not charge or change the payment.</li>
+<li>Use the seller&#39;s hand-in choice. Adorn checks every required item before attempting payment. An incomplete collection should not receive a reward or partial payment deduction; report a failure with the exact items and quantities.</li>
+<li>For a recipe, collect and <strong>read the named parchment</strong>. Then gather its separate crafting materials and use the correct station. For a finished outfit, the selected pieces are delivered directly.</li>
+</ol>
+<p>The exact dialogue wording may vary by authored pack. The NPC&#39;s normal merchant/follower dialogue remains separate.</p>
+<h3 id="recipes-and-finished-outfits">Recipes and finished outfits<a class="heading-anchor" href="#recipes-and-finished-outfits" aria-label="Link to Recipes and finished outfits">#</a></h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Order</th>
+<th>What you receive</th>
+<th>What remains to do</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Recipe</td>
+<td>A named note teaching the selected outfit when read</td>
+<td>Read it, collect the recipe materials and craft each piece. Armour uses a forge; clothing uses a tanning rack. Follow any named-location restriction on the parchment.</td>
+</tr>
+<tr>
+<td>Finished outfit</td>
+<td>The selected pieces directly</td>
+<td>Wear them or save the look. No recipe piece slots are consumed.</td>
+</tr>
+</tbody></table></div>
+<p>Riddle payment and crafting ingredients are separate costs. Recipe ingredients are specified <strong>per crafted piece</strong>. Recipe orders share <strong>32 craftable piece slots per save</strong>; a multi-piece order uses capacity for its pieces. A completed recipe note must be read before its completed card is archived/replaced. Dropping a learned note does not unlearn it.</p>
+<p>ASF generates native crafting entries for the supported clothing/armour pieces in the chosen reward, including pieces whose original mod supplies no crafting recipe. It uses Adorn-owned recipe slots; it does not copy or edit the outfit mod&#39;s original recipes. No separate per-outfit recipe patch is needed for this route, but the mods supplying the reward pieces remain required. Previous learned outfits retain their entries when later orders are completed, within the same 32-piece capacity.</p>
+<p>Each recipe order has a distinct note identity. Its displayed page contains the outfit name, authored instructions, any named station-location restrictions and the seller&#39;s signature. Read the newly delivered note to learn that order; reading an older note does not substitute for it.</p>
+<p>Recipes-only mode hides/rejects new finished-outfit orders. Turning that setting on does not invalidate an already accepted outfit delivery.</p>
+<h3 id="earning-and-wearing-pieces">Earning and wearing pieces<a class="heading-anchor" href="#earning-and-wearing-pieces" aria-label="Link to Earning and wearing pieces">#</a></h3>
+<p>With seller mode enabled, <strong>Give</strong> and <strong>Wear</strong> on an unsaved selection reject direct grants and ask you to place an order. <strong>Wear</strong> on a saved look requires all its selected pieces to be in the player&#39;s inventory. It does not create missing pieces. Ordinary Adorn without seller/developer mode permits direct grants; enabling ASF&#39;s seller mode deliberately changes that player acquisition workflow.</p>
+<h3 id="pending-orders-and-fixed-offers">Pending orders and fixed offers<a class="heading-anchor" href="#pending-orders-and-fixed-offers" aria-label="Link to Pending orders and fixed offers">#</a></h3>
+<p>Accepted orders snapshot their riddle, requested items and recipe information. Editing shared content does not rewrite the accepted deal. Pending answer/debug details stay hidden, including with author tools unlocked.</p>
+<p>In <strong>tiered mode</strong>, an offer is remembered by seller, selected pieces, recipe/outfit type and classified tier within the current save. Cancelling or resetting the encounter does not reroll that offer. A new game has its own journal. Author rules that change the reward&#39;s tier create a different offer identity; changing rules is an author balance decision.</p>
+<p>The journal holds up to <strong>512 distinct tiered offers</strong> and 64 recent-history entries; repeat avoidance looks at the last five IDs/families when alternatives exist. Hitting the offer limit reports an error. Legacy flat selection does not have the tiered fixed-offer guarantee.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="../adorn/troubleshooting.html"><span>Previous</span>Troubleshooting Adorn</a><a href="orders-and-recipes.html"><span>Next</span>Orders, recipes &amp; progression</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+  <aside class="page-contents"><nav aria-label="On this page"><h2>On this page</h2><ul><li><a data-section-link href="#requirements">Requirements</a></li><li><a data-section-link href="#install-the-framework">Install the framework</a></li><li><a data-section-link href="#play-an-order">Play an order</a></li><li class="subsection"><a data-section-link href="#recipes-and-finished-outfits">Recipes and finished outfits</a></li><li class="subsection"><a data-section-link href="#earning-and-wearing-pieces">Earning and wearing pieces</a></li><li class="subsection"><a data-section-link href="#pending-orders-and-fixed-offers">Pending orders and fixed offers</a></li></ul></nav></aside>
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The full editor, extra clues, validation and content format.">
+<meta name="color-scheme" content="dark">
+<title>Riddle maker reference · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="riddles" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout has-page-contents">
+  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="recipes.html">Recipe maker</a></li><li><a href="first-riddle.html">First riddle</a></li><li><a href="riddles.html" class="current" aria-current="page">Riddle maker reference</a></li><li><a href="tiers.html">Tiers &amp; fixed offers</a></li><li><a href="assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <div class="article-label">Author tools</div>
+    <h1>Riddle maker reference</h1>
+    <p class="description">The full editor, extra clues, validation and content format.</p>
+    <details class="mobile-page-contents"><summary>On this page</summary><nav aria-label="Sections in this article"><ul><li><a data-section-link href="#open-the-editor">Open the editor</a></li><li><a data-section-link href="#make-your-first-riddle">Make your first riddle</a></li><li><a data-section-link href="#understand-the-fields">Understand the fields</a></li><li><a data-section-link href="#use-tiers-deliberately">Use tiers deliberately</a></li><li class="subsection"><a data-section-link href="#legacy-mode">Legacy mode</a></li><li class="subsection"><a data-section-link href="#enable-tier-selection">Enable tier selection</a></li><li class="subsection"><a data-section-link href="#how-rewards-are-classified">How rewards are classified</a></li><li class="subsection"><a data-section-link href="#exceptional-piece-overrides">Exceptional piece overrides</a></li><li class="subsection"><a data-section-link href="#repeats-and-accepted-offers">Repeats and accepted offers</a></li><li><a data-section-link href="#prepare-the-sellers-extra-clue">Prepare the seller&#39;s extra clue</a></li><li><a data-section-link href="#optional-openrouter-assistance">Optional OpenRouter assistance</a></li><li class="subsection"><a data-section-link href="#set-up-once">Set up once</a></li><li class="subsection"><a data-section-link href="#generate-and-combine">Generate and combine</a></li><li class="subsection"><a data-section-link href="#what-leaves-the-pc">What leaves the PC</a></li><li><a data-section-link href="#edit-json-outside-the-game">Edit JSON outside the game</a></li><li><a data-section-link href="#review-and-share">Review and share</a></li><li><a data-section-link href="#troubleshooting">Troubleshooting</a></li></ul></nav></details>
+    <article><p>Create an item payment first, then write a fair riddle that points to it. The current editor supports manual writing, optional OpenRouter suggestions, reward tiers, and an extra clue spoken or subtitled by the assigned seller.</p>
+<p>Updated for 29 October 2026. For a first entry, use the <a href="first-riddle.html">quick start</a>; for seller setup, recordings and recipes, use the <a href="../asf/getting-started.html">ASF guide</a>. The tier/Clue workflow is implemented and checked offline. Complete Skyrim hand-ins, playback/lip movement and successful live generation remain acceptance work: see <span class="source-reference" title="Additional notes in the maintained project documentation">test evidence</span>.</p>
+<h2 id="open-the-editor">Open the editor<a class="heading-anchor" href="#open-the-editor" aria-label="Link to Open the editor">#</a></h2>
+<p>Unlock author tools through <strong>MCM → Adorn → Developer access code</strong> using the code supplied by the project/modlist author, then open <strong>Riddles</strong>. The code is a convenience gate. The accepted unlock persists in local MCM settings; the input clears after use. Untick <strong>Developer tools unlocked</strong> to lock it again.</p>
+<p>Four panes remain visible throughout editing:</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Pane</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Riddle library</td>
+<td>Select, search or create an entry; expand pool-wide <strong>Tier settings</strong></td>
+</tr>
+<tr>
+<td><strong>Answers &amp; challenge</strong></td>
+<td>Payment items, quantities, tier, difficulty, effort and access/delivery metadata</td>
+</tr>
+<tr>
+<td><strong>Writing &amp; clue</strong></td>
+<td>Initial riddle, extra clue, clue dialogue and <strong>Save riddle</strong></td>
+</tr>
+<tr>
+<td><strong>Assistance</strong></td>
+<td>Optional key/model setup, writing voice, suggestions and apply controls</td>
+</tr>
+</tbody></table></div>
+<p>There is one shared writing draft. Assistance does not replace it. Advanced sections collapse within their panes, and dropdowns open below their field.</p>
+<p>With a controller, move focus with the left stick/D-pad and change panes with shoulder buttons. Right-stick up/down scrolls the <strong>focused pane</strong>. Accept chooses a menu item; Back closes it. Scroll long writing/expanded settings inside their pane, including at enlarged text sizes.</p>
+<h2 id="make-your-first-riddle">Make your first riddle<a class="heading-anchor" href="#make-your-first-riddle" aria-label="Link to Make your first riddle">#</a></h2>
+<ol>
+<li>Choose <strong>New riddle</strong> from the library.</li>
+<li>Select <strong>Choose answer item</strong>. Search loaded miscellaneous items by name, EditorID or plugin and choose the exact item. Set its quantity beside the selector.</li>
+<li>Keep one item for the first test. <strong>Add another required item</strong> appears after the first choice; every listed item is required together. Cancelling an additional picker keeps earlier choices.</li>
+<li>New entries start <strong>Easy</strong>. Set clue difficulty and acquisition effort to reflect your payment.</li>
+<li>Write the <strong>Riddle</strong> in <strong>Writing &amp; clue</strong>. Explain quantity fairly without naming the answer. Add an optional <strong>Seller&#39;s extra clue</strong> that narrows the answer without simply giving it away.</li>
+<li>Select <strong>Save riddle</strong> and read the result. Adorn supplies an internal ID for a new entry.</li>
+<li>Test on a new offer with a collectable answer. Existing accepted orders and remembered tiered offers keep their terms.</li>
+</ol>
+<p>For one iron ingot, an initial clue might be: “Drawn from stone and tempered by fire, I wait for the smith&#39;s next design. Bring one.” An extra clue might be: “Look for a common metal already cast into a bar.”</p>
+<p>This is a writing exercise, not a balance recommendation. Ask someone who has not seen the answer whether it points to the intended material rather than several metals. Sharpen ambiguous wording before release.</p>
+<h2 id="understand-the-fields">Understand the fields<a class="heading-anchor" href="#understand-the-fields" aria-label="Link to Understand the fields">#</a></h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning and behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Answer item / Quantity</td>
+<td>Exact MISC record and count consumed at hand-in; 1–8 distinct items, 1–99 of each</td>
+</tr>
+<tr>
+<td>Reward tier</td>
+<td>Matches this payment to an Easy/Medium/Hard reward when tiers are enabled; Unclassified supports legacy content</td>
+</tr>
+<tr>
+<td>Clue difficulty</td>
+<td>1 direct, 2 some deduction, 3 subtle. Does not automatically change reward tier</td>
+</tr>
+<tr>
+<td>Acquisition effort</td>
+<td>1 accessible, 2 collection/travel, 3 substantial effort. Does not inspect rarity or quest access</td>
+</tr>
+<tr>
+<td>Theme</td>
+<td>Writing context, such as metalwork or wilderness</td>
+</tr>
+<tr>
+<td>Answer family</td>
+<td>Shared label such as <code>ingots</code> used to reduce related answers in tier mode; use consistent spelling/case</td>
+</tr>
+<tr>
+<td>Minimum player level</td>
+<td>Tier-mode eligibility, from 1–1000</td>
+</tr>
+<tr>
+<td>Order type</td>
+<td>Tier-mode eligibility for recipe, finished outfit or both</td>
+</tr>
+<tr>
+<td>Verified availability / writing facts</td>
+<td>Facts for writing/assistance. Prose creates no quest, faction, location or inventory condition</td>
+</tr>
+<tr>
+<td>Riddle</td>
+<td>Initial player-facing wording; JSON calls this <code>clue</code></td>
+</tr>
+<tr>
+<td>Seller&#39;s extra clue</td>
+<td>Optional help reply; JSON calls this <code>profile.hint</code></td>
+</tr>
+<tr>
+<td>Player&#39;s clue question</td>
+<td>Prompt leading to help; defaults to “Could you give me a clue?”</td>
+</tr>
+<tr>
+<td>Internal riddle ID</td>
+<td>Stable unique identity. Keep stable for updates; do not reuse for unrelated content</td>
+</tr>
+</tbody></table></div>
+<p><strong>Tier, difficulty and effort are separate decisions.</strong> A cryptic clue for a common object is not automatically an expensive payment. A rare answer is not accessible just because its wording is obvious.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Text</th>
+<th>Maximum UTF-8 bytes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Internal ID</td>
+<td>80</td>
+</tr>
+<tr>
+<td>Initial riddle</td>
+<td>500</td>
+</tr>
+<tr>
+<td>Extra clue</td>
+<td>300</td>
+</tr>
+<tr>
+<td>Player clue question</td>
+<td>80, nonempty</td>
+</tr>
+<tr>
+<td>Theme / family</td>
+<td>80 each</td>
+</tr>
+<tr>
+<td>Availability facts</td>
+<td>500</td>
+</tr>
+<tr>
+<td>Assistance writing voice</td>
+<td>1000</td>
+</tr>
+</tbody></table></div>
+<p>Native validation counts UTF-8 <strong>bytes</strong>. Accented text, emoji and some punctuation use several bytes per character; shorten text if a visually short entry is rejected.</p>
+<h2 id="use-tiers-deliberately">Use tiers deliberately<a class="heading-anchor" href="#use-tiers-deliberately" aria-label="Link to Use tiers deliberately">#</a></h2>
+<h3 id="legacy-mode">Legacy mode<a class="heading-anchor" href="#legacy-mode" aria-label="Link to Legacy mode">#</a></h3>
+<p>Tiers are <strong>off by default</strong>. Entries without profiles remain <strong>Unclassified</strong>. With tiers off, Adorn randomly chooses valid loaded entries; profile tier, minimum-level and order-type filters and recent-family avoidance are not applied. Setting one entry to Hard does not enable the pool-wide system.</p>
+<p>The three starter ingot riddles are functional examples, not a complete tiered economy.</p>
+<h3 id="enable-tier-selection">Enable tier selection<a class="heading-anchor" href="#enable-tier-selection" aria-label="Link to Enable tier selection">#</a></h3>
+<ol>
+<li>Save reviewed Easy, Medium and Hard entries. Include alternatives rather than one repetitive answer per tier.</li>
+<li>Expand <strong>Tier settings</strong> in the library. Review coverage and thresholds.</li>
+<li>Check <strong>Use tiered selection for new orders</strong>, then <strong>Save tier rules</strong>. This is separate from <strong>Save riddle</strong>.</li>
+<li>Test every tier at the lowest supported level for each allowed order type. Basic coverage cannot prove every combination is eligible.</li>
+</ol>
+<p>Unclassified entries do not fill a classified bucket. Missing same-tier content stops the new order with an explanation and preserves the current order, rather than substituting an easier bucket.</p>
+<h3 id="how-rewards-are-classified">How rewards are classified<a class="heading-anchor" href="#how-rewards-are-classified" aria-label="Link to How rewards are classified">#</a></h3>
+<p>The classifier counts each distinct selected reward record once, using its <strong>base armour rating</strong>. It considers total rating and the strongest individual piece. Skills, temporary effects and the player&#39;s worn armour total are excluded.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Default condition</th>
+<th>Minimum tier</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Total at least 80, or any one piece at least 40</td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>Otherwise, total at least 40, or any one piece at least 20</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Otherwise</td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>Total base armour is zero</td>
+<td>Configured clothing tier, Easy by default</td>
+</tr>
+<tr>
+<td>Explicit piece override</td>
+<td>At least the override tier</td>
+</tr>
+</tbody></table></div>
+<p>With defaults, a single 20-rating piece is Medium; a single 40-rating piece is Hard; four distinct 10-rating pieces total 40 and are Medium. Zero-rating accessories add no piece-count fee. A prestigious zero-armour robe is ordinary clothing unless you review its override or clothing rule.</p>
+<p>Enchantment strength, prestige, armour class, monetary value and quest access are not inferred. Calibrate for the modlist. Hard total and strongest-piece thresholds must each exceed their Medium equivalents.</p>
+<h3 id="exceptional-piece-overrides">Exceptional piece overrides<a class="heading-anchor" href="#exceptional-piece-overrides" aria-label="Link to Exceptional piece overrides">#</a></h3>
+<p>Expand <strong>Exceptional piece overrides</strong> under Tier settings. For example:</p>
+<pre><code class="language-json">[{&quot;plugin&quot;:&quot;Example.esp&quot;,&quot;local&quot;:2048,&quot;tier&quot;:&quot;hard&quot;}]
+</code></pre>
+<p>This sets a floor for hexadecimal local FormID <code>000800</code>, expressed here as decimal <code>2048</code>. Override <code>local</code> is a decimal number; answer <code>localFormId</code> is a six-digit hexadecimal string. Neither uses the runtime load-order prefix.</p>
+<p>Overrides raise floors, not discount stronger rewards. Supported tiers are <code>easy</code>, <code>medium</code>, <code>hard</code>; up to 2000 distinct overrides are accepted. Use the actual defining plugin and valid piece in your installation.</p>
+<h3 id="repeats-and-accepted-offers">Repeats and accepted offers<a class="heading-anchor" href="#repeats-and-accepted-offers" aria-label="Link to Repeats and accepted offers">#</a></h3>
+<p>Tier mode avoids the last five riddle IDs and nonempty answer-family labels when eligible alternatives exist. If all candidates are recent, it reuses eligible content. A varied pool makes this useful.</p>
+<p>Accepted tiered offers are remembered by seller, set of reward pieces, order type and classified tier within the save. Reordering pieces, cancellation and encounter reset do not reroll the price. A new game starts empty. Changing author rules so a reward changes tier creates a different offer identity.</p>
+<p>Up to 512 distinct offers and 64 history entries are retained. A new distinct offer at the limit reports an error. Accepted wording/items remain snapshots after pool edits or deletion.</p>
+<h2 id="prepare-the-sellers-extra-clue">Prepare the seller&#39;s extra clue<a class="heading-anchor" href="#prepare-the-sellers-extra-clue" aria-label="Link to Prepare the seller&#39;s extra clue">#</a></h2>
+<p>The initial riddle in the order panel and a compiled seller help reply are separate. Saving text does not install dialogue.</p>
+<ol>
+<li>Assign the intended seller and save a nonempty extra clue.</li>
+<li>Expand <strong>Clue dialogue &amp; optional recording</strong> in <strong>Writing &amp; clue</strong> and review the question.</li>
+<li>For silent help, select <strong>Prepare clue dialogue</strong>. ASF builds the seven core exchanges plus authored clues, with silent audio/lip data using its bundled timing guide.</li>
+<li>For voiced help, select <strong>Record / choose audio for this clue</strong>. Record/import, trim, preview and choose a take matching the saved hint. Edit wording in <strong>Riddles</strong>, not the recorder.</li>
+<li>Use normal ASF Build. After <strong>Build complete</strong>, save, exit Skyrim, allow installation to finish, then restart.</li>
+<li>Ask the assigned seller for help on a pending, discovered order. Check words, sound, subtitles and actual mouth movement, including after save/reload.</li>
+</ol>
+<p>Only exact matching prepared help is offered for that seller/order. No hint means no question. Asking repeats the accepted hint without payment, rerolling or order progression. Missing/stale help hides the option rather than playing another hint.</p>
+<p>Archived prepared versions support earlier accepted orders after edits/deletion. Preserve matching records, manifests and audio when updating. Reselect recorded audio after wording changes to bind the new clue version.</p>
+<p>Silent preparation needs the <a href="../start/requirements.html#authoring-tools">ASF author dependencies</a>. eSpeak makes a temporary timing guide; its speech is not packaged. Live AI conversation, voice cloning and neural TTS are outside this workflow.</p>
+<h2 id="optional-openrouter-assistance">Optional OpenRouter assistance<a class="heading-anchor" href="#optional-openrouter-assistance" aria-label="Link to Optional OpenRouter assistance">#</a></h2>
+<h3 id="set-up-once">Set up once<a class="heading-anchor" href="#set-up-once" aria-label="Link to Set up once">#</a></h3>
+<p>Under <strong>Assistance → Set up assistance</strong>, save your own key and choose a Free/Paid recommendation or custom <strong>Model ID</strong>. Model selection alone sends no generation request. Use a dedicated key with an account-side credit limit.</p>
+<p>The real input clears after saving. Dots and <strong>Key saved</strong> confirm local storage, not account validity/credit. <strong>Replace key</strong> changes it; <strong>Remove key</strong> deletes it. Model, writing voice and provider preference autosave; wait for saved-status feedback.</p>
+<p>Key and preferences use separate Windows Credential Manager entries for the same Windows user/PC. They survive restarts and are outside mods, exports and saves. Sharing Configs does not configure someone else&#39;s key/model. Relocking author tools is separate from <strong>Remove key</strong>.</p>
+<p>Choose a model/provider supporting the structured-output request; plain chat/JSON support alone is insufficient. Free listings do not guarantee capacity. See <a href="https://openrouter.ai/docs/guides/features/structured-outputs">OpenRouter structured outputs</a> and the <span class="source-reference" title="Additional notes in the maintained project documentation">dated model guide</span>. Prices/endpoints can change.</p>
+<h3 id="generate-and-combine">Generate and combine<a class="heading-anchor" href="#generate-and-combine" aria-label="Link to Generate and combine">#</a></h3>
+<ol>
+<li>Choose real answer items/quantities, a classified tier, saved key and model. Missing prerequisites are listed together. Manual Unclassified entries remain supported.</li>
+<li>Optionally set <strong>Seller&#39;s writing voice</strong> and checked availability facts. <strong>What is sent</strong> gives a readable summary; no required Review gate or raw JSON step exists.</li>
+<li>Select <strong>Generate suggestions (uses API credit)</strong> once. Pending feedback and <strong>Cancel generation</strong> show the state. Errors preserve the editor and saved pool.</li>
+<li>Use <strong>Suggestion 1 of 3</strong> to compare. <strong>Use riddle</strong> replaces initial wording only; <strong>Use extra clue</strong> replaces the hint only; <strong>Use both</strong> changes both. Other fields stay intact.</li>
+<li>Mix alternatives and edit manually, then <strong>Save riddle</strong> yourself. Applying never saves or sends another request.</li>
+</ol>
+<p>Manual wording edits and background pool refreshes keep alternatives. Answer/profile context changes clear obsolete alternatives. Wording edits invalidate an outstanding result so a late reply cannot apply to a newer draft. Cancel ignores the result; a request already sent may still consume credit.</p>
+<h3 id="what-leaves-the-pc">What leaves the PC<a class="heading-anchor" href="#what-leaves-the-pc" aria-label="Link to What leaves the PC">#</a></h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Sent as writing context</th>
+<th>Excluded from writing context</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Item display names/quantities; tier, difficulty, effort, theme/family, level/delivery metadata; availability facts; writing voice; tier-rule summary</td>
+<td>Existing riddle/hint/question text; FormIDs and answer plugin references; exceptional-piece registry; paths, saves and recordings</td>
+</tr>
+</tbody></table></div>
+<p>The key is sent for authentication outside the writing prompt. OpenRouter and its selected provider receive the request. Free-text fields are sent as written: do not put private information into facts/persona.</p>
+<p><strong>Allow providers that may store or train on writing requests</strong> defaults off and persists when changed. Enabling broadens routing for the selected model, without switching free to paid; account restrictions still apply. The stricter default is a provider-policy filter, not an independent guarantee about a provider&#39;s actual handling. See <a href="https://openrouter.ai/docs/guides/routing/provider-selection">OpenRouter provider policies</a>.</p>
+<h2 id="edit-json-outside-the-game">Edit JSON outside the game<a class="heading-anchor" href="#edit-json-outside-the-game" aria-label="Link to Edit JSON outside the game">#</a></h2>
+<p>Back up first. Personal content is at <code>SKSE/Plugins/Adorn/AdornRiddles.json</code> under the resolved Configs/Overwrite root. Shipped fallback is <code>SKSE/Plugins/AdornRiddles.json</code>. Existing personal Overwrite files win; see <a href="../reference/user-data.html">User data</a>. Author saves write personal content, not the runtime default.</p>
+<p>Keep top-level <code>&quot;version&quot;: 1</code> and a <code>riddles</code> array. <code>tierRules</code> and entry <code>profile</code> are optional for legacy files. This complete example leaves tiers off because one entry cannot cover all tiers:</p>
+<pre><code class="language-json">{
+  &quot;version&quot;: 1,
+  &quot;tierRules&quot;: {
+    &quot;version&quot;: 1,
+    &quot;enabled&quot;: false,
+    &quot;mediumArmor&quot;: 40,
+    &quot;hardArmor&quot;: 80,
+    &quot;mediumPiece&quot;: 20,
+    &quot;hardPiece&quot;: 40,
+    &quot;clothingTier&quot;: &quot;easy&quot;,
+    &quot;overrides&quot;: []
+  },
+  &quot;riddles&quot;: [
+    {
+      &quot;id&quot;: &quot;smiths_iron_01&quot;,
+      &quot;clue&quot;: &quot;Drawn from stone and tempered by fire, I wait for the smith&#39;s next design. Bring one.&quot;,
+      &quot;requests&quot;: [
+        {&quot;plugin&quot;:&quot;Skyrim.esm&quot;,&quot;localFormId&quot;:&quot;05ACE4&quot;,&quot;count&quot;:1}
+      ],
+      &quot;profile&quot;: {
+        &quot;tier&quot;: &quot;easy&quot;,
+        &quot;difficulty&quot;: 1,
+        &quot;effort&quot;: 1,
+        &quot;theme&quot;: &quot;metalwork&quot;,
+        &quot;family&quot;: &quot;ingots&quot;,
+        &quot;minLevel&quot;: 1,
+        &quot;delivery&quot;: &quot;both&quot;,
+        &quot;access&quot;: &quot;Verify ordinary smith access in the target modlist before release.&quot;,
+        &quot;hint&quot;: &quot;Look for a common metal already cast into a bar.&quot;,
+        &quot;question&quot;: &quot;Could you give me a clue?&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+<p>The older single-item format is still accepted as an entry&#39;s payment property:</p>
+<pre><code class="language-json">{&quot;request&quot;:{&quot;plugin&quot;:&quot;Skyrim.esm&quot;,&quot;localFormId&quot;:&quot;05ACE4&quot;,&quot;count&quot;:1}}
+</code></pre>
+<p>Use <code>requests</code> for new entries, including single-item entries. Do not specify both: <code>requests</code> wins. For multiple items add distinct records; raise <code>count</code> instead of repeating one record. Use the defining plugin and six local hex digits including leading zeroes. Runtime IDs are not portable.</p>
+<p>Invalid/unloaded answers, duplicate items, malformed text/profiles and duplicate valid IDs can make entries unavailable. A broken document or no valid entries prevents selection. <strong>Reload file</strong> explicitly replaces the active editor from disk; save/copy an unsaved draft first. External edits do not rebuild compiled clues automatically.</p>
+<h2 id="review-and-share">Review and share<a class="heading-anchor" href="#review-and-share" aria-label="Link to Review and share">#</a></h2>
+<p>Before shipping, check:</p>
+<ul>
+<li>A tester can identify every exact answer without debug data, and quantities are fairly communicated.</li>
+<li>Acquisition is possible at the supported level in the intended modlist. Test quest access rather than assuming a prose note enforces it.</li>
+<li>Tier reflects practical cost; difficulty/effort labels do not balance automatically.</li>
+<li>Extra hints help and match prepared audio/subtitles.</li>
+<li>All three tiers work at supported levels and for both allowed delivery types.</li>
+<li>Incomplete hand-ins remove nothing; complete ones give exactly the intended reward. Test save/reload, cancellation, archived clues and another seller.</li>
+</ul>
+<p>Collect contributor entries/JSON, review IDs/dependencies and merge into a clean content mod. Sharing a code does not synchronize installations or update a built modlist. Assignment-pack exports exclude riddles. Keep personal settings, keys, takes and unrelated configuration out of content-only packs.</p>
+<h2 id="troubleshooting">Troubleshooting<a class="heading-anchor" href="#troubleshooting" aria-label="Link to Troubleshooting">#</a></h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Check or action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Item unavailable</td>
+<td>Payment supports loaded MISC records. Check the defining plugin and use the active-game picker.</td>
+</tr>
+<tr>
+<td>Short-looking text rejected</td>
+<td>UTF-8 byte limits can be reached before the visible character count.</td>
+</tr>
+<tr>
+<td>Tiers cannot enable</td>
+<td>Save valid Easy/Medium/Hard entries, then test level/delivery coverage.</td>
+</tr>
+<tr>
+<td>Restricted entry appears with tiers off</td>
+<td>Legacy selection ignores profile filters; enable a reviewed tier pool to use them.</td>
+</tr>
+<tr>
+<td>No eligible Hard payment</td>
+<td>Check tier entries, answer plugins, minimum level and delivery. Fill missing content rather than discounting the reward.</td>
+</tr>
+<tr>
+<td>Same riddle after cancel/reset</td>
+<td>Expected for the same tiered offer. Test a different offer or new test game.</td>
+</tr>
+<tr>
+<td>Clue question missing</td>
+<td>Save exact wording, prepare for this seller, finish Build/exit/install/restart; check the accepted snapshot.</td>
+</tr>
+<tr>
+<td>Key saved but Generate unavailable</td>
+<td>Review item, classified-tier and model prerequisites. Stored does not mean account-valid.</td>
+</tr>
+<tr>
+<td>Privacy rejection / no compatible route</td>
+<td>Check structured-output support and model/account policy. Broader provider permission is a deliberate choice, not a guaranteed fix.</td>
+</tr>
+<tr>
+<td>Rate limit</td>
+<td>Wait for capacity or intentionally choose another route. Repeated retries cannot create free capacity.</td>
+</tr>
+<tr>
+<td>Output budget / incomplete drafts</td>
+<td>No complete three-draft response arrived. Continue manually or deliberately try another compatible model.</td>
+</tr>
+<tr>
+<td>Bad key / credit</td>
+<td>Check the account and replace/remove the key in Assistance. Never send it in a report.</td>
+</tr>
+</tbody></table></div>
+<p>Reports should include model/error text, seller, delivery type, items/quantities, expected tier and save/new-game steps. Build errors also need <code>publish-log.txt</code> from <strong>Seller → Dialogue → Open build logs</strong>. Compilation and browser checks do not prove Skyrim behavior.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="first-riddle.html"><span>Previous</span>First riddle</a><a href="tiers.html"><span>Next</span>Tiers &amp; fixed offers</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+  <aside class="page-contents"><nav aria-label="On this page"><h2>On this page</h2><ul><li><a data-section-link href="#open-the-editor">Open the editor</a></li><li><a data-section-link href="#make-your-first-riddle">Make your first riddle</a></li><li><a data-section-link href="#understand-the-fields">Understand the fields</a></li><li><a data-section-link href="#use-tiers-deliberately">Use tiers deliberately</a></li><li class="subsection"><a data-section-link href="#legacy-mode">Legacy mode</a></li><li class="subsection"><a data-section-link href="#enable-tier-selection">Enable tier selection</a></li><li class="subsection"><a data-section-link href="#how-rewards-are-classified">How rewards are classified</a></li><li class="subsection"><a data-section-link href="#exceptional-piece-overrides">Exceptional piece overrides</a></li><li class="subsection"><a data-section-link href="#repeats-and-accepted-offers">Repeats and accepted offers</a></li><li><a data-section-link href="#prepare-the-sellers-extra-clue">Prepare the seller&#39;s extra clue</a></li><li><a data-section-link href="#optional-openrouter-assistance">Optional OpenRouter assistance</a></li><li class="subsection"><a data-section-link href="#set-up-once">Set up once</a></li><li class="subsection"><a data-section-link href="#generate-and-combine">Generate and combine</a></li><li class="subsection"><a data-section-link href="#what-leaves-the-pc">What leaves the PC</a></li><li><a data-section-link href="#edit-json-outside-the-game">Edit JSON outside the game</a></li><li><a data-section-link href="#review-and-share">Review and share</a></li><li><a data-section-link href="#troubleshooting">Troubleshooting</a></li></ul></nav></aside>
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

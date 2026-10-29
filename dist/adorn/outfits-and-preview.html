@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Browse your collection, combine pieces and inspect the result.">
+<meta name="color-scheme" content="dark">
+<title>Outfits &amp; preview · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="adorn-outfits" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout has-page-contents">
+  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="getting-started.html">Getting started</a></li><li><a href="outfits-and-preview.html" class="current" aria-current="page">Outfits &amp; preview</a></li><li><a href="assignments.html">NPCs, factions &amp; groups</a></li><li><a href="wardrobe.html">Your wardrobe</a></li><li><a href="controls.html">Controls &amp; interface</a></li><li><a href="sharing.html">Share assignments</a></li><li><a href="troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <div class="article-label">Adorn</div>
+    <h1>Outfits &amp; preview</h1>
+    <p class="description">Browse your collection, combine pieces and inspect the result.</p>
+    <details class="mobile-page-contents"><summary>On this page</summary><nav aria-label="Sections in this article"><ul><li><a data-section-link href="#choose-an-outfit">Choose an outfit</a></li><li class="subsection"><a data-section-link href="#build-a-custom-look-step-by-step">Build a custom look step by step</a></li><li class="subsection"><a data-section-link href="#understand-bodyslide-source-warnings">Understand BodySlide source warnings</a></li><li><a data-section-link href="#read-the-preview">Read the preview</a></li><li><a data-section-link href="#optional-preview-extras">Optional preview extras</a></li></ul></nav></details>
+    <article><h2 id="choose-an-outfit">Choose an outfit<a class="heading-anchor" href="#choose-an-outfit" aria-label="Link to Choose an outfit">#</a></h2>
+<p>Start in <strong>Outfits</strong>. <strong>Installed outfit → Browse outfits</strong> searches the active modlist. Choose a result, inspect its pieces and preview, then select <strong>Use this outfit</strong> where offered.</p>
+<p>Switch to <strong>Custom outfit</strong> to choose individual pieces. You can also add an installed set to the custom look and edit it. A custom look supports up to 32 pieces. Armour and clothing still need compatible body slots and meshes; combining them does not resolve clipping or two items using the same slot.</p>
+<p>Where available, <strong>BodySlide</strong> and <strong>Plugin outfits</strong> select the browsing source. BodySlide groups help find built content. If the wrong build folder is detected, use <strong>Output folder → Scan this folder</strong> and choose the folder containing the built meshes. <strong>Refresh builds</strong> rescans; Adorn does not run BodySlide or build missing meshes.</p>
+<h3 id="build-a-custom-look-step-by-step">Build a custom look step by step<a class="heading-anchor" href="#build-a-custom-look-step-by-step" aria-label="Link to Build a custom look step by step">#</a></h3>
+<ol>
+<li>Choose <strong>Custom outfit → Add armor piece</strong>.</li>
+<li>Search by name, EditorID or source plugin. Check the intended variant and equipment slots.</li>
+<li>Add compatible pieces, or start from an installed set with <strong>Add full set to custom outfit</strong>.</li>
+<li>Review each row in the custom-piece list beside the preview. Remove unwanted pieces through that row&#39;s remove action.</li>
+<li>When selecting replacements for a BodySlide look&#39;s occupied slots, inspect the resulting kept/replaced pieces before saving.</li>
+<li>Name the look where offered, choose recipients or Player, then use the appropriate Save action.</li>
+</ol>
+<p>A custom look combines item records. It does not create new mesh assets, convert bodies, alter enchantments or resolve incompatible slot definitions.</p>
+<h3 id="understand-bodyslide-source-warnings">Understand BodySlide source warnings<a class="heading-anchor" href="#understand-bodyslide-source-warnings" aria-label="Link to Understand BodySlide source warnings">#</a></h3>
+<p>A detected project/output is not proof that its mesh wins every conflict. Pay attention to overridden/ambiguous warnings: another mod can replace output, and several projects can produce the same file. Adorn&#39;s preview uses the current winning game meshes.</p>
+<p>Male/Female filters narrow availability; they do not create missing variants. The originating plugin and the mod currently winning the meshes may differ. Check the output folder and source labels before rebuilding anything.</p>
+<h2 id="read-the-preview">Read the preview<a class="heading-anchor" href="#read-the-preview" aria-label="Link to Read the preview">#</a></h2>
+<p>Drag the model or use its right-stick control to rotate. <strong>Auto</strong>, <strong>Female</strong> and <strong>Male</strong> select preview body sex. When inspecting an NPC or faction member, <strong>Their outfit / Your outfit</strong> compares the existing and proposed look. A preview is not an equip action.</p>
+<p>Meshes and textures come from the active installation. A blank body part, wrong shape or clipping should first be checked against the clothing&#39;s body requirements, available meshes and your BodySlide build. The preview is not a guarantee that every race, child body or physics combination will render identically on an actor in game.</p>
+<p>Use <strong>+ / −</strong> in the header to change text size. The four colour dots choose the interface palette. <strong>Pause game</strong> and <strong>Play</strong> control the interface&#39;s play/pause flow; follow the visible focus state when returning to gameplay.</p>
+<h2 id="optional-preview-extras">Optional preview extras<a class="heading-anchor" href="#optional-preview-extras" aria-label="Link to Optional preview extras">#</a></h2>
+<p>The current build includes a TNG male-preview reveal behind the 200% text-size joke and <strong>Show more / Hide more</strong>. It requires relevant installed anatomy assets and is confined to the supported adult male static preview. It does not dress/equip an actor. Female, child and quick previews have no such switch. Positioning and hide/reveal regressions retain the acceptance limits recorded in the release notes.</p>
+<p>Hair studio/barber services and automatic body conversion are design work, not current workflows. Use this manual&#39;s available controls rather than prospective design notes.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="getting-started.html"><span>Previous</span>Getting started</a><a href="assignments.html"><span>Next</span>NPCs, factions &amp; groups</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+  <aside class="page-contents"><nav aria-label="On this page"><h2>On this page</h2><ul><li><a data-section-link href="#choose-an-outfit">Choose an outfit</a></li><li class="subsection"><a data-section-link href="#build-a-custom-look-step-by-step">Build a custom look step by step</a></li><li class="subsection"><a data-section-link href="#understand-bodyslide-source-warnings">Understand BodySlide source warnings</a></li><li><a data-section-link href="#read-the-preview">Read the preview</a></li><li><a data-section-link href="#optional-preview-extras">Optional preview extras</a></li></ul></nav></aside>
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

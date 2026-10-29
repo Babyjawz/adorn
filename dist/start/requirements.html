@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="What players need, and the extra tools for authors.">
+<meta name="color-scheme" content="dark">
+<title>Installation requirements · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="requirements" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout has-page-contents">
+  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="requirements.html" class="current" aria-current="page">Installation requirements</a></li><li><a href="release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <div class="article-label">Start here</div>
+    <h1>Installation requirements</h1>
+    <p class="description">What players need, and the extra tools for authors.</p>
+    <details class="mobile-page-contents"><summary>On this page</summary><nav aria-label="Sections in this article"><ul><li><a data-section-link href="#runtime-requirements-for-adorn">Runtime requirements for Adorn</a></li><li><a data-section-link href="#additional-runtime-requirements-for-asf">Additional runtime requirements for ASF</a></li><li><a data-section-link href="#authoring-tools">Authoring tools</a></li><li><a data-section-link href="#publication-checks-affecting-requirements">Publication checks affecting requirements</a></li><li><a data-section-link href="#evidence-and-current-limits">Evidence and current limits</a></li></ul></nav></details>
+    <article><p>Release-documentation draft, checked 29 October 2026. Adorn is the standalone outfit mod; <strong>Adorn Seller Framework (ASF)</strong> is its optional seller module. Player requirements and author tools are separate. The documented setup is Windows/MO2; the development profile uses Skyrim 1.7.104. Every native dependency must support the same executable. Wider runtime/VR support is not established by this document.</p>
+<h2 id="runtime-requirements-for-adorn">Runtime requirements for Adorn<a class="heading-anchor" href="#runtime-requirements-for-adorn" aria-label="Link to Runtime requirements for Adorn">#</a></h2>
+<p>Use these relationships in Nexus <strong>Requirements</strong>, not <strong>Mods requiring this file</strong>, which is the reverse relationship.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Official download or project page</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SKSE64</td>
+<td><a href="https://skse.silverlock.org/">SKSE</a> / <a href="https://www.nexusmods.com/skyrimspecialedition/mods/30379">Nexus</a></td>
+<td>Native plugin loading; match the installed Skyrim executable</td>
+</tr>
+<tr>
+<td>Address Library for SKSE Plugins</td>
+<td><a href="https://www.nexusmods.com/skyrimspecialedition/mods/32444">Nexus</a></td>
+<td>Native address resolution; match the game build</td>
+</tr>
+<tr>
+<td>Prisma UI</td>
+<td><a href="https://www.nexusmods.com/skyrimspecialedition/mods/148718">Nexus</a></td>
+<td>Adorn&#39;s in-game interface; follow Prisma&#39;s own requirements</td>
+</tr>
+<tr>
+<td>SkyUI</td>
+<td><a href="https://www.nexusmods.com/skyrimspecialedition/mods/12604">Nexus</a></td>
+<td>MCM interface</td>
+</tr>
+<tr>
+<td>MCM Helper</td>
+<td><a href="https://www.nexusmods.com/skyrimspecialedition/mods/53000">Nexus</a></td>
+<td>MCM settings, hotkeys and persistence</td>
+</tr>
+<tr>
+<td>SkyPatcher</td>
+<td><a href="https://www.nexusmods.com/skyrimspecialedition/mods/106659">Nexus</a></td>
+<td>Generated NPC/faction assignment rules on launch</td>
+</tr>
+</tbody></table></div>
+<p>Prisma UI currently lists <strong>Media Keys Fix SKSE or Keyboard Shortcuts Fix</strong>, plus <strong>Microsoft Visual C++ Redistributable 2022 x64</strong>. Follow the linked Prisma page for the current alternatives and downloads. BodySlide is relevant when using that content/workflow; it is not a blanket requirement for browsing already installed plugin outfits.</p>
+<p>The core archive requires <strong>AdornSlots.esp</strong> to be enabled, alongside its native DLL, matching UI/scripts and helper assets. Enabling only the ESP is not a complete installation.</p>
+<h2 id="additional-runtime-requirements-for-asf">Additional runtime requirements for ASF<a class="heading-anchor" href="#additional-runtime-requirements-for-asf" aria-label="Link to Additional runtime requirements for ASF">#</a></h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Adorn</td>
+<td>ASF uses Adorn&#39;s DLL, UI, content and progression systems. Add the real Adorn Nexus page link when published</td>
+</tr>
+<tr>
+<td>Fuz Ro D-oh – Silent Voice</td>
+<td><a href="https://www.nexusmods.com/skyrimspecialedition/mods/15109">Runtime-specific download</a> for readable unvoiced fallback replies; retained as required in this release draft</td>
+</tr>
+<tr>
+<td>Pack-specific NPC/content mods</td>
+<td>Only when the chosen authored seller pack references them; the generic framework has no universal follower requirement</td>
+</tr>
+</tbody></table></div>
+<p>Enable <strong>Adorn Seller Framework.esp</strong> as well as AdornSlots.esp. The current generic framework is NPC-neutral and starts disabled/unassigned. One placed seller is active at a time; prepared drafts may cover multiple NPCs.</p>
+<p>Prepared silent FUZ/LIP support now exists, including per-riddle Clue replies, but that does not yet justify removing Fuz Ro D-oh while generic/unprepared fallback is supported and runtime validation is pending. Revisit the dependency only after verifying every advertised unvoiced path in the final archive.</p>
+<p>Suggested Nexus wording: <strong>Requires Adorn and its listed requirements, plus Fuz Ro D-oh for unvoiced seller replies. Install versions matching your Skyrim executable. Any NPC-specific seller pack has its own dependencies.</strong></p>
+<p>Ordinary players using prepared content need no API key, Python, Creation Kit, BSArch or development SDK.</p>
+<h2 id="authoring-tools">Authoring tools<a class="heading-anchor" href="#authoring-tools" aria-label="Link to Authoring tools">#</a></h2>
+<p>Only authors preparing changed dialogue/audio need this build toolchain. Manual riddle/recipe text editing alone does not require the audio tools; making an extra clue available in native conversation does.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Required when and how supplied</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Python 3</td>
+<td>Used by the current voice preparation/staging scripts; install locally</td>
+</tr>
+<tr>
+<td>Skyrim Special Edition Creation Kit</td>
+<td><a href="https://store.steampowered.com/app/1946180/Skyrim_Special_Edition_Creation_Kit/">Separate Steam download</a>; supplies installed audio tools</td>
+</tr>
+<tr>
+<td>CK LipGenerator, xwmaencode, LIPFuzer</td>
+<td>Current pipeline uses <code>Tools/LipGen/LipGenerator/LipGenerator.exe</code>, <code>Tools/Audio/xwmaencode.exe</code>, <code>Tools/LipGen/LipFuzer/LIPFuzer.exe</code> under the CK/game installation. Keep these installed; they are not bundled player tools</td>
+</tr>
+<tr>
+<td>ASF dialogue builder</td>
+<td>Self-contained <code>SellerDialogueBuild.exe</code> bundled in the author tools; no .NET SDK needed for the in-game Build action</td>
+</tr>
+<tr>
+<td>Portable eSpeak NG</td>
+<td>Bundled 1.52.0 with data/notices/matching source. Generates temporary silent-line timing guides; its audible speech is not packaged. No separate installation needed</td>
+</tr>
+<tr>
+<td>FFmpeg</td>
+<td>Bundled pinned Windows x64 build for imported/recorded audio normalization. Does not replace CK tools</td>
+</tr>
+<tr>
+<td>BSArch</td>
+<td>Needed for initial local stock-recording extraction if no reusable cache exists. Current publisher looks for <code>tools/xEdit/BSArch.exe</code> under MO2. Not needed for an entirely silent/self-recorded workflow</td>
+</tr>
+<tr>
+<td>OpenRouter account/key</td>
+<td>Optional author drafting only, using the author&#39;s chosen model/credit. No player or dialogue-build requirement</td>
+</tr>
+</tbody></table></div>
+<p><strong>Build [seller]&#39;s seller dialogue</strong> saves drafts and prepares the output while Skyrim runs. After Build complete, save and exit; the publisher installs after Skyrim exits, into the resolved Configs/Overwrite destination. Wait for installation then restart. <strong>Prepare clue dialogue</strong> uses the same pipeline. See <a href="../asf/getting-started.html">ASF guide</a> and <a href="../reference/user-data.html">User data</a>.</p>
+<h2 id="publication-checks-affecting-requirements">Publication checks affecting requirements<a class="heading-anchor" href="#publication-checks-affecting-requirements" aria-label="Link to Publication checks affecting requirements">#</a></h2>
+<ol>
+<li>Verify clean installation and the supported executable range against the complete dependency stack. <a href="https://skse.silverlock.org/">SKSE downloads</a> distinguish Steam, GOG, old SE and VR builds; that does not itself prove Adorn compatibility with each.</li>
+<li>Keep CK executables and proprietary data such as FonixData out of the archive unless permission allows redistribution. Authors obtain CK separately. Review the <a href="https://store.steampowered.com/eula/1946180_eula_0">Creation Kit EULA</a>.</li>
+<li>Keep locally extracted vanilla voice clips out of public archives unless distribution is permitted. The stock selector&#39;s local extraction does not grant redistribution rights. Review <a href="https://help.nexusmods.com/article/28-file-submission-guidelines">Nexus file guidelines</a>.</li>
+<li>Preserve and review eSpeak/FFmpeg licences, notices and matching-source obligations for the exact distributed binaries. See <span class="source-reference" title="Additional notes in the maintained project documentation">eSpeak bundle details</span>, <code>tools/package-seller-ffmpeg.ps1</code> and <a href="https://www.ffmpeg.org/legal.html">FFmpeg&#39;s redistribution guidance</a>. Local testing is not completion of a public redistribution review.</li>
+<li>Keep author-only tools out of Nexus&#39;s player dependency list. Document them in Articles/download guides and distinguish source drafts from finished player packs.</li>
+<li>Retain Fuz Ro D-oh as required until release testing establishes whether every supported fallback can safely work without it.</li>
+</ol>
+<h2 id="evidence-and-current-limits">Evidence and current limits<a class="heading-anchor" href="#evidence-and-current-limits" aria-label="Link to Evidence and current limits">#</a></h2>
+<p>The runtime list follows the active Prisma UI implementation, MCM configuration and generated-assignment system. The generic ASF header previously read back Skyrim.esm as its only master; JSON-selected NPCs are not universal plugin masters. Prepared author output can have its own dependencies.</p>
+<p>The 29 October editor, native tier/offer logic, compiler and staged audio checks are documented in <span class="source-reference" title="Additional notes in the maintained project documentation">riddle results</span>. In-game generic hand-ins, cross-save/New Game behavior, clue playback/lips and successful live OpenRouter generation remain acceptance work. See the <a href="release-status.html">release documentation index</a> for the publication checklist and evidence boundary.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="../index.html"><span>Previous</span>Welcome to Adorn</a><a href="release-status.html"><span>Next</span>Release &amp; testing status</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+  <aside class="page-contents"><nav aria-label="On this page"><h2>On this page</h2><ul><li><a data-section-link href="#runtime-requirements-for-adorn">Runtime requirements for Adorn</a></li><li><a data-section-link href="#additional-runtime-requirements-for-asf">Additional runtime requirements for ASF</a></li><li><a data-section-link href="#authoring-tools">Authoring tools</a></li><li><a data-section-link href="#publication-checks-affecting-requirements">Publication checks affecting requirements</a></li><li><a data-section-link href="#evidence-and-current-limits">Evidence and current limits</a></li></ul></nav></aside>
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

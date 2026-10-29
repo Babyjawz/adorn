@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A short walkthrough from real answer items to a saved challenge.">
+<meta name="color-scheme" content="dark">
+<title>First riddle · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="riddle-start" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout has-page-contents">
+  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="recipes.html">Recipe maker</a></li><li><a href="first-riddle.html" class="current" aria-current="page">First riddle</a></li><li><a href="riddles.html">Riddle maker reference</a></li><li><a href="tiers.html">Tiers &amp; fixed offers</a></li><li><a href="assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <div class="article-label">Author tools</div>
+    <h1>First riddle</h1>
+    <p class="description">A short walkthrough from real answer items to a saved challenge.</p>
+    <details class="mobile-page-contents"><summary>On this page</summary><nav aria-label="Sections in this article"><ul><li><a data-section-link href="#make-a-riddle-without-ai">Make a riddle without AI</a></li><li><a data-section-link href="#get-optional-writing-suggestions">Get optional writing suggestions</a></li><li><a data-section-link href="#enable-a-balanced-tier-pool">Enable a balanced tier pool</a></li><li><a data-section-link href="#prepare-an-extra-clue">Prepare an extra clue</a></li><li><a data-section-link href="#test-before-sharing">Test before sharing</a></li></ul></nav></details>
+    <article><p>Updated 29 October 2026 for the fixed four-pane editor, tiered payments, extra clues and optional OpenRouter assistance. Detailed fields, JSON and troubleshooting: <a href="riddles.html">Riddle maker manual</a>. Seller setup/voice builds: <a href="../asf/getting-started.html">ASF guide</a>.</p>
+<h2 id="make-a-riddle-without-ai">Make a riddle without AI<a class="heading-anchor" href="#make-a-riddle-without-ai" aria-label="Link to Make a riddle without AI">#</a></h2>
+<ol>
+<li>Unlock author tools in <strong>MCM → Adorn</strong> with the supplied author code. Open <strong>Riddles → New riddle</strong>.</li>
+<li>In <strong>Answers &amp; challenge</strong>, select <strong>Choose answer item</strong> and quantity. One item is enough. Use <strong>Add another required item</strong> for more: 1–8 distinct miscellaneous items, quantities 1–99 each. All are required together; cancelling an extra picker keeps earlier choices.</li>
+<li>New entries start <strong>Easy</strong>. Set reward tier, clue difficulty and acquisition effort separately. Theme/family and access/delivery fields are under advanced settings. Availability prose guides writing; it creates no quest conditions.</li>
+<li>In <strong>Writing &amp; clue</strong>, write the initial <strong>Riddle</strong> and optional <strong>Seller&#39;s extra clue</strong>. Make every item/quantity fairly deducible without naming the answer.</li>
+<li>Select <strong>Save riddle</strong>. Existing accepted orders and remembered tiered offers keep their original terms.</li>
+</ol>
+<p>The four panes are library, answers/challenge, writing/clue and Assistance. There is one shared draft. Controller right-stick up/down scrolls the focused pane; shoulder buttons change panes. Accept selects a dropdown item; Back closes its list.</p>
+<h2 id="get-optional-writing-suggestions">Get optional writing suggestions<a class="heading-anchor" href="#get-optional-writing-suggestions" aria-label="Link to Get optional writing suggestions">#</a></h2>
+<ol>
+<li>In rightmost <strong>Assistance → Set up assistance</strong>, save your own OpenRouter key and select a free, paid or custom model. Dots and <strong>Key saved</strong> confirm local Windows storage, not account validity. The real input clears. <strong>Remove key</strong> deletes it.</li>
+<li>Model, writing voice and provider-data preference autosave for the same Windows account/PC. Wait for saved-status feedback. Preferences and the separate key are outside mods, saves and exports.</li>
+<li>Choose real items, quantities and Easy/Medium/Hard. Missing prerequisites appear together. No required Review/JSON step exists; <strong>What is sent</strong> optionally explains context.</li>
+<li>Select <strong>Generate suggestions (uses API credit)</strong> once. Model selection alone sends no request. Pending feedback and <strong>Cancel generation</strong> appear; a sent request may still cost credit after cancellation.</li>
+<li>Browse <strong>Suggestion 1 of 3</strong>. <strong>Use riddle</strong>, <strong>Use extra clue</strong> or <strong>Use both</strong> copies only that wording into the shared editor. Combine alternatives and edit, then <strong>Save riddle</strong> yourself. Applying does not save or make another request.</li>
+</ol>
+<p>Manual wording edits keep alternatives; answer/profile changes clear obsolete ones. Late replies are rejected after context changes. Errors preserve your draft and saved pool.</p>
+<p>Requests send answer names/quantities, profile/tier-rule context, persona and writing facts to OpenRouter and its provider. Existing riddle/hint/question wording, FormIDs, paths, saves and recordings are excluded. The key authenticates the request. Keep private information out of free-text context.</p>
+<p><strong>Allow providers that may store or train on writing requests</strong> defaults off. Enable only if you intend that broader policy; account restrictions still apply. Free capacity and structured-output support vary, with no paid fallback. See <a href="riddles.html#optional-openrouter-assistance">assistance details</a> and the <span class="source-reference" title="Additional notes in the maintained project documentation">dated model guide</span>.</p>
+<h2 id="enable-a-balanced-tier-pool">Enable a balanced tier pool<a class="heading-anchor" href="#enable-a-balanced-tier-pool" aria-label="Link to Enable a balanced tier pool">#</a></h2>
+<ol>
+<li>Save reviewed entries in <strong>all three tiers</strong>. Existing entries remain <strong>Unclassified</strong>; tiers are off by default.</li>
+<li>Expand library <strong>Tier settings</strong>. Review coverage/thresholds, enable tiered selection, then <strong>Save tier rules</strong>. Saving one riddle does not enable tiers.</li>
+<li>Test every allowed delivery type at the lowest supported level. Minimum-level/delivery filtering applies only in tier mode. Unclassified entries do not fill classified buckets.</li>
+</ol>
+<p>Default classification uses total base armour and strongest piece: <strong>Medium at 40 total or 20 on one piece; Hard at 80 total or 40 on one piece</strong>. Zero-armour clothing defaults Easy. Skills, temporary effects and decorative piece count add no cost. Enchantment power/prestige are not inferred: calibrate and add minimum-tier overrides as needed.</p>
+<p>Missing eligible coverage stops the new order and preserves the current one. Recent IDs/families are avoided when alternatives exist. Same seller + pieces + order type + classified tier keeps its accepted offer within the save, including after cancellation/reset. Limits are 512 distinct offers and 64 history entries.</p>
+<h2 id="prepare-an-extra-clue">Prepare an extra clue<a class="heading-anchor" href="#prepare-an-extra-clue" aria-label="Link to Prepare an extra clue">#</a></h2>
+<ol>
+<li>Assign the intended seller. Save the extra clue/question in <strong>Riddles</strong>.</li>
+<li>Expand <strong>Clue dialogue &amp; optional recording</strong>. Choose <strong>Prepare clue dialogue</strong> for silent subtitles/lip data, or <strong>Record / choose audio for this clue</strong> for a take matching the saved hint.</li>
+<li>Use normal ASF Build. After <strong>Build complete</strong>, save, exit Skyrim, allow installation to finish, then restart. Python/installed CK audio tools remain author requirements; portable eSpeak and FFmpeg are bundled.</li>
+<li>Ask for help on a pending, discovered order. Exact prepared help must match seller/order. Repeating it charges nothing and does not reroll. No hint or stale preparation means no Clue question.</li>
+</ol>
+<p>Edit words in Riddles. Archived prepared versions support earlier accepted orders; preserve matching output when updating. No recording is required. Silent preparation packages silence/lip data, not audible generated speech.</p>
+<h2 id="test-before-sharing">Test before sharing<a class="heading-anchor" href="#test-before-sharing" aria-label="Link to Test before sharing">#</a></h2>
+<p>Use a backup save and check first-order <strong>Find [seller]</strong>, complete/incomplete hand-ins, both delivery types, save/reload, fixed offers, archived hints and two-seller isolation. Start a genuine New Game to check fresh personal progress with shared setup retained. For recovery use <strong>MCM → Adorn → Troubleshooting → Reset seller encounter…</strong>; it preserves outfits, learned recipes, completed rewards and fixed prices.</p>
+<p>Check silent and recorded clues in Skyrim, including actual mouth movement. Manual writing/gameplay must work without a key. For assistance, test errors, cancellation and changing an answer while a reply is pending. Never send your key.</p>
+<p>Development checks pass; the full Skyrim tier/Clue loop and successful live generation still need acceptance. Synthetic free checks encountered privacy/rate/output limits. Record results against <span class="source-reference" title="Additional notes in the maintained project documentation">the current test evidence</span>.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="recipes.html"><span>Previous</span>Recipe maker</a><a href="riddles.html"><span>Next</span>Riddle maker reference</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+  <aside class="page-contents"><nav aria-label="On this page"><h2>On this page</h2><ul><li><a data-section-link href="#make-a-riddle-without-ai">Make a riddle without AI</a></li><li><a data-section-link href="#get-optional-writing-suggestions">Get optional writing suggestions</a></li><li><a data-section-link href="#enable-a-balanced-tier-pool">Enable a balanced tier pool</a></li><li><a data-section-link href="#prepare-an-extra-clue">Prepare an extra clue</a></li><li><a data-section-link href="#test-before-sharing">Test before sharing</a></li></ul></nav></aside>
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

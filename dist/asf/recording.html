@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Turn your performance into a chosen reply or extra clue.">
+<meta name="color-scheme" content="dark">
+<title>Record, import &amp; trim · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="asf-recording" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="getting-started.html">Your first seller order</a></li><li><a href="orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="seller-setup.html">Set up a seller</a></li><li><a href="dialogue.html">Write the conversation</a></li><li><a href="recording.html" class="current" aria-current="page">Record, import &amp; trim</a></li><li><a href="build-and-share.html">Build &amp; share a seller</a></li><li><a href="troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <div class="article-label">Seller Framework</div>
+    <h1>Record, import &amp; trim</h1>
+    <p class="description">Turn your performance into a chosen reply or extra clue.</p>
+
+    <article><h2 id="record-or-import-audio">Record or import audio<a class="heading-anchor" href="#record-or-import-audio" aria-label="Link to Record or import audio">#</a></h2>
+<p>Select an exchange and microphone device, then <strong>Record take → Stop &amp; save</strong>. Alternatively place a WAV, FLAC, MP3, AAC or M4A in the displayed take folder and refresh. Preview, trim and choose the take. The original recording is retained; choosing a take normalizes audio for preparation.</p>
+<p>Review both the current subtitle and the words actually recorded. ASF does not transcribe speech automatically. For the seven core exchanges it can bind an intentional difference with a warning; lip generation follows recorded words. If the subtitle changes later, reselect the take to bind it again. <strong>Riddle clues are stricter: recorded words must match the saved extra clue.</strong></p>
+<p>Raw take folders are author sources. Skyrim plays the built <code>.fuz</code> files in the final voice path, not an MP3/WAV dropped into a take folder.</p>
+<h3 id="trim-and-manage-takes">Trim and manage takes<a class="heading-anchor" href="#trim-and-manage-takes" aria-label="Link to Trim and manage takes">#</a></h3>
+<p>Select a take to display its waveform. Adjust <strong>Start</strong> and <strong>End</strong>, preview that range and keep complete words. <strong>Use selected take as audio</strong> saves the range for conversion/lips and retains the original source.</p>
+<p>Capture remains bound to the selected NPC/exchange until Stop &amp; save. Finish capture before changing targets. Refresh devices after a hardware change, select the intended input and listen to a short test first.</p>
+<p>The reliable sequence is <strong>Refresh → select take → Preview take → trim → review spoken words → Use selected take as audio → Save draft → Build</strong>. Listening alone never chooses audio.</p>
+<p>Clearing the chosen take binding and deleting a source take are different operations. Back up useful recordings before deletion. A selected file that has gone missing is a build error, not an intentional silent choice.</p>
+<h2 id="prepare-an-extra-clue">Prepare an extra clue<a class="heading-anchor" href="#prepare-an-extra-clue" aria-label="Link to Prepare an extra clue">#</a></h2>
+<ol>
+<li>Assign the intended seller. In <strong>Riddles</strong>, save the initial riddle, extra clue and player&#39;s clue question.</li>
+<li>Expand <strong>Clue dialogue &amp; optional recording</strong>. For silent help, select <strong>Prepare clue dialogue</strong>.</li>
+<li>For recorded help, choose <strong>Record / choose audio for this clue</strong>, select a matching take, then build through the normal ASF process.</li>
+<li>Wait for <strong>Build complete</strong>, save and exit Skyrim. Allow installation to finish before restarting.</li>
+<li>In game, ask the assigned seller for help on an accepted, discovered order. Confirm the words, subtitles, audio and actual lip movement match.</li>
+</ol>
+<p>Edit clue words/question in <strong>Riddles</strong>. The recorder is bound to that clue version. The builder retains archived help for older accepted orders; removing a pool entry does not intentionally replace an old order&#39;s help with a new riddle. Exact matching guards hide unavailable/stale help rather than offering the wrong reply.</p>
+<p>Silent preparation uses bundled eSpeak only as a temporary timing guide. The packaged reply is silent with lip data. This is not audible synthetic speech or neural TTS. In-game lip movement remains an acceptance check.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="dialogue.html"><span>Previous</span>Write the conversation</a><a href="build-and-share.html"><span>Next</span>Build &amp; share a seller</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

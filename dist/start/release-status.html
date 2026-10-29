@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Implemented features, current limits and the checks still outstanding.">
+<meta name="color-scheme" content="dark">
+<title>Release &amp; testing status · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="release-status" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="requirements.html">Installation requirements</a></li><li><a href="release-status.html" class="current" aria-current="page">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <div class="article-label">Start here</div>
+    <h1>Release &amp; testing status</h1>
+    <p class="description">Implemented features, current limits and the checks still outstanding.</p>
+
+    <article><p>These guides describe the implemented feature set documented on <strong>29 October 2026</strong>. Documentation and successful builds do not establish that every workflow has passed its final in-game test.</p>
+<h2 id="adorn">Adorn<a class="heading-anchor" href="#adorn" aria-label="Link to Adorn">#</a></h2>
+<p>Outfit browsing, custom looks, the preview, assignments, the player wardrobe and assignment sharing have implementation and offline checks. Clean release installation, assignment editing/removal and restart restoration, native pack dialogs, and the intended body/mesh combinations still need acceptance.</p>
+<h2 id="seller-framework">Seller Framework<a class="heading-anchor" href="#seller-framework" aria-label="Link to Seller Framework">#</a></h2>
+<p>The order, recipe, author-dialogue, recording and build systems are implemented. Earlier prototype testing confirmed particular named-parchment and crafting paths; that is narrower than complete generic-seller acceptance.</p>
+<p>Full generic-seller hand-in, genuine New Game and cross-save isolation, prepared clue playback and visible lip movement remain acceptance work. The 42-style stock catalogue contains recording candidates, not a claim that every NPC/style combination has passed playback tests.</p>
+<h2 id="riddles-optional-assistance">Riddles &amp; optional assistance<a class="heading-anchor" href="#riddles-optional-assistance" aria-label="Link to Riddles &amp; optional assistance">#</a></h2>
+<p>Tier logic, fixed offers, authoring UI, compiled clues, request validation and credential persistence have offline checks. The default tier system is off and starter content is not a balanced progression pool.</p>
+<p>Successful live OpenRouter generation remains unverified. Development free-route checks encountered privacy, rate and output limits. Manual authoring and ordinary gameplay work without an API key.</p>
+<h2 id="scope-of-this-release">Scope of this release<a class="heading-anchor" href="#scope-of-this-release" aria-label="Link to Scope of this release">#</a></h2>
+<p>Hair studio/barber services, live AI NPC conversation and neural TTS remain design or research work. They are not advertised here as available workflows.</p>
+<p>The documented development environment is Windows/MO2 with Skyrim <strong>1.7.104</strong>. Wider runtime and mod-manager support requires separate validation.</p>
+<h2 id="reporting-a-problem">Reporting a problem<a class="heading-anchor" href="#reporting-a-problem" aria-label="Link to Reporting a problem">#</a></h2>
+<p>Include the exact game and mod versions, your input device, the selected pieces or seller, the steps taken and the expected versus actual result. Keep the relevant logs. Never include an API key.</p>
+<p>Use <a href="../adorn/troubleshooting.html#troubleshooting">Adorn troubleshooting</a> or <a href="../asf/troubleshooting.html#troubleshooting">ASF troubleshooting</a> for the checks specific to your workflow.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="requirements.html"><span>Previous</span>Installation requirements</a><a href="../adorn/getting-started.html"><span>Next</span>Getting started</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

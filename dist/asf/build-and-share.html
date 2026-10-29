@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Generate matching native dialogue and audio, then prepare a player pack.">
+<meta name="color-scheme" content="dark">
+<title>Build &amp; share a seller · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="asf-build" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="getting-started.html">Your first seller order</a></li><li><a href="orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="seller-setup.html">Set up a seller</a></li><li><a href="dialogue.html">Write the conversation</a></li><li><a href="recording.html">Record, import &amp; trim</a></li><li><a href="build-and-share.html" class="current" aria-current="page">Build &amp; share a seller</a></li><li><a href="troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <div class="article-label">Seller Framework</div>
+    <h1>Build &amp; share a seller</h1>
+    <p class="description">Generate matching native dialogue and audio, then prepare a player pack.</p>
+
+    <article><h2 id="build-and-activate-dialogue">Build and activate dialogue<a class="heading-anchor" href="#build-and-activate-dialogue" aria-label="Link to Build and activate dialogue">#</a></h2>
+<p>Authors need <a href="../start/requirements.html#authoring-tools">the author tools</a>. Players using a finished pack do not.</p>
+<p>The builder creates the NPC-conditioned native dialogue records, correct INFO voice filenames, SEQ data, provider/voice manifests and prepared FUZ/lip files from saved drafts. Authors do not manually create each dialogue record or calculate its voice-file name. These generated files are a matching build and must stay together; preparing audio alone does not activate a new conversation. The bundled self-contained compiler avoids a separate .NET SDK requirement; Python and installed Creation Kit audio tools are still required as described above.</p>
+<ol>
+<li>Review all saved NPC drafts, recordings and clue versions. The publisher builds saved drafts together, so another NPC&#39;s missing audio/tool dependency can fail the build.</li>
+<li>Select <strong>Build [seller]&#39;s seller dialogue</strong> or <strong>Prepare clue dialogue</strong>. Skyrim can remain open while preparation runs.</li>
+<li>Wait for the result. On failure, use <strong>Open build logs</strong>; do not repeatedly rebuild without reading the error.</li>
+<li>After the build completes, save and exit Skyrim. The publisher installs the checked records/audio after the process exits. Wait for installation/status to complete.</li>
+<li>Check the winning ESP, SEQ, provider/voice manifests and FUZ output remain together in the intended user-data destination. Restart through SKSE and test the dialogue.</li>
+</ol>
+<p>Current writes use enabled Adorn Configs or Overwrite according to the <a href="../reference/user-data.html">user-data rules</a>. Existing personal Overwrite content can keep the whole author output there. Do not clear it to force a different destination.</p>
+<p>For a failed build, <strong>Seller → Dialogue → Open build logs</strong> opens <code>%LOCALAPPDATA%\Nymph Nerds\Adorn\seller-build</code>, selecting <code>publish-log.txt</code> if present. Use Alt+Tab if Explorer is behind Skyrim. If the log does not exist, the folder opens with an explanation. Keep the original error text and send the relevant log.</p>
+<h2 id="share-a-finished-seller-setup">Share a finished seller setup<a class="heading-anchor" href="#share-a-finished-seller-setup" aria-label="Link to Share a finished seller setup">#</a></h2>
+<p>Use a clean authored configuration/output mod separate from Adorn and ASF. Include only the intended seller options, reviewed content, drafts or prepared files appropriate to the pack. Prepared ESP, SEQ, provider/voice manifests and FUZ files must describe the same build. Keep the authored output below the framework so it wins.</p>
+<p>List required NPC, answer-item and clothing plugins. JSON references do not install those mods. Test on an installation that lacks your private caches and recordings, and distinguish a finished player pack from source drafts that need building.</p>
+<p>Exclude personal saves, legacy player looks, unrelated assignment files, private MCM settings, credentials, unapproved takes and Local AppData caches. Do not redistribute locally extracted Skyrim clips or Creation Kit executables/data without permission. Preserve bundled tool notices and source obligations. Assignment-pack export does not export seller content.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="recording.html"><span>Previous</span>Record, import &amp; trim</a><a href="troubleshooting.html"><span>Next</span>Troubleshooting ASF</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

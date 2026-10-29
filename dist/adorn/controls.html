@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Keys, controller navigation and readable interface settings.">
+<meta name="color-scheme" content="dark">
+<title>Controls &amp; interface · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="adorn-controls" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="getting-started.html">Getting started</a></li><li><a href="outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="assignments.html">NPCs, factions &amp; groups</a></li><li><a href="wardrobe.html">Your wardrobe</a></li><li><a href="controls.html" class="current" aria-current="page">Controls &amp; interface</a></li><li><a href="sharing.html">Share assignments</a></li><li><a href="troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <div class="article-label">Adorn</div>
+    <h1>Controls &amp; interface</h1>
+    <p class="description">Keys, controller navigation and readable interface settings.</p>
+
+    <article><h2 id="controls">Controls<a class="heading-anchor" href="#controls" aria-label="Link to Controls">#</a></h2>
+<p>Mouse users can scroll the pane under the pointer. Controller users move focus with the left stick/D-pad and use the displayed Accept/Back actions. Shoulder buttons move between panes where available; right-stick behavior depends on the current view, rotating the outfit preview or scrolling an authoring pane. In Riddles, right-stick up/down scrolls the focused pane.</p>
+<p>If text or settings extend below a pane, scroll that pane rather than the whole workspace. Enlarged-text and browser controller checks have passed; embedded Skyrim input and native file-dialog focus still need acceptance testing.</p>
+<h2 id="interface-reference">Interface reference<a class="heading-anchor" href="#interface-reference" aria-label="Link to Interface reference">#</a></h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>View/control</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Outfits</strong></td>
+<td>Browse installed looks and assemble custom pieces</td>
+</tr>
+<tr>
+<td><strong>Assign → NPCs</strong></td>
+<td>Nearby actors, active-modlist search and NPC selection</td>
+</tr>
+<tr>
+<td><strong>Assign → Factions</strong></td>
+<td>Faction/member browsing and exclusions</td>
+</tr>
+<tr>
+<td><strong>Assign → Player</strong></td>
+<td>Save/wear personal looks and use optional seller orders</td>
+</tr>
+<tr>
+<td><strong>Selected recipients</strong></td>
+<td>Review the entire NPC/faction group before saving</td>
+</tr>
+<tr>
+<td><strong>Assignments</strong></td>
+<td>Existing rules, edit/disable/delete and contribution sharing</td>
+</tr>
+<tr>
+<td><strong>Their outfit / Your outfit</strong></td>
+<td>Compare the recipient&#39;s existing look with your draft</td>
+</tr>
+<tr>
+<td><strong>Auto / Female / Male</strong></td>
+<td>Preview body sex</td>
+</tr>
+<tr>
+<td>Header <strong>+ / −</strong></td>
+<td>Text scale</td>
+</tr>
+<tr>
+<td>Preview colour dots</td>
+<td>Pine, sky, grey or pink</td>
+</tr>
+<tr>
+<td><strong>Play / Pause game</strong></td>
+<td>Interface play/pause control</td>
+</tr>
+<tr>
+<td><strong>X</strong> or opening key</td>
+<td>Close/toggle Adorn</td>
+</tr>
+<tr>
+<td><strong>Quick saved outfits</strong></td>
+<td>Compact player wardrobe, with a separately bound MCM key</td>
+</tr>
+<tr>
+<td><strong>Seller / Riddles / Recipes</strong></td>
+<td>Author tools, documented in the ASF manual</td>
+</tr>
+</tbody></table></div>
+<p>Previewing prepares a choice. Save assignment, Save outfit, Give items and Wear now have different effects. Read the action/status before assuming an actor or saved rule has changed.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="wardrobe.html"><span>Previous</span>Your wardrobe</a><a href="sharing.html"><span>Next</span>Share assignments</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Dress one character or give a group its own identity.">
+<meta name="color-scheme" content="dark">
+<title>NPCs, factions &amp; groups · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="adorn-assignments" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="getting-started.html">Getting started</a></li><li><a href="outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="assignments.html" class="current" aria-current="page">NPCs, factions &amp; groups</a></li><li><a href="wardrobe.html">Your wardrobe</a></li><li><a href="controls.html">Controls &amp; interface</a></li><li><a href="sharing.html">Share assignments</a></li><li><a href="troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <div class="article-label">Adorn</div>
+    <h1>NPCs, factions &amp; groups</h1>
+    <p class="description">Dress one character or give a group its own identity.</p>
+
+    <article><h2 id="assign-to-one-npc">Assign to one NPC<a class="heading-anchor" href="#assign-to-one-npc" aria-label="Link to Assign to one NPC">#</a></h2>
+<ol>
+<li>Choose the outfit first.</li>
+<li>Open <strong>Assign → NPCs</strong>. Use <strong>Nearby now</strong>, search the active modlist, or use the crosshair NPC where offered.</li>
+<li>Add the intended recipient and review <strong>Selected recipients</strong>. Clear unintended recipients before saving.</li>
+<li>Inspect the preview and select <strong>Save assignment</strong>.</li>
+<li>Open <strong>Assignments</strong> to find the saved rule. Check the actor now and after a complete Skyrim restart.</li>
+</ol>
+<p>An NPC assignment targets the <strong>base NPC</strong>, even when selected through a nearby reference. Other copies of that base can receive the same outfit. It is not a rule limited to the one actor standing in front of you.</p>
+<p>Location information is available when Adorn can resolve a loaded or previously observed actor. <strong>Last seen in</strong> is session information, not continuous tracking. <strong>Teleport to</strong> appears only when an available reference is unambiguous; it moves the player to that reference and does not create an NPC.</p>
+<h2 id="assign-to-a-faction-or-group">Assign to a faction or group<a class="heading-anchor" href="#assign-to-a-faction-or-group" aria-label="Link to Assign to a faction or group">#</a></h2>
+<p>In <strong>Assign → Factions</strong>, choose the faction, inspect its members and exclude those who should keep their own clothes. Add the faction to <strong>Selected recipients</strong>. NPC and faction recipients can share one named group and look. Save when the entire recipient list is correct.</p>
+<p>A direct NPC assignment takes priority over its faction assignment. If a member keeps a different Adorn outfit, check for an existing direct rule before changing the faction. Faction rules exclude child races. A direct child assignment needs compatible child meshes, local preview and explicit approval; approval from someone else&#39;s shared pack does not carry over.</p>
+<p>The native custom bank has <strong>64 slots</strong>. A custom recipient group shares one slot; disabled custom rules still reserve slots. Installed plugin outfits use none of that custom bank. Free capacity by removing unused custom rules through Adorn, then follow any retirement/restart instructions shown.</p>
+<h2 id="edit-or-remove-assignments">Edit or remove assignments<a class="heading-anchor" href="#edit-or-remove-assignments" aria-label="Link to Edit or remove assignments">#</a></h2>
+<p>Use <strong>Assignments</strong> to select, edit, disable or delete saved rules. Saving updates eligible nearby actors and writes the next-launch SkyPatcher rules. Restart Skyrim to verify the persistent result for actors outside the current area.</p>
+<p>Keep Adorn installed while removing rules you no longer want. Generated patches and actor changes can outlive disabling a runtime folder. Another outfit manager or actor script can also reapply clothing. Do not use deletion of <code>rules.json</code> or all of Overwrite as routine troubleshooting.</p>
+<p>Assignments are installation configuration. All saves using those files see them. A new character does not reset NPC/faction assignments, and a separate MO2 profile may still use the same physical Configs or Overwrite files.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="outfits-and-preview.html"><span>Previous</span>Outfits &amp; preview</a><a href="wardrobe.html"><span>Next</span>Your wardrobe</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>
