@@ -19,17 +19,22 @@
   <div class="topbar-tools">
     <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
     <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <div class="text-scale" role="group" aria-label="Text size">
+      <button id="text-smaller" type="button" aria-label="Decrease text size">A−</button>
+      <button id="text-size" type="button" aria-label="Reset text size to 100 percent" title="Reset text size" aria-live="polite">100%</button>
+      <button id="text-larger" type="button" aria-label="Increase text size">A+</button>
+    </div>
     <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
   </div>
 </header>
 <div class="layout has-page-contents">
-  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="getting-started.html" class="current" aria-current="page">Getting started</a></li><li><a href="outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="assignments.html">NPCs, factions &amp; groups</a></li><li><a href="wardrobe.html">Your wardrobe</a></li><li><a href="controls.html">Controls &amp; interface</a></li><li><a href="sharing.html">Share assignments</a></li><li><a href="troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <aside class="sidebar" id="contents"><div class="contents-label">Contents</div><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Adorn &amp; ASF wiki</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Compatibility &amp; limits</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="introduction.html">Introduction to Adorn</a></li><li><a href="getting-started.html" class="current" aria-current="page">Getting started</a></li><li><a href="outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="assignments.html">NPCs, factions &amp; groups</a></li><li><a href="wardrobe.html">Your wardrobe</a></li><li><a href="controls.html">Controls &amp; interface</a></li><li><a href="sharing.html">Share assignments</a></li><li><a href="troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Adorn Seller Framework (ASF)</h2><ul><li><a href="../asf/introduction.html">Introduction to ASF</a></li><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/introduction.html">Introduction to author tools</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/introduction.html">Introduction to the reference</a></li><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">ASF files &amp; formats</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
   <main id="main" tabindex="-1">
-    <div class="article-label">Adorn</div>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Adorn Wiki</a><span aria-hidden="true">/</span><span>Adorn</span></nav>
     <h1>Getting started</h1>
-    <p class="description">Open Adorn, find your way around and choose your first look.</p>
-    <details class="mobile-page-contents"><summary>On this page</summary><nav aria-label="Sections in this article"><ul><li><a data-section-link href="#requirements">Requirements</a></li><li><a data-section-link href="#interface-reference">Interface reference</a></li><li><a data-section-link href="#install-and-open">Install and open</a></li><li><a data-section-link href="#worked-example">Worked example</a></li></ul></nav></details>
-    <article><h2 id="requirements">Requirements<a class="heading-anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
+    <details class="mobile-page-contents"><summary>On this page</summary><nav aria-label="Sections in this article"><ul><li><a data-section-link href="#requirements">Requirements</a></li><li><a data-section-link href="#install-and-open">Install and open</a></li><li><a data-section-link href="#worked-example">Worked example</a></li></ul></nav></details>
+    <article><p>This guide takes you from installing Adorn to opening its outfit studio and making your first selection. Start here if you are new to the mod; the setup steps and worked example explain how browsing, previewing and saving fit together.</p>
+<h2 id="requirements">Requirements<a class="heading-anchor" href="#requirements" aria-label="Link to Requirements">#</a></h2>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
 <thead>
 <tr>
@@ -62,74 +67,10 @@
 <td>Assignment rules on launch</td>
 </tr>
 </tbody></table></div>
-<p>Follow Prisma UI&#39;s own requirements, currently including Media Keys Fix SKSE <strong>or</strong> Keyboard Shortcuts Fix, and Microsoft Visual C++ Redistributable 2022 x64. Original clothing mods supply the actual items, meshes and textures. BodySlide and a body replacer are needed where required by that clothing/workflow, not universally for plugin-outfit browsing.</p>
+<p>Follow Prisma UI&#39;s own requirements, currently including Media Keys Fix SKSE <strong>or</strong> Keyboard Shortcuts Fix, and Microsoft Visual C++ Redistributable 2022 x64.</p>
+<p><strong>BodySlide is strongly recommended.</strong> Adorn&#39;s BodySlide browsing uses your installed projects, groups and built meshes. Install <a href="https://www.nexusmods.com/skyrimspecialedition/mods/201">BodySlide and Outfit Studio</a>, the original clothing mods and their required body setup. Build outfits that require BodySlide, then enable the output in MO2 before browsing. Adorn&#39;s <strong>Refresh builds</strong> detects existing output; it does not build meshes. Plugin outfits with ready-made meshes can also be browsed without BodySlide projects. BHUNP compatibility has not been verified.</p>
+<p><strong>Tested installation: Windows with MO2.</strong> Both Adorn and ASF have only been tested inside an MO2 modlist; other managers and standalone installs are untested. The <a href="../start/requirements.html">full requirements</a> distinguish player dependencies from author tools.</p>
 <p>ASF is an optional module with its own additional requirements. It is not needed for standalone assignments or the ordinary player wardrobe.</p>
-<h2 id="interface-reference">Interface reference<a class="heading-anchor" href="#interface-reference" aria-label="Link to Interface reference">#</a></h2>
-<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
-<thead>
-<tr>
-<th>View/control</th>
-<th>Responsibility</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>Outfits</strong></td>
-<td>Browse installed looks and assemble custom pieces</td>
-</tr>
-<tr>
-<td><strong>Assign → NPCs</strong></td>
-<td>Nearby actors, active-modlist search and NPC selection</td>
-</tr>
-<tr>
-<td><strong>Assign → Factions</strong></td>
-<td>Faction/member browsing and exclusions</td>
-</tr>
-<tr>
-<td><strong>Assign → Player</strong></td>
-<td>Save/wear personal looks and use optional seller orders</td>
-</tr>
-<tr>
-<td><strong>Selected recipients</strong></td>
-<td>Review the entire NPC/faction group before saving</td>
-</tr>
-<tr>
-<td><strong>Assignments</strong></td>
-<td>Existing rules, edit/disable/delete and contribution sharing</td>
-</tr>
-<tr>
-<td><strong>Their outfit / Your outfit</strong></td>
-<td>Compare the recipient&#39;s existing look with your draft</td>
-</tr>
-<tr>
-<td><strong>Auto / Female / Male</strong></td>
-<td>Preview body sex</td>
-</tr>
-<tr>
-<td>Header <strong>+ / −</strong></td>
-<td>Text scale</td>
-</tr>
-<tr>
-<td>Preview colour dots</td>
-<td>Pine, sky, grey or pink</td>
-</tr>
-<tr>
-<td><strong>Play / Pause game</strong></td>
-<td>Interface play/pause control</td>
-</tr>
-<tr>
-<td><strong>X</strong> or opening key</td>
-<td>Close/toggle Adorn</td>
-</tr>
-<tr>
-<td><strong>Quick saved outfits</strong></td>
-<td>Compact player wardrobe, with a separately bound MCM key</td>
-</tr>
-<tr>
-<td><strong>Seller / Riddles / Recipes</strong></td>
-<td>Author tools, documented in the ASF manual</td>
-</tr>
-</tbody></table></div>
-<p>Previewing prepares a choice. Save assignment, Save outfit, Give items and Wear now have different effects. Read the action/status before assuming an actor or saved rule has changed.</p>
 <h2 id="install-and-open">Install and open<a class="heading-anchor" href="#install-and-open" aria-label="Link to Install and open">#</a></h2>
 <ol>
 <li>Install the <a href="../start/requirements.html#runtime-requirements-for-adorn">runtime requirements</a>. Use builds matching your Skyrim executable.</li>
@@ -137,7 +78,7 @@
 <li>If supplied, enable <strong>Adorn Configs</strong> below Adorn in the left pane. That folder holds editable configuration separately from runtime updates.</li>
 <li>Launch SKSE through MO2, load your save and press <strong>F6</strong>. Change the key in <strong>MCM → Adorn → Open / close Adorn</strong> if needed.</li>
 </ol>
-<p>The documented workflow is MO2 on Windows. The current test profile uses Skyrim 1.7.104. Other runtimes/mod managers need separate validation.</p>
+<p>Launch through MO2 so Adorn can see your enabled clothing, configuration and BodySlide output. Match all native dependencies to your installed Skyrim executable.</p>
 <h2 id="worked-example">Worked example<a class="heading-anchor" href="#worked-example" aria-label="Link to Worked example">#</a></h2>
 <p>To dress a faction while preserving one member&#39;s look:</p>
 <ol>
@@ -152,10 +93,10 @@
 </ol>
 <p>Use a separate test configuration if the shared change should not affect other characters. A test save alone does not isolate assignment files.</p>
 </article>
-    <nav class="page-turn" aria-label="Previous and next articles"><a href="../start/release-status.html"><span>Previous</span>Release &amp; testing status</a><a href="outfits-and-preview.html"><span>Next</span>Outfits &amp; preview</a></nav>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="introduction.html"><span>Previous</span>Introduction to Adorn</a><a href="outfits-and-preview.html"><span>Next</span>Outfits &amp; preview</a></nav>
     <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
   </main>
-  <aside class="page-contents"><nav aria-label="On this page"><h2>On this page</h2><ul><li><a data-section-link href="#requirements">Requirements</a></li><li><a data-section-link href="#interface-reference">Interface reference</a></li><li><a data-section-link href="#install-and-open">Install and open</a></li><li><a data-section-link href="#worked-example">Worked example</a></li></ul></nav></aside>
+  <aside class="page-contents"><nav aria-label="On this page"><h2>On this page</h2><ul><li><a data-section-link href="#requirements">Requirements</a></li><li><a data-section-link href="#install-and-open">Install and open</a></li><li><a data-section-link href="#worked-example">Worked example</a></li></ul></nav></aside>
 </div>
 <dialog id="search-dialog" aria-labelledby="search-title">
   <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>

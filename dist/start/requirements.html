@@ -19,19 +19,26 @@
   <div class="topbar-tools">
     <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
     <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <div class="text-scale" role="group" aria-label="Text size">
+      <button id="text-smaller" type="button" aria-label="Decrease text size">A−</button>
+      <button id="text-size" type="button" aria-label="Reset text size to 100 percent" title="Reset text size" aria-live="polite">100%</button>
+      <button id="text-larger" type="button" aria-label="Increase text size">A+</button>
+    </div>
     <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
   </div>
 </header>
 <div class="layout has-page-contents">
-  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="requirements.html" class="current" aria-current="page">Installation requirements</a></li><li><a href="release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <aside class="sidebar" id="contents"><div class="contents-label">Contents</div><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Adorn &amp; ASF wiki</a></li><li><a href="requirements.html" class="current" aria-current="page">Installation requirements</a></li><li><a href="release-status.html">Compatibility &amp; limits</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/introduction.html">Introduction to Adorn</a></li><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Adorn Seller Framework (ASF)</h2><ul><li><a href="../asf/introduction.html">Introduction to ASF</a></li><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/introduction.html">Introduction to author tools</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/introduction.html">Introduction to the reference</a></li><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">ASF files &amp; formats</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
   <main id="main" tabindex="-1">
-    <div class="article-label">Start here</div>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Adorn Wiki</a><span aria-hidden="true">/</span><span>Start here</span></nav>
     <h1>Installation requirements</h1>
-    <p class="description">What players need, and the extra tools for authors.</p>
-    <details class="mobile-page-contents"><summary>On this page</summary><nav aria-label="Sections in this article"><ul><li><a data-section-link href="#runtime-requirements-for-adorn">Runtime requirements for Adorn</a></li><li><a data-section-link href="#additional-runtime-requirements-for-asf">Additional runtime requirements for ASF</a></li><li><a data-section-link href="#authoring-tools">Authoring tools</a></li><li><a data-section-link href="#publication-checks-affecting-requirements">Publication checks affecting requirements</a></li><li><a data-section-link href="#evidence-and-current-limits">Evidence and current limits</a></li></ul></nav></details>
-    <article><p>Release-documentation draft, checked 29 October 2026. Adorn is the standalone outfit mod; <strong>Adorn Seller Framework (ASF)</strong> is its optional seller module. Player requirements and author tools are separate. The documented setup is Windows/MO2; the development profile uses Skyrim 1.7.104. Every native dependency must support the same executable. Wider runtime/VR support is not established by this document.</p>
+    <details class="mobile-page-contents"><summary>On this page</summary><nav aria-label="Sections in this article"><ul><li><a data-section-link href="#supported-setup">Supported setup</a></li><li><a data-section-link href="#runtime-requirements-for-adorn">Runtime requirements for Adorn</a></li><li class="subsection"><a data-section-link href="#bodyslide-bodies-and-outfit-assets">BodySlide, bodies and outfit assets</a></li><li><a data-section-link href="#additional-runtime-requirements-for-asf">Additional runtime requirements for ASF</a></li><li><a data-section-link href="#authoring-tools">Authoring tools</a></li><li class="subsection"><a data-section-link href="#included-with-asf-no-separate-installation">Included with ASF — no separate installation</a></li><li class="subsection"><a data-section-link href="#install-separately-only-for-dialogueaudio-authoring">Install separately — only for dialogue/audio authoring</a></li><li class="subsection"><a data-section-link href="#bsarch-requirement-for-stock-skyrim-voice-replies">BSArch requirement for stock Skyrim voice replies</a></li><li class="subsection"><a data-section-link href="#optional-writing-assistance">Optional writing assistance</a></li></ul></nav></details>
+    <article><p>Adorn and Adorn Seller Framework (ASF) have different installation needs, and creating new seller dialogue requires tools that ordinary players do not need. Use this page to identify the requirements for your role before following either mod’s setup guide.</p>
+<p>Adorn is the standalone outfit mod; <strong>Adorn Seller Framework (ASF)</strong> is its optional companion. Install the runtime requirements for the mods you use. Only authors building changed dialogue/audio need the additional author tools below.</p>
+<h2 id="supported-setup">Supported setup<a class="heading-anchor" href="#supported-setup" aria-label="Link to Supported setup">#</a></h2>
+<p><strong>Adorn and Adorn Seller Framework (ASF) have only been tested within an MO2 modlist on Windows.</strong> Other mod managers and standalone installations are untested. Use <strong>Mod Organizer 2 (MO2)</strong> for the documented installation and authoring workflows.</p>
+<p>Install versions of SKSE and every native dependency that match your Skyrim executable. Support for another runtime in an individual dependency does not establish compatibility for the complete Adorn/ASF setup.</p>
 <h2 id="runtime-requirements-for-adorn">Runtime requirements for Adorn<a class="heading-anchor" href="#runtime-requirements-for-adorn" aria-label="Link to Runtime requirements for Adorn">#</a></h2>
-<p>Use these relationships in Nexus <strong>Requirements</strong>, not <strong>Mods requiring this file</strong>, which is the reverse relationship.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
 <thead>
 <tr>
@@ -71,8 +78,12 @@
 <td>Generated NPC/faction assignment rules on launch</td>
 </tr>
 </tbody></table></div>
-<p>Prisma UI currently lists <strong>Media Keys Fix SKSE or Keyboard Shortcuts Fix</strong>, plus <strong>Microsoft Visual C++ Redistributable 2022 x64</strong>. Follow the linked Prisma page for the current alternatives and downloads. BodySlide is relevant when using that content/workflow; it is not a blanket requirement for browsing already installed plugin outfits.</p>
+<p>Prisma UI currently lists <strong>Media Keys Fix SKSE or Keyboard Shortcuts Fix</strong>, plus <strong>Microsoft Visual C++ Redistributable 2022 x64</strong>. Follow the linked Prisma page for the current alternatives and downloads.</p>
 <p>The core archive requires <strong>AdornSlots.esp</strong> to be enabled, alongside its native DLL, matching UI/scripts and helper assets. Enabling only the ESP is not a complete installation.</p>
+<h3 id="bodyslide-bodies-and-outfit-assets">BodySlide, bodies and outfit assets<a class="heading-anchor" href="#bodyslide-bodies-and-outfit-assets" aria-label="Link to BodySlide, bodies and outfit assets">#</a></h3>
+<p><strong><a href="https://www.nexusmods.com/skyrimspecialedition/mods/201">BodySlide and Outfit Studio</a> is strongly recommended for Adorn&#39;s full outfit-browsing experience.</strong> BodySlide projects, groups and built outfit meshes are a major part of Adorn&#39;s browsing workflow.</p>
+<p>Install the original clothing mods and their required body setup. For outfits that require BodySlide output, <strong>build those outfits in BodySlide before using them in Adorn</strong>, and enable the output in MO2. Adorn detects and previews installed meshes; <strong>Refresh builds</strong> rescans them rather than running BodySlide or creating missing meshes.</p>
+<p>Plugin-outfit browsing can also use existing installed meshes without BodySlide projects. This does not remove the body or build requirements of the clothing itself. Adorn does not convert outfits between bodies or fix clipping. <strong>BHUNP compatibility has not been verified</strong>; do not assume a BodySlide project alone establishes support.</p>
 <h2 id="additional-runtime-requirements-for-asf">Additional runtime requirements for ASF<a class="heading-anchor" href="#additional-runtime-requirements-for-asf" aria-label="Link to Additional runtime requirements for ASF">#</a></h2>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
 <thead>
@@ -83,11 +94,11 @@
 </thead>
 <tbody><tr>
 <td>Adorn</td>
-<td>ASF uses Adorn&#39;s DLL, UI, content and progression systems. Add the real Adorn Nexus page link when published</td>
+<td>ASF uses Adorn&#39;s DLL, UI, content and progression systems. Requires the complete Adorn installation</td>
 </tr>
 <tr>
 <td>Fuz Ro D-oh – Silent Voice</td>
-<td><a href="https://www.nexusmods.com/skyrimspecialedition/mods/15109">Runtime-specific download</a> for readable unvoiced fallback replies; retained as required in this release draft</td>
+<td><a href="https://www.nexusmods.com/skyrimspecialedition/mods/15109">Runtime-specific download</a> for readable unvoiced fallback replies; required for the current fallback paths</td>
 </tr>
 <tr>
 <td>Pack-specific NPC/content mods</td>
@@ -95,69 +106,87 @@
 </tr>
 </tbody></table></div>
 <p>Enable <strong>Adorn Seller Framework.esp</strong> as well as AdornSlots.esp. The current generic framework is NPC-neutral and starts disabled/unassigned. One placed seller is active at a time; prepared drafts may cover multiple NPCs.</p>
-<p>Prepared silent FUZ/LIP support now exists, including per-riddle Clue replies, but that does not yet justify removing Fuz Ro D-oh while generic/unprepared fallback is supported and runtime validation is pending. Revisit the dependency only after verifying every advertised unvoiced path in the final archive.</p>
-<p>Suggested Nexus wording: <strong>Requires Adorn and its listed requirements, plus Fuz Ro D-oh for unvoiced seller replies. Install versions matching your Skyrim executable. Any NPC-specific seller pack has its own dependencies.</strong></p>
+<p>Keep Fuz Ro D-oh installed for the supported unvoiced fallback replies, including when your authored pack contains prepared silent audio.</p>
 <p>Ordinary players using prepared content need no API key, Python, Creation Kit, BSArch or development SDK.</p>
 <h2 id="authoring-tools">Authoring tools<a class="heading-anchor" href="#authoring-tools" aria-label="Link to Authoring tools">#</a></h2>
-<p>Only authors preparing changed dialogue/audio need this build toolchain. Manual riddle/recipe text editing alone does not require the audio tools; making an extra clue available in native conversation does.</p>
+<p><strong>Players using prepared seller content do not need to install this authoring toolchain.</strong> It is for authors building new or changed dialogue/audio, including prepared extra-clue replies. Manual riddle/recipe text editing alone does not require the audio tools.</p>
+<h3 id="included-with-asf-no-separate-installation">Included with ASF — no separate installation<a class="heading-anchor" href="#included-with-asf-no-separate-installation" aria-label="Link to Included with ASF — no separate installation">#</a></h3>
+<p>The complete ASF author bundle already supplies the following tools. <strong>You do not need to download or install additional copies for the normal Build workflow.</strong></p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
+<tr>
+<th>Included tool</th>
+<th>What it does</th>
+<th>Installation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ASF dialogue builder</td>
+<td>Builds the native dialogue records and supporting output using self-contained <code>SellerDialogueBuild.exe</code></td>
+<td><strong>Bundled with ASF</strong>; no separate .NET SDK needed</td>
+</tr>
+<tr>
+<td>Portable eSpeak NG 1.52.0</td>
+<td>Supplies temporary timing guides for silent replies, with its data/notices/matching source; its audible speech is not packaged</td>
+<td><strong>Bundled with ASF</strong>; no separate eSpeak installation needed</td>
+</tr>
+<tr>
+<td>FFmpeg</td>
+<td>Normalizes imported and recorded audio using the supplied Windows x64 build</td>
+<td><strong>Bundled with ASF</strong>; no separate FFmpeg installation needed</td>
+</tr>
+</tbody></table></div>
+<h3 id="install-separately-only-for-dialogueaudio-authoring">Install separately — only for dialogue/audio authoring<a class="heading-anchor" href="#install-separately-only-for-dialogueaudio-authoring" aria-label="Link to Install separately — only for dialogue/audio authoring">#</a></h3>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
 <thead>
 <tr>
 <th>Tool</th>
-<th>Required when and how supplied</th>
+<th>What you need to do</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>Python 3</td>
-<td>Used by the current voice preparation/staging scripts; install locally</td>
+<td><strong>Not bundled. Install separately</strong> for the voice preparation/staging scripts.</td>
 </tr>
 <tr>
 <td>Skyrim Special Edition Creation Kit</td>
-<td><a href="https://store.steampowered.com/app/1946180/Skyrim_Special_Edition_Creation_Kit/">Separate Steam download</a>; supplies installed audio tools</td>
+<td><strong>Not bundled with ASF.</strong> Install the <a href="https://store.steampowered.com/app/1946180/Skyrim_Special_Edition_Creation_Kit/">Creation Kit from Steam</a>. It supplies LipGenerator, xwmaencode and LIPFuzer; these are <strong>Creation Kit tools</strong>, not three additional ASF downloads.</td>
 </tr>
+</tbody></table></div>
+<p>The build expects the CK tools in their installed CK/game locations: <code>Tools/LipGen/LipGenerator/LipGenerator.exe</code>, <code>Tools/Audio/xwmaencode.exe</code> and <code>Tools/LipGen/LipFuzer/LIPFuzer.exe</code>. Bundled FFmpeg and eSpeak do not replace them.</p>
+<h3 id="bsarch-requirement-for-stock-skyrim-voice-replies">BSArch requirement for stock Skyrim voice replies<a class="heading-anchor" href="#bsarch-requirement-for-stock-skyrim-voice-replies" aria-label="Link to BSArch requirement for stock Skyrim voice replies">#</a></h3>
+<p><strong>BSArch is an authoring requirement when building seller dialogue that uses stock Skyrim recordings. It is not bundled with ASF.</strong> It extracts the installed game&#39;s voice archive into a local cache; a fresh stock-voice setup needs it even if another author&#39;s existing cache did not.</p>
+<p><strong>BSArch is included with xEdit builds</strong>, as confirmed by <a href="https://www.nexusmods.com/fallout4/mods/63243?tab=posts">its author</a>. Check your existing xEdit/SSEEdit folder for <code>BSArch.exe</code> first: <strong>if it is already at the path below, no extra download is needed.</strong> ASF uses this command-line tool, not the xEdit editor. BSArch is separate from the Creation Kit; installing CK does not supply the executable ASF calls.</p>
+<ol>
+<li>Check your xEdit/SSEEdit installation for <code>BSArch.exe</code>. <strong>If missing</strong>, download the <strong>BSArch command-line tool</strong> from <a href="https://www.nexusmods.com/newvegas/mods/64745?tab=files">the author&#39;s Nexus Files page</a>, rather than the separate BSArchPro GUI. The standalone tool&#39;s page is hosted under Fallout New Vegas; ASF uses it to extract Skyrim&#39;s voice archive.</li>
+<li>Extract it into <code>tools\xEdit</code> inside the MO2 instance used for Adorn. Create those folders if needed and keep the downloaded package&#39;s accompanying files together.</li>
+<li>Confirm the executable is directly at <strong><code>&lt;MO2 instance folder&gt;\tools\xEdit\BSArch.exe</code></strong>, with no extra nested download folder. For example, an instance at <code>N:\NSW</code> needs <code>N:\NSW\tools\xEdit\BSArch.exe</code>.</li>
+<li>Keep the game&#39;s <code>Data\Skyrim - Voices_en0.bsa</code> available. The current stock-recording workflow expects that English voice archive.</li>
+</ol>
+<p>The current publisher looks at that exact MO2-relative path. <strong>Do not install BSArch as a normal mod in the left pane; no MO2 executable entry is needed.</strong> ASF invokes it automatically when preparing stock recordings. CK&#39;s <code>Archive.exe</code> is not a configured replacement.</p>
+<p>Players using a prepared seller pack do not need BSArch. Authors using only silent or their own imported/recorded replies do not need stock extraction. Once an extraction cache exists, ASF reuses it while the voice archive is unchanged; keep BSArch installed for future rebuilds.</p>
+<p><a href="https://github.com/TES5Edit/TES5Edit/blob/dev-4.1.6/BSArch.dpr">BSArch source code in the xEdit repository</a>.</p>
+<h3 id="optional-writing-assistance">Optional writing assistance<a class="heading-anchor" href="#optional-writing-assistance" aria-label="Link to Optional writing assistance">#</a></h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
+<thead>
 <tr>
-<td>CK LipGenerator, xwmaencode, LIPFuzer</td>
-<td>Current pipeline uses <code>Tools/LipGen/LipGenerator/LipGenerator.exe</code>, <code>Tools/Audio/xwmaencode.exe</code>, <code>Tools/LipGen/LipFuzer/LIPFuzer.exe</code> under the CK/game installation. Keep these installed; they are not bundled player tools</td>
+<th>Tool or service</th>
+<th>When needed</th>
+<th>Bundled?</th>
 </tr>
-<tr>
-<td>ASF dialogue builder</td>
-<td>Self-contained <code>SellerDialogueBuild.exe</code> bundled in the author tools; no .NET SDK needed for the in-game Build action</td>
-</tr>
-<tr>
-<td>Portable eSpeak NG</td>
-<td>Bundled 1.52.0 with data/notices/matching source. Generates temporary silent-line timing guides; its audible speech is not packaged. No separate installation needed</td>
-</tr>
-<tr>
-<td>FFmpeg</td>
-<td>Bundled pinned Windows x64 build for imported/recorded audio normalization. Does not replace CK tools</td>
-</tr>
-<tr>
-<td>BSArch</td>
-<td>Needed for initial local stock-recording extraction if no reusable cache exists. Current publisher looks for <code>tools/xEdit/BSArch.exe</code> under MO2. Not needed for an entirely silent/self-recorded workflow</td>
-</tr>
-<tr>
+</thead>
+<tbody><tr>
 <td>OpenRouter account/key</td>
-<td>Optional author drafting only, using the author&#39;s chosen model/credit. No player or dialogue-build requirement</td>
+<td>Optional writing suggestions using the author&#39;s chosen model/credit. No requirement for manual writing, gameplay or dialogue builds.</td>
+<td><strong>Not included or required</strong>; use your own account/key only if you enable assistance.</td>
 </tr>
 </tbody></table></div>
 <p><strong>Build [seller]&#39;s seller dialogue</strong> saves drafts and prepares the output while Skyrim runs. After Build complete, save and exit; the publisher installs after Skyrim exits, into the resolved Configs/Overwrite destination. Wait for installation then restart. <strong>Prepare clue dialogue</strong> uses the same pipeline. See <a href="../asf/getting-started.html">ASF guide</a> and <a href="../reference/user-data.html">User data</a>.</p>
-<h2 id="publication-checks-affecting-requirements">Publication checks affecting requirements<a class="heading-anchor" href="#publication-checks-affecting-requirements" aria-label="Link to Publication checks affecting requirements">#</a></h2>
-<ol>
-<li>Verify clean installation and the supported executable range against the complete dependency stack. <a href="https://skse.silverlock.org/">SKSE downloads</a> distinguish Steam, GOG, old SE and VR builds; that does not itself prove Adorn compatibility with each.</li>
-<li>Keep CK executables and proprietary data such as FonixData out of the archive unless permission allows redistribution. Authors obtain CK separately. Review the <a href="https://store.steampowered.com/eula/1946180_eula_0">Creation Kit EULA</a>.</li>
-<li>Keep locally extracted vanilla voice clips out of public archives unless distribution is permitted. The stock selector&#39;s local extraction does not grant redistribution rights. Review <a href="https://help.nexusmods.com/article/28-file-submission-guidelines">Nexus file guidelines</a>.</li>
-<li>Preserve and review eSpeak/FFmpeg licences, notices and matching-source obligations for the exact distributed binaries. See <span class="source-reference" title="Additional notes in the maintained project documentation">eSpeak bundle details</span>, <code>tools/package-seller-ffmpeg.ps1</code> and <a href="https://www.ffmpeg.org/legal.html">FFmpeg&#39;s redistribution guidance</a>. Local testing is not completion of a public redistribution review.</li>
-<li>Keep author-only tools out of Nexus&#39;s player dependency list. Document them in Articles/download guides and distinguish source drafts from finished player packs.</li>
-<li>Retain Fuz Ro D-oh as required until release testing establishes whether every supported fallback can safely work without it.</li>
-</ol>
-<h2 id="evidence-and-current-limits">Evidence and current limits<a class="heading-anchor" href="#evidence-and-current-limits" aria-label="Link to Evidence and current limits">#</a></h2>
-<p>The runtime list follows the active Prisma UI implementation, MCM configuration and generated-assignment system. The generic ASF header previously read back Skyrim.esm as its only master; JSON-selected NPCs are not universal plugin masters. Prepared author output can have its own dependencies.</p>
-<p>The 29 October editor, native tier/offer logic, compiler and staged audio checks are documented in <span class="source-reference" title="Additional notes in the maintained project documentation">riddle results</span>. In-game generic hand-ins, cross-save/New Game behavior, clue playback/lips and successful live OpenRouter generation remain acceptance work. See the <a href="release-status.html">release documentation index</a> for the publication checklist and evidence boundary.</p>
 </article>
-    <nav class="page-turn" aria-label="Previous and next articles"><a href="../index.html"><span>Previous</span>Welcome to Adorn</a><a href="release-status.html"><span>Next</span>Release &amp; testing status</a></nav>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="../index.html"><span>Previous</span>Adorn &amp; ASF wiki</a><a href="release-status.html"><span>Next</span>Compatibility &amp; limits</a></nav>
     <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
   </main>
-  <aside class="page-contents"><nav aria-label="On this page"><h2>On this page</h2><ul><li><a data-section-link href="#runtime-requirements-for-adorn">Runtime requirements for Adorn</a></li><li><a data-section-link href="#additional-runtime-requirements-for-asf">Additional runtime requirements for ASF</a></li><li><a data-section-link href="#authoring-tools">Authoring tools</a></li><li><a data-section-link href="#publication-checks-affecting-requirements">Publication checks affecting requirements</a></li><li><a data-section-link href="#evidence-and-current-limits">Evidence and current limits</a></li></ul></nav></aside>
+  <aside class="page-contents"><nav aria-label="On this page"><h2>On this page</h2><ul><li><a data-section-link href="#supported-setup">Supported setup</a></li><li><a data-section-link href="#runtime-requirements-for-adorn">Runtime requirements for Adorn</a></li><li class="subsection"><a data-section-link href="#bodyslide-bodies-and-outfit-assets">BodySlide, bodies and outfit assets</a></li><li><a data-section-link href="#additional-runtime-requirements-for-asf">Additional runtime requirements for ASF</a></li><li><a data-section-link href="#authoring-tools">Authoring tools</a></li><li class="subsection"><a data-section-link href="#included-with-asf-no-separate-installation">Included with ASF — no separate installation</a></li><li class="subsection"><a data-section-link href="#install-separately-only-for-dialogueaudio-authoring">Install separately — only for dialogue/audio authoring</a></li><li class="subsection"><a data-section-link href="#bsarch-requirement-for-stock-skyrim-voice-replies">BSArch requirement for stock Skyrim voice replies</a></li><li class="subsection"><a data-section-link href="#optional-writing-assistance">Optional writing assistance</a></li></ul></nav></aside>
 </div>
 <dialog id="search-dialog" aria-labelledby="search-title">
   <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>

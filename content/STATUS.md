@@ -1,31 +1,43 @@
-# Release & testing status
+# Compatibility & limits
 
-These guides describe the implemented feature set documented on **29 October 2026**. Documentation and successful builds do not establish that every workflow has passed its final in-game test.
+Adorn and Adorn Seller Framework (ASF) use the outfits, NPCs and supporting tools installed in your game. This page explains the practical limits to consider when choosing content, configuring assignments or preparing a seller setup.
 
-## Adorn
+## Installation compatibility
 
-Outfit browsing, custom looks, the preview, assignments, the player wardrobe and assignment sharing have implementation and offline checks. Clean release installation, assignment editing/removal and restart restoration, native pack dialogs, and the intended body/mesh combinations still need acceptance.
+**Both Adorn and Adorn Seller Framework have only been tested within an MO2 modlist on Windows.** These guides use that setup; other mod managers and standalone installations are untested. Check the runtime information supplied with your mod download and install versions of SKSE and native dependencies that match your Skyrim executable. A dependency supporting another runtime does not automatically make the complete Adorn installation compatible with it.
 
-## Seller Framework
+The original clothing and NPC mods remain required. Assignment packs and seller configuration reference their records; they do not supply those mods’ meshes, textures or characters.
 
-The order, recipe, author-dialogue, recording and build systems are implemented. Earlier prototype testing confirmed particular named-parchment and crafting paths; that is narrower than complete generic-seller acceptance.
+## Outfits and preview
 
-Full generic-seller hand-in, genuine New Game and cross-save isolation, prepared clue playback and visible lip movement remain acceptance work. The 42-style stock catalogue contains recording candidates, not a claim that every NPC/style combination has passed playback tests.
+A custom look supports **up to 32 pieces**. The selected pieces must have compatible equipment slots, meshes and body variants. Combining them does not resolve clipping, create missing male/female meshes or convert clothing between bodies.
 
-## Riddles & optional assistance
+BodySlide is strongly recommended for the full browsing workflow. Adorn displays the installed meshes; build the output required by your clothing and enable it in MO2 first. Refreshing Adorn’s builds rescans that output rather than running BodySlide. BHUNP compatibility has not been verified.
 
-Tier logic, fixed offers, authoring UI, compiled clues, request validation and credential persistence have offline checks. The default tier system is off and starter content is not a balanced progression pool.
+## Assignments and sharing
 
-Successful live OpenRouter generation remains unverified. Development free-route checks encountered privacy, rate and output limits. Manual authoring and ordinary gameplay work without an API key.
+Custom NPC/faction assignments share **64 outfit slots**. Disabled custom rules still reserve their slots. Installed plugin outfits do not use that custom bank, and an imported source group can share a slot across its accepted recipients.
 
-## Scope of this release
+NPC assignments target the **NPC base record**, so copies of the same base can share the result. Faction assignments exclude child races. Direct child contributions require compatible clothing, local preview and explicit approval.
 
-Hair studio/barber services, live AI NPC conversation and neural TTS remain design or research work. They are not advertised here as available workflows.
+Version 1 assignment packs support up to **512 groups, 4,096 recipients and 8 MB**. Missing defining plugins or changed record identities can prevent a contribution from resolving.
 
-The documented development environment is Windows/MO2 with Skyrim **1.7.104**. Wider runtime and mod-manager support requires separate validation.
+## Adorn Seller Framework (ASF)
 
-## Reporting a problem
+One placed NPC holds the active seller role at a time. Authors can retain conversation drafts for several NPCs, but choosing another draft does not create a second simultaneous seller service.
 
-Include the exact game and mod versions, your input device, the selected pieces or seller, the steps taken and the expected versus actual result. Keep the relevant logs. Never include an API key.
+Learned recipe orders share **32 craftable-piece slots per save**. An order with several pieces uses capacity for those pieces. Finished-outfit orders use no recipe slots. The tiered offer journal holds up to **512 distinct offers** in that save.
 
-Use [Adorn troubleshooting](../ADORN_MANUAL.md#troubleshooting) or [ASF troubleshooting](../ASF_MANUAL.md#troubleshooting) for the checks specific to your workflow.
+Changed seller dialogue requires **Build → exit Skyrim → installation → restart**. Saving a draft or choosing a recording alone does not activate new native dialogue.
+
+## Optional writing assistance
+
+OpenRouter assistance requires your own account/key and a compatible available model route. Free capacity and provider restrictions can vary. If a request fails, the editor keeps your manual work; review the error before retrying. ASF does not silently substitute a paid model.
+
+Manual writing and normal gameplay do not require an API key or internet connection. Tier rules start disabled, and the starter riddle pool is example content for authors to expand and balance.
+
+## Asking for help
+
+Include your game and mod versions, input device, selected pieces or seller, the steps taken and the expected versus actual result. Keep relevant logs and leave API keys out of reports.
+
+Use [Adorn troubleshooting](../ADORN_MANUAL.md#troubleshooting) for outfit, preview and assignment problems, or [ASF troubleshooting](../ASF_MANUAL.md#troubleshooting) for orders, recordings and dialogue builds.

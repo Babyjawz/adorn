@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="The guides to Adorn and Adorn Seller Framework.">
+<meta name="description" content="An introduction to Adorn, Adorn Seller Framework (ASF), and the guides in this wiki.">
 <meta name="color-scheme" content="dark">
-<title>Welcome to Adorn · Adorn Wiki</title>
+<title>Adorn &amp; ASF wiki · Adorn Wiki</title>
 <link rel="icon" href="assets/adorn-wordmark-v4.png">
 <link rel="stylesheet" href="assets/wiki.css">
 <script src="assets/theme.js"></script>
@@ -19,54 +19,43 @@
   <div class="topbar-tools">
     <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
     <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <div class="text-scale" role="group" aria-label="Text size">
+      <button id="text-smaller" type="button" aria-label="Decrease text size">A−</button>
+      <button id="text-size" type="button" aria-label="Reset text size to 100 percent" title="Reset text size" aria-live="polite">100%</button>
+      <button id="text-larger" type="button" aria-label="Increase text size">A+</button>
+    </div>
     <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
   </div>
 </header>
-<div class="layout">
-  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="index.html" class="current" aria-current="page">Welcome to Adorn</a></li><li><a href="start/requirements.html">Installation requirements</a></li><li><a href="start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="adorn/getting-started.html">Getting started</a></li><li><a href="adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="adorn/wardrobe.html">Your wardrobe</a></li><li><a href="adorn/controls.html">Controls &amp; interface</a></li><li><a href="adorn/sharing.html">Share assignments</a></li><li><a href="adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="asf/getting-started.html">Your first seller order</a></li><li><a href="asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="asf/seller-setup.html">Set up a seller</a></li><li><a href="asf/dialogue.html">Write the conversation</a></li><li><a href="asf/recording.html">Record, import &amp; trim</a></li><li><a href="asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="author/recipes.html">Recipe maker</a></li><li><a href="author/first-riddle.html">First riddle</a></li><li><a href="author/riddles.html">Riddle maker reference</a></li><li><a href="author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="reference/files.html">Files &amp; limits</a></li><li><a href="reference/riddle-system.html">Riddle system internals</a></li><li><a href="reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+<div class="layout has-page-contents">
+  <aside class="sidebar" id="contents"><div class="contents-label">Contents</div><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="index.html" class="current" aria-current="page">Adorn &amp; ASF wiki</a></li><li><a href="start/requirements.html">Installation requirements</a></li><li><a href="start/release-status.html">Compatibility &amp; limits</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="adorn/introduction.html">Introduction to Adorn</a></li><li><a href="adorn/getting-started.html">Getting started</a></li><li><a href="adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="adorn/wardrobe.html">Your wardrobe</a></li><li><a href="adorn/controls.html">Controls &amp; interface</a></li><li><a href="adorn/sharing.html">Share assignments</a></li><li><a href="adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Adorn Seller Framework (ASF)</h2><ul><li><a href="asf/introduction.html">Introduction to ASF</a></li><li><a href="asf/getting-started.html">Your first seller order</a></li><li><a href="asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="author/introduction.html">Introduction to author tools</a></li><li><a href="asf/seller-setup.html">Set up a seller</a></li><li><a href="asf/dialogue.html">Write the conversation</a></li><li><a href="asf/recording.html">Record, import &amp; trim</a></li><li><a href="asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="author/recipes.html">Recipe maker</a></li><li><a href="author/first-riddle.html">First riddle</a></li><li><a href="author/riddles.html">Riddle maker reference</a></li><li><a href="author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="reference/introduction.html">Introduction to the reference</a></li><li><a href="reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="reference/files.html">ASF files &amp; formats</a></li><li><a href="reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
   <main id="main" tabindex="-1">
-    <div class="article-label">Start here</div>
-    <h1>Welcome to Adorn</h1>
-    <p class="description">The guides to Adorn and Adorn Seller Framework.</p>
-
-    <article><p>This wiki covers <strong>Adorn</strong> and <strong>Adorn Seller Framework</strong>: installation, everyday use, author tools and technical reference.</p>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Adorn Wiki</a><span aria-hidden="true">/</span><span>Start here</span></nav>
+    <h1>Adorn &amp; ASF wiki</h1>
+    <details class="mobile-page-contents"><summary>On this page</summary><nav aria-label="Sections in this article"><ul><li><a data-section-link href="#adorn">Adorn</a></li><li><a data-section-link href="#adorn-seller-framework-asf">Adorn Seller Framework (ASF)</a></li><li><a data-section-link href="#author-tools">Author tools</a></li><li><a data-section-link href="#reference">Reference</a></li><li><a data-section-link href="#before-you-begin">Before you begin</a></li></ul></nav></details>
+    <article><p>This wiki covers <strong>Adorn</strong> and <strong>Adorn Seller Framework (ASF)</strong>: what each mod does, how to use it, and how to create and share your own content.</p>
+<p>The contents on the left organise the guides by mod and purpose. The list on the right follows the headings of the page you are reading.</p>
 <h2 id="adorn">Adorn<a class="heading-anchor" href="#adorn" aria-label="Link to Adorn">#</a></h2>
-<p>Browse your installed outfit collection, combine pieces into custom looks and inspect the result in the 3D preview. Dress individual NPCs, factions or mixed groups, keep a personal wardrobe and share assignment contributions.</p>
-<ul>
-<li><a href="adorn/getting-started.html#install-and-open">Getting started</a></li>
-<li><a href="adorn/outfits-and-preview.html#choose-an-outfit">Browse outfits and use the preview</a></li>
-<li><a href="adorn/assignments.html#assign-to-one-npc">Assign looks to NPCs and factions</a></li>
-<li><a href="adorn/wardrobe.html#use-the-player-wardrobe">Use your wardrobe</a></li>
-<li><a href="adorn/sharing.html">Share assignments</a></li>
-<li><a href="adorn/troubleshooting.html#troubleshooting">Troubleshooting</a></li>
-</ul>
-<h2 id="adorn-seller-framework">Adorn Seller Framework<a class="heading-anchor" href="#adorn-seller-framework" aria-label="Link to Adorn Seller Framework">#</a></h2>
-<p>Give selected looks a place in the adventure. Find the assigned seller, solve their request and earn finished pieces or learn to craft them. Authors can create the conversation, record replies and set the recipe and challenge rules.</p>
+<p><strong>Adorn is an in-game outfit studio for your character, NPCs and factions.</strong> Browse the clothing and armour supplied by your installed mods, combine pieces into custom looks and inspect them in a rotatable 3D preview. Give a follower their own style, coordinate a group, keep a personal wardrobe and share assignment contributions with other players.</p>
+<p>You can start with an installed set, replace a few pieces or assemble a look from several mods. Compare a recipient’s current outfit with your proposal, save the assignment and return to it later to edit, disable or remove it. Personal saved looks stay with the loaded save; NPC and faction rules are shared configuration.</p>
+<h2 id="adorn-seller-framework-asf">Adorn Seller Framework (ASF)<a class="heading-anchor" href="#adorn-seller-framework-asf" aria-label="Link to Adorn Seller Framework (ASF)">#</a></h2>
+<p><strong>Adorn Seller Framework (ASF) connects those looks to a seller, a challenge and a reward.</strong> Find the assigned character, solve their request and earn finished pieces or learn to craft your selection—even supported pieces whose original mod has no recipe. Its in-game author tools let creators configure the seller, write and record the conversation, build native dialogue, and choose the crafting and riddle rules.</p>
 <p>A tailor, a demanding collector, or a <strong>follower with an unusual side business</strong>.</p>
-<ul>
-<li><a href="asf/getting-started.html#play-an-order">Your first seller order</a></li>
-<li><a href="asf/orders-and-recipes.html#recipes-and-finished-outfits">Orders, recipes and progression</a></li>
-<li><a href="asf/seller-setup.html#author-setup">Set up a seller</a></li>
-<li><a href="asf/dialogue.html#write-the-seller-dialogue">Write the conversation</a></li>
-<li><a href="asf/recording.html#record-or-import-audio">Record, import and trim replies</a></li>
-<li><a href="asf/build-and-share.html#build-and-activate-dialogue">Build and share a seller</a></li>
-</ul>
+<p>For players, ASF makes acquiring a chosen look part of play. For NPC authors and modlist creators, it provides a way to build a service around a character: their exchanges, the performance behind each reply, the requests they make and the crafting rules attached to their rewards. Prepared conversations can combine stock Skyrim recordings, personal takes and silent replies.</p>
 <h2 id="author-tools">Author tools<a class="heading-anchor" href="#author-tools" aria-label="Link to Author tools">#</a></h2>
-<ul>
-<li><a href="author/recipes.html#author-recipe-templates">Recipe maker</a></li>
-<li><a href="author/first-riddle.html">Make your first riddle</a></li>
-<li><a href="author/riddles.html">Full riddle maker reference</a></li>
-<li><a href="author/tiers.html#riddle-maker-and-tier-configuration">Tiers and fixed offers</a></li>
-<li><a href="author/assistance.html#openrouter-author-assistance">Optional writing assistance</a></li>
-</ul>
+<p>Create the content used by ASF: recipe instructions and materials, item-payment riddles, optional hints and prepared seller replies. The author guides explain how these parts fit together before taking you through each editor.</p>
+<p>Recipes define the separate cost of crafting each reward piece. Riddles define the seller’s item payment, with optional reward tiers and an extra clue. Authors can write manually or request optional OpenRouter suggestions, review the result and decide what to save. The dialogue builder prepares matching native records and audio for the next launch.</p>
+<h2 id="reference">Reference<a class="heading-anchor" href="#reference" aria-label="Link to Reference">#</a></h2>
+<p>Find the supporting details for configuration, saves, backups, file formats and implementation limits. Use the reference alongside the task guides when maintaining or sharing a setup.</p>
+<p>This section explains which data belongs to a save, how configuration priority works and which prepared files must remain together when backing up an installation or sharing authored content.</p>
 <h2 id="before-you-begin">Before you begin<a class="heading-anchor" href="#before-you-begin" aria-label="Link to Before you begin">#</a></h2>
 <p>Check the <a href="start/requirements.html">requirements</a> for your role. Ordinary players using prepared ASF content do not need the dialogue-build toolchain or an API key.</p>
-<p>These guides describe the current implementation. Read the <a href="start/release-status.html">release and testing status</a> for the in-game acceptance work still outstanding.</p>
+<p>The <a href="start/release-status.html">compatibility and limits guide</a> explains the content requirements and capacity limits that affect your setup.</p>
 </article>
     <nav class="page-turn" aria-label="Previous and next articles"><span></span><a href="start/requirements.html"><span>Next</span>Installation requirements</a></nav>
     <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
   </main>
-
+  <aside class="page-contents"><nav aria-label="On this page"><h2>On this page</h2><ul><li><a data-section-link href="#adorn">Adorn</a></li><li><a data-section-link href="#adorn-seller-framework-asf">Adorn Seller Framework (ASF)</a></li><li><a data-section-link href="#author-tools">Author tools</a></li><li><a data-section-link href="#reference">Reference</a></li><li><a data-section-link href="#before-you-begin">Before you begin</a></li></ul></nav></aside>
 </div>
 <dialog id="search-dialog" aria-labelledby="search-title">
   <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>

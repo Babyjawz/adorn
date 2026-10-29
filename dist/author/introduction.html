@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="How recipes, riddles, dialogue and audio come together in a seller setup.">
+<meta name="color-scheme" content="dark">
+<title>Introduction to author tools · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="author-intro" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <div class="text-scale" role="group" aria-label="Text size">
+      <button id="text-smaller" type="button" aria-label="Decrease text size">A−</button>
+      <button id="text-size" type="button" aria-label="Reset text size to 100 percent" title="Reset text size" aria-live="polite">100%</button>
+      <button id="text-larger" type="button" aria-label="Increase text size">A+</button>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout has-page-contents">
+  <aside class="sidebar" id="contents"><div class="contents-label">Contents</div><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Adorn &amp; ASF wiki</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Compatibility &amp; limits</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/introduction.html">Introduction to Adorn</a></li><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Adorn Seller Framework (ASF)</h2><ul><li><a href="../asf/introduction.html">Introduction to ASF</a></li><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="introduction.html" class="current" aria-current="page">Introduction to author tools</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="recipes.html">Recipe maker</a></li><li><a href="first-riddle.html">First riddle</a></li><li><a href="riddles.html">Riddle maker reference</a></li><li><a href="tiers.html">Tiers &amp; fixed offers</a></li><li><a href="assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/introduction.html">Introduction to the reference</a></li><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">ASF files &amp; formats</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Adorn Wiki</a><span aria-hidden="true">/</span><span>Author tools</span></nav>
+    <h1>Introduction to author tools</h1>
+    <details class="mobile-page-contents"><summary>On this page</summary><nav aria-label="Sections in this article"><ul><li><a data-section-link href="#begin-with-the-seller">Begin with the seller</a></li><li><a data-section-link href="#write-the-conversation-and-choose-its-performance">Write the conversation and choose its performance</a></li><li><a data-section-link href="#decide-how-rewards-are-crafted">Decide how rewards are crafted</a></li><li><a data-section-link href="#build-a-fair-challenge-pool">Build a fair challenge pool</a></li><li><a data-section-link href="#prepare-test-and-share">Prepare, test and share</a></li></ul></nav></details>
+    <article><p><strong>Author tools let you create the content behind Adorn Seller Framework (ASF): the seller’s conversation, item-payment challenges, recipe rules and prepared audio.</strong> They are for NPC authors, modlist creators and players building their own setup. Players using a finished seller pack can follow its instructions without preparing new dialogue themselves.</p>
+<p>The tools work together. The seller gives the service a face, the conversation gives them a personality, the riddle defines the payment and the recipe defines what the player learns to craft. A prepared build connects the authored replies to native Skyrim dialogue.</p>
+<h2 id="begin-with-the-seller">Begin with the seller<a class="heading-anchor" href="#begin-with-the-seller" aria-label="Link to Begin with the seller">#</a></h2>
+<p>Read the <a href="../asf/introduction.html">ASF introduction</a> to understand the player loop, then follow <a href="../asf/seller-setup.html#author-setup">seller setup</a>. Choose a reachable placed NPC, enable the service and decide whether to allow finished-outfit orders or keep the setup focused on recipes.</p>
+<p>Author access is unlocked through the MCM. It exposes configuration controls; it does not supply a new NPC, install the item dependencies or make a progression pool balanced automatically.</p>
+<h2 id="write-the-conversation-and-choose-its-performance">Write the conversation and choose its performance<a class="heading-anchor" href="#write-the-conversation-and-choose-its-performance" aria-label="Link to Write the conversation and choose its performance">#</a></h2>
+<p>The <a href="../asf/dialogue.html#write-the-seller-dialogue">dialogue guide</a> covers seven core exchanges and compatible alternative player prompts. Save separate drafts for the NPCs you author, with one active seller role at a time.</p>
+<p>For each exchange, choose a stock recording, a selected personal take or silent preparation. The <a href="../asf/recording.html#record-or-import-audio">recording guide</a> explains microphone capture, audio imports, waveform trimming and matching the recorded words to the reply.</p>
+<h2 id="decide-how-rewards-are-crafted">Decide how rewards are crafted<a class="heading-anchor" href="#decide-how-rewards-are-crafted" aria-label="Link to Decide how rewards are crafted">#</a></h2>
+<p>The <a href="recipes.html#author-recipe-templates">recipe maker</a> defines crafting materials per piece, parchment instructions and optional station locations. It supplies the rules used by new recipe orders; accepted orders retain their saved recipe.</p>
+<p>This is separate from the riddle payment. A player can first solve the seller’s request to earn the note, then gather the recipe’s own materials to make each piece.</p>
+<h2 id="build-a-fair-challenge-pool">Build a fair challenge pool<a class="heading-anchor" href="#build-a-fair-challenge-pool" aria-label="Link to Build a fair challenge pool">#</a></h2>
+<p>Start with the <a href="first-riddle.html">first-riddle guide</a>. Select real answer items and quantities, then write a riddle that fairly points to them. The <a href="riddles.html">full riddle reference</a> covers every field, the extra clue and the saved content format.</p>
+<p>If you want reward progression, review <a href="tiers.html#riddle-maker-and-tier-configuration">tiers and fixed offers</a> before enabling the optional tier rules. Starter content is an example pool, not a balanced progression ready for every modlist.</p>
+<p><a href="assistance.html#openrouter-author-assistance">Writing assistance</a> is optional. It offers suggestions for your chosen answers; you remain responsible for reviewing and saving the final wording.</p>
+<h2 id="prepare-test-and-share">Prepare, test and share<a class="heading-anchor" href="#prepare-test-and-share" aria-label="Link to Prepare, test and share">#</a></h2>
+<p>Use <a href="../asf/build-and-share.html#build-and-activate-dialogue">Build and share a seller</a> to turn saved drafts into matching dialogue records and audio. Changed native dialogue requires the build, game exit, installation and restart sequence.</p>
+<p>Check the <a href="../start/requirements.html#authoring-tools">author requirements</a> before building. Play through the seller’s conversation, hand-in, clues and rewards in Skyrim before distributing the setup, and confirm that their ordinary NPC dialogue is still available.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="../asf/troubleshooting.html"><span>Previous</span>Troubleshooting ASF</a><a href="../asf/seller-setup.html"><span>Next</span>Set up a seller</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+  <aside class="page-contents"><nav aria-label="On this page"><h2>On this page</h2><ul><li><a data-section-link href="#begin-with-the-seller">Begin with the seller</a></li><li><a data-section-link href="#write-the-conversation-and-choose-its-performance">Write the conversation and choose its performance</a></li><li><a data-section-link href="#decide-how-rewards-are-crafted">Decide how rewards are crafted</a></li><li><a data-section-link href="#build-a-fair-challenge-pool">Build a fair challenge pool</a></li><li><a data-section-link href="#prepare-test-and-share">Prepare, test and share</a></li></ul></nav></aside>
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

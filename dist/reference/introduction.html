@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" data-theme="grey">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Where to find save ownership, configuration paths, limits and implementation details.">
+<meta name="color-scheme" content="dark">
+<title>Introduction to the reference · Adorn Wiki</title>
+<link rel="icon" href="../assets/adorn-wordmark-v4.png">
+<link rel="stylesheet" href="../assets/wiki.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/search-data.js" defer></script>
+<script src="../assets/wiki.js" defer></script>
+</head>
+<body data-page="reference-intro" data-root="../">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="Adorn Wiki home"><img src="../assets/adorn-wordmark-v4.png" width="180" height="60" alt="Adorn"><span>Wiki</span></a>
+  <div class="topbar-tools">
+    <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
+    <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <div class="text-scale" role="group" aria-label="Text size">
+      <button id="text-smaller" type="button" aria-label="Decrease text size">A−</button>
+      <button id="text-size" type="button" aria-label="Reset text size to 100 percent" title="Reset text size" aria-live="polite">100%</button>
+      <button id="text-larger" type="button" aria-label="Increase text size">A+</button>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
+  </div>
+</header>
+<div class="layout has-page-contents">
+  <aside class="sidebar" id="contents"><div class="contents-label">Contents</div><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Adorn &amp; ASF wiki</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Compatibility &amp; limits</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/introduction.html">Introduction to Adorn</a></li><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Adorn Seller Framework (ASF)</h2><ul><li><a href="../asf/introduction.html">Introduction to ASF</a></li><li><a href="../asf/getting-started.html">Your first seller order</a></li><li><a href="../asf/orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="../asf/troubleshooting.html">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/introduction.html">Introduction to author tools</a></li><li><a href="../asf/seller-setup.html">Set up a seller</a></li><li><a href="../asf/dialogue.html">Write the conversation</a></li><li><a href="../asf/recording.html">Record, import &amp; trim</a></li><li><a href="../asf/build-and-share.html">Build &amp; share a seller</a></li><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="introduction.html" class="current" aria-current="page">Introduction to the reference</a></li><li><a href="user-data.html">Saves, config &amp; backups</a></li><li><a href="files.html">ASF files &amp; formats</a></li><li><a href="credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <main id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Adorn Wiki</a><span aria-hidden="true">/</span><span>Reference</span></nav>
+    <h1>Introduction to the reference</h1>
+    <details class="mobile-page-contents"><summary>On this page</summary><nav aria-label="Sections in this article"><ul><li><a data-section-link href="#saves-configuration-and-backups">Saves, configuration and backups</a></li><li><a data-section-link href="#files-capacity-and-prepared-output">Files, capacity and prepared output</a></li><li><a data-section-link href="#author-content-formats">Author content formats</a></li><li><a data-section-link href="#credits-and-compatibility">Credits and compatibility</a></li></ul></nav></details>
+    <article><p><strong>The reference section explains how Adorn and Adorn Seller Framework (ASF) store their data, which files belong together, and which limits affect your setup.</strong> Use it when backing up an installation, investigating configuration priority or packaging authored content.</p>
+<p>If you are learning either mod for the first time, start with the <a href="../adorn/introduction.html">Adorn introduction</a> or <a href="../asf/introduction.html">ASF introduction</a>. The task guides explain the workflow; the reference gives the supporting file and implementation detail.</p>
+<h2 id="saves-configuration-and-backups">Saves, configuration and backups<a class="heading-anchor" href="#saves-configuration-and-backups" aria-label="Link to Saves, configuration and backups">#</a></h2>
+<p><a href="user-data.html">Saves, config and backups</a> separates shared setup from progress belonging to the loaded save. It explains Adorn Configs and Overwrite priority, where authoring creates files, and why a game save and its matching SKSE co-save should be preserved together.</p>
+<p>Use that distinction before moving an installation or sharing a configuration. A seller setup and prepared voice output are not the same thing as a player’s order history, learned recipes or personal wardrobe.</p>
+<h2 id="files-capacity-and-prepared-output">Files, capacity and prepared output<a class="heading-anchor" href="#files-capacity-and-prepared-output" aria-label="Link to Files, capacity and prepared output">#</a></h2>
+<p><a href="files.html#files-and-provider-output">Files and limits</a> identifies ASF’s drafts, recording sources, build manifests and final voice files. Prepared ESP, sequence data, provider information and audio describe a matching build and should stay together.</p>
+<p>Adorn’s separate <a href="../adorn/troubleshooting.html#files-and-limits">files and limits</a> cover the assignment bank and sharing capacity. Assignment slots and ASF’s per-save craftable-piece slots serve different purposes.</p>
+<h2 id="author-content-formats">Author content formats<a class="heading-anchor" href="#author-content-formats" aria-label="Link to Author content formats">#</a></h2>
+<p>The <a href="../author/riddles.html#edit-json-outside-the-game">riddle maker reference</a> documents the content fields and JSON used for externally edited riddles. Keep stable entry IDs when updating a shared collection. The file format’s version identifies its schema, separately from the mod’s release version.</p>
+<h2 id="credits-and-compatibility">Credits and compatibility<a class="heading-anchor" href="#credits-and-compatibility" aria-label="Link to Credits and compatibility">#</a></h2>
+<p><a href="credits.html">Artwork and credits</a> identifies the supplied v4 wordmark and heading font used by this wiki. <a href="../start/release-status.html">Compatibility and limits</a> covers supported installation guidance, content requirements and capacity.</p>
+<p>When asking for help, include the versions, steps, expected result, actual result and relevant logs so the problem can be reproduced.</p>
+</article>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="../author/assistance.html"><span>Previous</span>Optional writing assistance</a><a href="user-data.html"><span>Next</span>Saves, config &amp; backups</a></nav>
+    <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
+  </main>
+  <aside class="page-contents"><nav aria-label="On this page"><h2>On this page</h2><ul><li><a data-section-link href="#saves-configuration-and-backups">Saves, configuration and backups</a></li><li><a data-section-link href="#files-capacity-and-prepared-output">Files, capacity and prepared output</a></li><li><a data-section-link href="#author-content-formats">Author content formats</a></li><li><a data-section-link href="#credits-and-compatibility">Credits and compatibility</a></li></ul></nav></aside>
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <form method="dialog" class="search-header"><h2 id="search-title">Search the wiki</h2><button aria-label="Close search">Close</button></form>
+  <label class="search-field"><span class="sr-only">Search terms</span><input id="search-input" type="search" placeholder="Outfits, recipes, recording…" autocomplete="off"></label>
+  <p class="search-summary" id="search-summary" aria-live="polite">Search all guides and reference pages.</p>
+  <ul id="search-results"></ul>
+</dialog>
+</body></html>

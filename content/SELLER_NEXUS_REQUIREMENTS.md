@@ -2,6 +2,12 @@
 
 Release-documentation draft, checked 29 October 2026. Adorn is the standalone outfit mod; **Adorn Seller Framework (ASF)** is its optional seller module. Player requirements and author tools are separate. The documented setup is Windows/MO2; the development profile uses Skyrim 1.7.104. Every native dependency must support the same executable. Wider runtime/VR support is not established by this document.
 
+## Supported setup
+
+**Adorn and Adorn Seller Framework (ASF) have only been tested within an MO2 modlist on Windows.** Other mod managers and standalone installations are untested. Use **Mod Organizer 2 (MO2)** for the documented installation and authoring workflows.
+
+Install versions of SKSE and every native dependency that match your Skyrim executable. Support for another runtime in an individual dependency does not establish compatibility for the complete Adorn/ASF setup.
+
 ## Runtime requirements for Adorn
 
 Use these relationships in Nexus **Requirements**, not **Mods requiring this file**, which is the reverse relationship.
@@ -15,9 +21,17 @@ Use these relationships in Nexus **Requirements**, not **Mods requiring this fil
 | MCM Helper | [Nexus](https://www.nexusmods.com/skyrimspecialedition/mods/53000) | MCM settings, hotkeys and persistence |
 | SkyPatcher | [Nexus](https://www.nexusmods.com/skyrimspecialedition/mods/106659) | Generated NPC/faction assignment rules on launch |
 
-Prisma UI currently lists **Media Keys Fix SKSE or Keyboard Shortcuts Fix**, plus **Microsoft Visual C++ Redistributable 2022 x64**. Follow the linked Prisma page for the current alternatives and downloads. BodySlide is relevant when using that content/workflow; it is not a blanket requirement for browsing already installed plugin outfits.
+Prisma UI currently lists **Media Keys Fix SKSE or Keyboard Shortcuts Fix**, plus **Microsoft Visual C++ Redistributable 2022 x64**. Follow the linked Prisma page for the current alternatives and downloads.
 
 The core archive requires **AdornSlots.esp** to be enabled, alongside its native DLL, matching UI/scripts and helper assets. Enabling only the ESP is not a complete installation.
+
+### BodySlide, bodies and outfit assets
+
+**[BodySlide and Outfit Studio](https://www.nexusmods.com/skyrimspecialedition/mods/201) is strongly recommended for Adorn's full outfit-browsing experience.** BodySlide projects, groups and built outfit meshes are a major part of Adorn's browsing workflow.
+
+Install the original clothing mods and their required body setup. For outfits that require BodySlide output, **build those outfits in BodySlide before using them in Adorn**, and enable the output in MO2. Adorn detects and previews installed meshes; **Refresh builds** rescans them rather than running BodySlide or creating missing meshes.
+
+Plugin-outfit browsing can also use existing installed meshes without BodySlide projects. This does not remove the body or build requirements of the clothing itself. Adorn does not convert outfits between bodies or fix clipping. **BHUNP compatibility has not been verified**; do not assume a BodySlide project alone establishes support.
 
 ## Additional runtime requirements for ASF
 
@@ -37,18 +51,49 @@ Ordinary players using prepared content need no API key, Python, Creation Kit, B
 
 ## Authoring tools
 
-Only authors preparing changed dialogue/audio need this build toolchain. Manual riddle/recipe text editing alone does not require the audio tools; making an extra clue available in native conversation does.
+**Players using prepared seller content do not need to install this authoring toolchain.** It is for authors building new or changed dialogue/audio, including prepared extra-clue replies. Manual riddle/recipe text editing alone does not require the audio tools.
 
-| Tool | Required when and how supplied |
+### Included with ASF — no separate installation
+
+The complete ASF author bundle already supplies the following tools. **You do not need to download or install additional copies for the normal Build workflow.**
+
+| Included tool | What it does | Installation |
+| --- | --- | --- |
+| ASF dialogue builder | Builds the native dialogue records and supporting output using self-contained `SellerDialogueBuild.exe` | **Bundled with ASF**; no separate .NET SDK needed |
+| Portable eSpeak NG 1.52.0 | Supplies temporary timing guides for silent replies, with its data/notices/matching source; its audible speech is not packaged | **Bundled with ASF**; no separate eSpeak installation needed |
+| FFmpeg | Normalizes imported and recorded audio using the supplied Windows x64 build | **Bundled with ASF**; no separate FFmpeg installation needed |
+
+### Install separately — only for dialogue/audio authoring
+
+| Tool | What you need to do |
 | --- | --- |
-| Python 3 | Used by the current voice preparation/staging scripts; install locally |
-| Skyrim Special Edition Creation Kit | [Separate Steam download](https://store.steampowered.com/app/1946180/Skyrim_Special_Edition_Creation_Kit/); supplies installed audio tools |
-| CK LipGenerator, xwmaencode, LIPFuzer | Current pipeline uses `Tools/LipGen/LipGenerator/LipGenerator.exe`, `Tools/Audio/xwmaencode.exe`, `Tools/LipGen/LipFuzer/LIPFuzer.exe` under the CK/game installation. Keep these installed; they are not bundled player tools |
-| ASF dialogue builder | Self-contained `SellerDialogueBuild.exe` bundled in the author tools; no .NET SDK needed for the in-game Build action |
-| Portable eSpeak NG | Bundled 1.52.0 with data/notices/matching source. Generates temporary silent-line timing guides; its audible speech is not packaged. No separate installation needed |
-| FFmpeg | Bundled pinned Windows x64 build for imported/recorded audio normalization. Does not replace CK tools |
-| BSArch | Needed for initial local stock-recording extraction if no reusable cache exists. Current publisher looks for `tools/xEdit/BSArch.exe` under MO2. Not needed for an entirely silent/self-recorded workflow |
-| OpenRouter account/key | Optional author drafting only, using the author's chosen model/credit. No player or dialogue-build requirement |
+| Python 3 | **Not bundled. Install separately** for the voice preparation/staging scripts. |
+| Skyrim Special Edition Creation Kit | **Not bundled with ASF.** Install the [Creation Kit from Steam](https://store.steampowered.com/app/1946180/Skyrim_Special_Edition_Creation_Kit/). It supplies LipGenerator, xwmaencode and LIPFuzer; these are **Creation Kit tools**, not three additional ASF downloads. |
+
+The build expects the CK tools in their installed CK/game locations: `Tools/LipGen/LipGenerator/LipGenerator.exe`, `Tools/Audio/xwmaencode.exe` and `Tools/LipGen/LipFuzer/LIPFuzer.exe`. Bundled FFmpeg and eSpeak do not replace them.
+
+### BSArch requirement for stock Skyrim voice replies
+
+**BSArch is an authoring requirement when building seller dialogue that uses stock Skyrim recordings. It is not bundled with ASF.** It extracts the installed game's voice archive into a local cache; a fresh stock-voice setup needs it even if another author's existing cache did not.
+
+**BSArch is included with xEdit builds**, as confirmed by [its author](https://www.nexusmods.com/fallout4/mods/63243?tab=posts). Check your existing xEdit/SSEEdit folder for `BSArch.exe` first: **if it is already at the path below, no extra download is needed.** ASF uses this command-line tool, not the xEdit editor. BSArch is separate from the Creation Kit; installing CK does not supply the executable ASF calls.
+
+1. Check your xEdit/SSEEdit installation for `BSArch.exe`. **If missing**, download the **BSArch command-line tool** from [the author's Nexus Files page](https://www.nexusmods.com/newvegas/mods/64745?tab=files), rather than the separate BSArchPro GUI. The standalone tool's page is hosted under Fallout New Vegas; ASF uses it to extract Skyrim's voice archive.
+2. Extract it into `tools\xEdit` inside the MO2 instance used for Adorn. Create those folders if needed and keep the downloaded package's accompanying files together.
+3. Confirm the executable is directly at **`<MO2 instance folder>\tools\xEdit\BSArch.exe`**, with no extra nested download folder. For example, an instance at `N:\NSW` needs `N:\NSW\tools\xEdit\BSArch.exe`.
+4. Keep the game's `Data\Skyrim - Voices_en0.bsa` available. The current stock-recording workflow expects that English voice archive.
+
+The current publisher looks at that exact MO2-relative path. **Do not install BSArch as a normal mod in the left pane; no MO2 executable entry is needed.** ASF invokes it automatically when preparing stock recordings. CK's `Archive.exe` is not a configured replacement.
+
+Players using a prepared seller pack do not need BSArch. Authors using only silent or their own imported/recorded replies do not need stock extraction. Once an extraction cache exists, ASF reuses it while the voice archive is unchanged; keep BSArch installed for future rebuilds.
+
+[BSArch source code in the xEdit repository](https://github.com/TES5Edit/TES5Edit/blob/dev-4.1.6/BSArch.dpr).
+
+### Optional writing assistance
+
+| Tool or service | When needed | Bundled? |
+| --- | --- | --- |
+| OpenRouter account/key | Optional writing suggestions using the author's chosen model/credit. No requirement for manual writing, gameplay or dialogue builds. | **Not included or required**; use your own account/key only if you enable assistance. |
 
 **Build [seller]'s seller dialogue** saves drafts and prepares the output while Skyrim runs. After Build complete, save and exit; the publisher installs after Skyrim exits, into the resolved Configs/Overwrite destination. Wait for installation then restart. **Prepare clue dialogue** uses the same pipeline. See [ASF guide](docs/nexus/ASF_GUIDE.md) and [User data](ADORN_USER_DATA.md).
 

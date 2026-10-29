@@ -29,11 +29,19 @@ ASF adds outfit and recipe orders to Adorn, using one assigned NPC and local aut
 
 ## Requirements
 
-**Players:** Adorn with SKSE64, Address Library, Prisma UI and its requirements, SkyUI, MCM Helper and SkyPatcher; runtime-matched [Fuz Ro D-oh](https://www.nexusmods.com/skyrimspecialedition/mods/15109); any NPC/content dependencies named by the seller pack. The development setup uses Skyrim 1.7.104 on Windows/MO2. Wider runtime/manager support needs separate validation.
+**Players:** Adorn with SKSE64, Address Library, Prisma UI and its requirements, SkyUI, MCM Helper and SkyPatcher; runtime-matched [Fuz Ro D-oh](https://www.nexusmods.com/skyrimspecialedition/mods/15109); any NPC/content dependencies named by the seller pack. Follow Adorn's BodySlide and outfit-asset setup as well.
 
-**Authors building changed dialogue/audio:** Python 3 and installed [Creation Kit](https://store.steampowered.com/app/1946180/Skyrim_Special_Edition_Creation_Kit/) audio tools, including LipGenerator, xwmaencode and LIPFuzer. The complete author bundle supplies the self-contained dialogue compiler, FFmpeg and portable eSpeak NG/data. No .NET SDK or separate eSpeak installation is needed for in-game Build.
+**Use MO2 for these instructions.** Adorn and ASF have only been tested within an MO2 modlist on Windows. Other managers and installations outside MO2 are untested.
 
-Stock recordings need initial local voice-archive extraction if no reusable cache exists. The current publisher looks for BSArch under MO2's tools/xEdit directory. Entirely silent/self-recorded workflows do not need stock extraction. Manual riddle/recipe editing needs no audio toolchain; making native Clue replies does.
+**Already included with ASF's complete author bundle:** the self-contained dialogue compiler, FFmpeg and portable eSpeak NG/data. No additional copies of these tools or separate .NET SDK are needed for in-game Build.
+
+**Install separately only when building changed dialogue/audio:** Python 3 and the [Creation Kit](https://store.steampowered.com/app/1946180/Skyrim_Special_Edition_Creation_Kit/). LipGenerator, xwmaencode and LIPFuzer come from that CK installation; they are not separate ASF downloads. Players using prepared content need none of this authoring toolchain.
+
+**Required for authors using stock Skyrim replies:** download the [BSArch command-line tool](https://www.nexusmods.com/newvegas/mods/64745?tab=files) and place `BSArch.exe` at `<MO2 instance folder>\tools\xEdit\BSArch.exe`. It is not bundled with ASF or the Creation Kit, and the xEdit editor itself is not required. ASF calls it automatically to extract the installed `Skyrim - Voices_en0.bsa` for stock recordings. See the [BSArch setup instructions](SELLER_NEXUS_REQUIREMENTS.md#bsarch-requirement-for-stock-skyrim-voice-replies). Entirely silent or custom-audio-only setups do not use stock extraction.
+
+**Already have xEdit/SSEEdit? BSArch is included with xEdit builds.** Check for `BSArch.exe` in that installation before downloading it separately. If it is already in the required MO2 location, no additional installation is needed. ASF does not need you to run the xEdit editor.
+
+Manual riddle/recipe text editing needs no audio toolchain; preparing native Clue replies uses the dialogue build tools.
 
 OpenRouter is optional for writing drafts and unnecessary for gameplay or a manually authored build. See [requirements](SELLER_NEXUS_REQUIREMENTS.md) for download links and exact author-tool paths.
 

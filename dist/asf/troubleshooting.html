@@ -19,17 +19,22 @@
   <div class="topbar-tools">
     <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
     <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <div class="text-scale" role="group" aria-label="Text size">
+      <button id="text-smaller" type="button" aria-label="Decrease text size">A−</button>
+      <button id="text-size" type="button" aria-label="Reset text size to 100 percent" title="Reset text size" aria-live="polite">100%</button>
+      <button id="text-larger" type="button" aria-label="Increase text size">A+</button>
+    </div>
     <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
   </div>
 </header>
 <div class="layout">
-  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Welcome to Adorn</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Release &amp; testing status</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Seller Framework</h2><ul><li><a href="getting-started.html">Your first seller order</a></li><li><a href="orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="seller-setup.html">Set up a seller</a></li><li><a href="dialogue.html">Write the conversation</a></li><li><a href="recording.html">Record, import &amp; trim</a></li><li><a href="build-and-share.html">Build &amp; share a seller</a></li><li><a href="troubleshooting.html" class="current" aria-current="page">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">Files &amp; limits</a></li><li><a href="../reference/riddle-system.html">Riddle system internals</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
+  <aside class="sidebar" id="contents"><div class="contents-label">Contents</div><nav aria-label="Wiki contents"><section class="nav-group"><h2>Start here</h2><ul><li><a href="../index.html">Adorn &amp; ASF wiki</a></li><li><a href="../start/requirements.html">Installation requirements</a></li><li><a href="../start/release-status.html">Compatibility &amp; limits</a></li></ul></section><section class="nav-group"><h2>Adorn</h2><ul><li><a href="../adorn/introduction.html">Introduction to Adorn</a></li><li><a href="../adorn/getting-started.html">Getting started</a></li><li><a href="../adorn/outfits-and-preview.html">Outfits &amp; preview</a></li><li><a href="../adorn/assignments.html">NPCs, factions &amp; groups</a></li><li><a href="../adorn/wardrobe.html">Your wardrobe</a></li><li><a href="../adorn/controls.html">Controls &amp; interface</a></li><li><a href="../adorn/sharing.html">Share assignments</a></li><li><a href="../adorn/troubleshooting.html">Troubleshooting Adorn</a></li></ul></section><section class="nav-group"><h2>Adorn Seller Framework (ASF)</h2><ul><li><a href="introduction.html">Introduction to ASF</a></li><li><a href="getting-started.html">Your first seller order</a></li><li><a href="orders-and-recipes.html">Orders, recipes &amp; progression</a></li><li><a href="troubleshooting.html" class="current" aria-current="page">Troubleshooting ASF</a></li></ul></section><section class="nav-group"><h2>Author tools</h2><ul><li><a href="../author/introduction.html">Introduction to author tools</a></li><li><a href="seller-setup.html">Set up a seller</a></li><li><a href="dialogue.html">Write the conversation</a></li><li><a href="recording.html">Record, import &amp; trim</a></li><li><a href="build-and-share.html">Build &amp; share a seller</a></li><li><a href="../author/recipes.html">Recipe maker</a></li><li><a href="../author/first-riddle.html">First riddle</a></li><li><a href="../author/riddles.html">Riddle maker reference</a></li><li><a href="../author/tiers.html">Tiers &amp; fixed offers</a></li><li><a href="../author/assistance.html">Optional writing assistance</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="../reference/introduction.html">Introduction to the reference</a></li><li><a href="../reference/user-data.html">Saves, config &amp; backups</a></li><li><a href="../reference/files.html">ASF files &amp; formats</a></li><li><a href="../reference/credits.html">Artwork &amp; credits</a></li></ul></section></nav></aside>
   <main id="main" tabindex="-1">
-    <div class="article-label">Seller Framework</div>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Adorn Wiki</a><span aria-hidden="true">/</span><span>Adorn Seller Framework (ASF)</span></nav>
     <h1>Troubleshooting ASF</h1>
-    <p class="description">Check the installed build, order state and required files.</p>
 
-    <article><h2 id="troubleshooting">Troubleshooting<a class="heading-anchor" href="#troubleshooting" aria-label="Link to Troubleshooting">#</a></h2>
+    <article><p>ASF depends on the configured seller, the current save’s order state and the matching installed dialogue output. Use the symptom checks here to identify whether a problem belongs to setup, rewards, recording or a prepared build, and which details to include when asking for help.</p>
+<h2 id="troubleshooting">Troubleshooting<a class="heading-anchor" href="#troubleshooting" aria-label="Link to Troubleshooting">#</a></h2>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable reference table"><table>
 <thead>
 <tr>
@@ -82,27 +87,9 @@
 <td>The publisher processes all saved drafts. Resolve its missing recording or tool requirement and rebuild. Preserve the draft/takes while diagnosing.</td>
 </tr>
 </tbody></table></div>
-<p>Report your versions, seller/base mod, order type, selected reward, save/new-game steps, expected versus actual result and relevant logs. Include the selected model and error for assistance failures, never the key. The latest generic seller, save-isolation, clue playback and live-generation acceptance boundaries are listed in the <span class="source-reference" title="Additional notes in the maintained project documentation">release documentation index</span>.</p>
-<h2 id="complete-acceptance-walkthrough">Complete acceptance walkthrough<a class="heading-anchor" href="#complete-acceptance-walkthrough" aria-label="Link to Complete acceptance walkthrough">#</a></h2>
-<ol>
-<li>Install clean runtime/author tools and confirm the required plugins load.</li>
-<li>Unlock tools, assign a reachable placed NPC and test recipes-only first.</li>
-<li>Place the first order, follow Find seller, introduce yourself, and complete one ordinary recipe.</li>
-<li>Write all seven exchanges. Choose stock, silent and one recorded reply; preview/trim and save.</li>
-<li>Build, exit/install, restart and test each branch plus ordinary NPC conversations.</li>
-<li>Author a recipe with clear per-piece materials and a tested location; receive/read its note and craft intended armour/clothing.</li>
-<li>Allow finished orders and confirm one correct delivery. Switch recipes-only on while an outfit order is pending and verify that accepted delivery completes.</li>
-<li>Author a complete tier pool and two different extra clues. Test level/delivery restrictions, missing coverage and answer dependencies.</li>
-<li>Prepare clues, restart, ask repeatedly, save/reload and cancel/reorder. Edit/delete a pool entry and check archived help for the earlier offer.</li>
-<li>Switch sellers and check retained drafts, preference, voice folder and clue isolation.</li>
-<li>Start a genuine New Game without deleting setup, then switch characters/saves including identical names. Verify personal isolation.</li>
-<li>Reset this save&#39;s encounter; check preserved outfits, learned recipes, completed rewards and fixed prices.</li>
-<li>Test optional assistance with no key, a deliberate limited-key request, cancellation/context changes and errors.</li>
-<li>Package reviewed authored output without private caches/settings; install and retest the full player loop.</li>
-</ol>
-<p>Compilation/staging does not establish the complete sequence. Track pending acceptance in <span class="source-reference" title="Additional notes in the maintained project documentation">release status</span> and the focused game-test plans.</p>
+<p>Report your versions, seller/base mod, order type, selected reward, save/new-game steps, expected versus actual result and relevant logs. Include the selected model and error for assistance failures, never the key.</p>
 </article>
-    <nav class="page-turn" aria-label="Previous and next articles"><a href="build-and-share.html"><span>Previous</span>Build &amp; share a seller</a><a href="../author/recipes.html"><span>Next</span>Recipe maker</a></nav>
+    <nav class="page-turn" aria-label="Previous and next articles"><a href="orders-and-recipes.html"><span>Previous</span>Orders, recipes &amp; progression</a><a href="../author/introduction.html"><span>Next</span>Introduction to author tools</a></nav>
     <footer>Adorn &amp; Adorn Seller Framework · Documentation · 29 October 2026</footer>
   </main>
 

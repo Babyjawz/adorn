@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Marked } from 'marked';
-import { pages, groups, aliases } from '../site.config.mjs';
+import { pages, groups, aliases, guideIntroductions } from '../site.config.mjs';
+import { wikiCopy } from './wiki-copy.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const output = path.join(root, 'dist');
@@ -11,24 +12,23 @@ const plain = value => value.replace(/<[^>]+>/g, '').replace(/[*`]/g, '').replac
 const slug = value => plain(value).toLowerCase().replace(/&amp;/g, '').replace(/[^\p{L}\p{N}\s_-]/gu, '').trim().replace(/\s+/g, '-');
 const documents = new Map();
 for (const page of pages) {
-  if (!documents.has(page.source)) documents.set(page.source, fs.readFileSync(path.join(root, 'content', page.source), 'utf8').replace(/\r\n/g, '\n'));
+  if (!documents.has(page.source)) documents.set(page.source, wikiCopy(page.source, fs.readFileSync(path.join(root, 'content', page.source), 'utf8').replace(/\r\n/g, '\n')));
 }
 
 function selectContent(page) {
   const source = documents.get(page.source);
   if (!page.sections) return source.replace(/^# .+\n/, '').replace(/^## Contents\n[\s\S]*?(?=^## |$(?![\s\S]))/m, '').trim();
-  const sections = new Map();
-  for (const part of source.split(/(?=^## )/m)) {
-    const title = /^## (.+)/.exec(part)?.[1];
-    if (title) sections.set(title, part.trim());
-  }
-  return page.sections.map(title => {
-    if (!sections.has(title)) throw new Error(`${page.source}: missing section ${title}`);
-    return sections.get(title);
+  const headings = [...source.matchAll(/^(#{2,3}) (.+)$/gm)];
+  return page.sections.map(selection => {
+    const { title, includeChildren = true } = typeof selection === 'string' ? { title: selection } : selection;
+    const index = headings.findIndex(h => h[2] === title);
+    if (index < 0) throw new Error(`${page.source}: missing section ${title}`);
+    const start = headings[index], next = headings.slice(index + 1).find(h => !includeChildren || h[1].length <= start[1].length);
+    return source.slice(start.index, next?.index ?? source.length).trim().replace(/^### /, '## ');
   }).join('\n\n');
 }
 for (const page of pages) {
-  page.markdown = selectContent(page);
+  page.markdown = (guideIntroductions[page.id] ? guideIntroductions[page.id] + '\n\n' : '') + selectContent(page);
   page.headings = [];
   const used = new Map();
   const lexer = new Marked();
@@ -62,8 +62,9 @@ function resolveLink(page, href) {
   const normal = path.posix.normalize(path.posix.join(path.posix.dirname(page.source), rawFile || page.source));
   const cleaned = normal.replace(/^(\.\.\/)+/, '');
   const file = aliases[cleaned] || cleaned;
-  const target = hash ? anchors.get(`${file}#${hash}`) : firstPage.get(file);
-  if (target) return relative(page.path, target.path) + (hash ? `#${hash}` : '');
+  const resolvedHash = file === 'STATUS.md' && hash === 'publication-status' ? '' : hash;
+  const target = resolvedHash ? anchors.get(`${file}#${resolvedHash}`) : firstPage.get(file);
+  if (target) return relative(page.path, target.path) + (resolvedHash ? `#${resolvedHash}` : '');
   sourceOnly.add(file + (hash ? `#${hash}` : ''));
   return null;
 }
@@ -78,7 +79,7 @@ function render(page) {
     },
     link({ href, title, tokens }) {
       const text = this.parser.parseInline(tokens), target = resolveLink(page, href);
-      if (!target) return `<span class="source-reference" title="Additional notes in the maintained project documentation">${text}</span>`;
+      if (!target) throw new Error(`${page.path}: unmapped documentation link ${href}`);
       return `<a href="${escape(target)}"${title ? ` title="${escape(title)}"` : ''}>${text}</a>`;
     },
     image({ href, text, title }) {
@@ -101,7 +102,7 @@ function sidebar(page) {
 function template(page, body) {
   const asset = name => relative(page.path, `assets/${name}`);
   const index = pages.indexOf(page), previous = pages[index - 1], next = pages[index + 1];
-  const hasContents = plain(page.markdown).split(/\s+/).length >= 450 && page.headings.filter(h => h.depth === 2).length >= 3;
+  const hasContents = page.headings.filter(h => h.depth <= 3).length >= 2;
   const sections = page.headings.filter(h => h.depth <= 3).map(h => `<li${h.depth === 3 ? ' class="subsection"' : ''}><a data-section-link href="#${escape(h.id)}">${escape(h.text)}</a></li>`).join('');
   return `<!doctype html>
 <html lang="en" data-theme="grey">
@@ -124,15 +125,19 @@ function template(page, body) {
   <div class="topbar-tools">
     <button class="search-open" id="search-open" aria-haspopup="dialog"><span>Search the wiki</span><kbd>/</kbd></button>
     <label class="theme-control"><span>Theme</span><select id="theme" aria-label="Colour theme"><option value="grey">Grey</option><option value="sky">Sky</option><option value="pine">Pine</option><option value="pink">Pink</option></select></label>
+    <div class="text-scale" role="group" aria-label="Text size">
+      <button id="text-smaller" type="button" aria-label="Decrease text size">A−</button>
+      <button id="text-size" type="button" aria-label="Reset text size to 100 percent" title="Reset text size" aria-live="polite">100%</button>
+      <button id="text-larger" type="button" aria-label="Increase text size">A+</button>
+    </div>
     <button class="menu-toggle" id="menu-toggle" aria-controls="contents" aria-expanded="false">Contents</button>
   </div>
 </header>
 <div class="layout${hasContents ? ' has-page-contents' : ''}">
-  <aside class="sidebar" id="contents"><nav aria-label="Wiki contents">${sidebar(page)}</nav></aside>
+  <aside class="sidebar" id="contents"><div class="contents-label">Contents</div><nav aria-label="Wiki contents">${sidebar(page)}</nav></aside>
   <main id="main" tabindex="-1">
-    <div class="article-label">${escape(page.group)}</div>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="${relative(page.path, 'index.html')}">Adorn Wiki</a><span aria-hidden="true">/</span><span>${escape(page.group)}</span></nav>
     <h1>${escape(page.title)}</h1>
-    <p class="description">${escape(page.description)}</p>
     ${hasContents ? `<details class="mobile-page-contents"><summary>On this page</summary><nav aria-label="Sections in this article"><ul>${sections}</ul></nav></details>` : ''}
     <article>${body}</article>
     <nav class="page-turn" aria-label="Previous and next articles">${previous ? `<a href="${relative(page.path, previous.path)}"><span>Previous</span>${escape(previous.title)}</a>` : '<span></span>'}${next ? `<a href="${relative(page.path, next.path)}"><span>Next</span>${escape(next.title)}</a>` : ''}</nav>
@@ -168,5 +173,18 @@ for (const page of pages) {
 fs.writeFileSync(path.join(output, 'assets/search-data.js'), `window.ADORN_SEARCH=${JSON.stringify(search).replace(/</g, '\\u003c')};\n`);
 fs.writeFileSync(path.join(output, '.nojekyll'), '');
 fs.writeFileSync(path.join(output, '404.html'), '<!doctype html><html lang="en"><meta charset="utf-8"><title>Page not found · Adorn Wiki</title><body style="background:#202226;color:#eee;font:18px/1.6 system-ui;max-width:640px;margin:10vh auto;padding:24px"><h1>Page not found</h1><p>Use your browser’s Back button to return to the wiki.</p></body></html>');
+// Retire generated pages that no longer belong to the public wiki. Preserve the
+// old HTML outside dist rather than leaving unpublished topics in the site.
+const published = new Set(pages.map(page => page.path).concat('404.html'));
+const retiredRoot = path.resolve(root, '.preview/retired-pages');
+for (const entry of fs.readdirSync(output, { recursive: true })) {
+  const relativePath = entry.replace(/\\/g, '/');
+  if (!relativePath.endsWith('.html') || published.has(relativePath)) continue;
+  const from = path.resolve(output, entry);
+  const to = path.resolve(retiredRoot, String(Date.now()), relativePath);
+  if (!from.startsWith(output + path.sep) || !to.startsWith(retiredRoot + path.sep)) throw new Error('Retired page path escaped the wiki.');
+  fs.mkdirSync(path.dirname(to), { recursive: true });
+  fs.renameSync(from, to);
+}
 console.log(`Built ${pages.length} articles and ${search.length} searchable sections into dist/.`);
 console.log(`${sourceOnly.size} references to internal source-only documents remain plain text.`);

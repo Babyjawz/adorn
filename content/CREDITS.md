@@ -1,5 +1,7 @@
 # Artwork & credits
 
+This page identifies the branding and typography used by the Adorn and Adorn Seller Framework (ASF) wiki. It also explains where the guides come from and preserves the supplied font’s usage notice.
+
 ## Adorn branding
 
 This wiki uses the supplied **Adorn wordmark v4**, copied from the release artwork. The original PNG remains unchanged.

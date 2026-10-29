@@ -32,7 +32,11 @@ Adorn lets you browse installed outfits, assemble custom looks, dress NPCs or fa
 | [MCM Helper](https://www.nexusmods.com/skyrimspecialedition/mods/53000) | Persistent settings and key bindings |
 | [SkyPatcher](https://www.nexusmods.com/skyrimspecialedition/mods/106659) | Assignment rules on launch |
 
-Follow Prisma UI's own requirements, currently including Media Keys Fix SKSE **or** Keyboard Shortcuts Fix, and Microsoft Visual C++ Redistributable 2022 x64. Original clothing mods supply the actual items, meshes and textures. BodySlide and a body replacer are needed where required by that clothing/workflow, not universally for plugin-outfit browsing.
+Follow Prisma UI's own requirements, currently including Media Keys Fix SKSE **or** Keyboard Shortcuts Fix, and Microsoft Visual C++ Redistributable 2022 x64.
+
+**BodySlide is strongly recommended.** Adorn's BodySlide browsing uses your installed projects, groups and built meshes. Install [BodySlide and Outfit Studio](https://www.nexusmods.com/skyrimspecialedition/mods/201), the original clothing mods and their required body setup. Build outfits that require BodySlide, then enable the output in MO2 before browsing. Adorn's **Refresh builds** detects existing output; it does not build meshes. Plugin outfits with ready-made meshes can also be browsed without BodySlide projects. BHUNP compatibility has not been verified.
+
+**Tested installation: Windows with MO2.** Both Adorn and ASF have only been tested inside an MO2 modlist; other managers and standalone installs are untested. The [full requirements](SELLER_NEXUS_REQUIREMENTS.md) distinguish player dependencies from author tools.
 
 ASF is an optional module with its own additional requirements. It is not needed for standalone assignments or the ordinary player wardrobe.
 
@@ -65,7 +69,7 @@ Previewing prepares a choice. Save assignment, Save outfit, Give items and Wear 
 3. If supplied, enable **Adorn Configs** below Adorn in the left pane. That folder holds editable configuration separately from runtime updates.
 4. Launch SKSE through MO2, load your save and press **F6**. Change the key in **MCM → Adorn → Open / close Adorn** if needed.
 
-The documented workflow is MO2 on Windows. The current test profile uses Skyrim 1.7.104. Other runtimes/mod managers need separate validation.
+Launch through MO2 so Adorn can see your enabled clothing, configuration and BodySlide output. Match all native dependencies to your installed Skyrim executable.
 
 ## Choose an outfit
 
